@@ -1,0 +1,77 @@
+{
+  "name": "@skeletonizer/vue",
+  "version": "1.0.0",
+  "description": "The way to skeletonize your Vue.js components",
+  "author": "Luka Varga",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukaVarga/skeletonizer.git"
+  },
+  "homepage": "https://github.com/lukaVarga/skeletonizer/tree/master/packages/vue",
+  "keywords": [
+    "skeleton",
+    "Vue.js",
+    "skeletonizer",
+    "ui",
+    "loading"
+  ],
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/skeletonizer-vue.umd.js",
+  "module": "./dist/skeletonizer-vue.js",
+  "exports": {
+    ".": {
+      "import": "./dist/skeletonizer-vue.js",
+      "require": "./dist/skeletonizer-vue.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build-watch": "vite build --watch",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test-browser-run": "vitest --browser.name=chrome",
+    "test-watch": "vitest",
+    "coverage": "vitest run --coverage",
+    "coverage-watch": "vitest --coverage",
+    "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
+    "style-lint": "stylelint '**/*.?(css|scss|vue)' --color",
+    "style-lintfix": "stylelint '**/*.?(css|scss|vue)' --color --fix",
+    "lint": "eslint --ext .ts,.vue,.js src/ && npm run style-lint",
+    "lintfix": "npm run style-lintfix && eslint --ext .ts,.vue,.js src/ --fix",
+    "lint-staged": "lint-staged"
+  },
+  "dependencies": {
+    "@skeletonizer/utils": "1.0.0"
+  },
+  "peerDependencies": {
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^2.0.1",
+    "@types/jsdom": "^21.1.6",
+    "@types/node": "^20.12.3",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "@vitest/browser": "^1.4.0",
+    "@vue/test-utils": "^2.4.5",
+    "@vue/tsconfig": "^0.5.1",
+    "eslint-plugin-vue": "^9.24.0",
+    "jsdom": "^24.0.0",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.72.0",
+    "typescript": "^5.4.3",
+    "vite": "^5.2.7",
+    "vitest": "1.4.0",
+    "vue": "^3.4.21",
+    "vue-eslint-parser": "^9.4.2",
+    "vue-tsc": "^1.8.27",
+    "webdriverio": "^8.35.1"
+  },
+  "lint-staged": {
+    "**/*.{scss,css}": "stylelint --fix",
+    "**/*.{ts,js,.vue}": "eslint --fix"
+  }
+}

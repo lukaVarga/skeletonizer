@@ -1,0 +1,60 @@
+{
+  "name": "@skeletonizer/angular",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "dev": "ng serve",
+    "build": "ng build skeletonizer",
+    "build-watch": "ng build skeletonizer --watch --configuration development",
+    "preview": "ng serve --configuration production",
+    "test": "ng test skeletonizer --no-watch",
+    "test-browser-run": "ng test skeletonizer --browsers chrome",
+    "test-watch": "ng test skeletonizer --watch",
+    "coverage": "ng test skeletonizer --code-coverage --no-watch",
+    "coverage-watch": "ng test skeletonizer --code-coverage",
+    "style-lint": "stylelint '**/*.?(css|scss)' --color",
+    "style-lintfix": "stylelint '**/*.?(css|scss)' --color --fix",
+    "lint": "eslint --ext .ts,.js,.html projects/skeletonizer/src/ && eslint --ext .ts,.js,.html src/ && npm run style-lint",
+    "lintfix": "npm run style-lintfix && eslint --ext .ts,.js,.html projects/skeletonizer/src/ --fix && eslint --ext .ts,.js,.html src/ --fix",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "**/*.{scss,css}": "stylelint --fix",
+    "**/*.{ts,js}": "eslint --fix"
+  },
+  "dependencies": {
+    "@angular/animations": "^17.3.2",
+    "@angular/common": "^17.3.2",
+    "@angular/compiler": "^17.3.2",
+    "@angular/core": "^17.3.2",
+    "@angular/forms": "^17.3.2",
+    "@angular/platform-browser": "^17.3.2",
+    "@angular/platform-browser-dynamic": "^17.3.2",
+    "@angular/router": "^17.3.2",
+    "rxjs": "~7.8.1",
+    "tslib": "^2.6.2",
+    "zone.js": "~0.14.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^17.3.3",
+    "@angular-eslint/builder": "17.3.0",
+    "@angular-eslint/eslint-plugin": "17.3.0",
+    "@angular-eslint/eslint-plugin-template": "17.3.0",
+    "@angular-eslint/schematics": "17.3.0",
+    "@angular-eslint/template-parser": "17.3.0",
+    "@angular/cli": "~17.3.3",
+    "@angular/compiler-cli": "^17.3.2",
+    "@types/jasmine": "~4.6.4",
+    "@typescript-eslint/eslint-plugin": "^7.5.0",
+    "@typescript-eslint/parser": "^7.5.0",
+    "eslint": "^8.57.0",
+    "jasmine-core": "~4.6.0",
+    "karma": "~6.4.3",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.1",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "ng-packagr": "^17.3.0",
+    "typescript": "~5.4.3"
+  }
+}
