@@ -1,0 +1,76 @@
+{
+  "name": "skeletonizer",
+  "version": "0.0.0",
+  "description": "The way to skeletonize your components",
+  "private": true,
+  "scripts": {
+    "sass-lint": "stylelint './packages/**/*.?(css|scss)' --color",
+    "sass-lintfix": "stylelint './packages/**/*.?(css|scss)' --color --fix",
+    "lint": "eslint --ext .ts packages/ --debug && prettier --check 'packages/**/*.html' && npm run sass-lint",
+    "lintfix": "prettier --write 'packages/**/*.html' && npm run sass-lintfix && eslint --ext .ts packages/ --debug --fix",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release"
+  },
+  "engines": {
+    "node": ">=16.16.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukaVarga/skeletonizer.git"
+  },
+  "keywords": [
+    "skeleton",
+    "skeletonizer",
+    "ui",
+    "loading",
+    "ghost",
+    "element"
+  ],
+  "author": "Luka Varga",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lukaVarga/skeletonizer/issues"
+  },
+  "homepage": "https://github.com/lukaVarga/skeletonizer#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.48.0",
+    "@typescript-eslint/parser": "^5.48.0",
+    "codecov": "^3.8.3",
+    "commitizen": "^4.2.6",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.31.0",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.8.1",
+    "semantic-release": "^19.0.5",
+    "stylelint": "^14.16.1",
+    "stylelint-config-sass-guidelines": "^9.0.1",
+    "stylelint-config-standard": "^29.0.0",
+    "stylelint-declaration-strict-value": "^1.9.1",
+    "stylelint-order": "^5.0.0",
+    "typescript": "^4.9.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "release": {
+    "branch": "master",
+    "verifyConditions": [
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ],
+    "analyzeCommits": "@semantic-release/commit-analyzer",
+    "generateNotes": "@semantic-release/release-notes-generator",
+    "prepare": "@semantic-release/npm",
+    "publish": [
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ]
+  },
+  "lint-staged": {
+    "packages/**/*.{scss,css}": "npm run stylelint --fix",
+    "packages/**/*.{ts,js}": "npm run eslint --cache --fix",
+    "packages/**/*.html": "prettier --write"
+  }
+}
