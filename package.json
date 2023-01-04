@@ -8,8 +8,8 @@
     "sass-lintfix": "stylelint './packages/**/*.?(css|scss)' --color --fix",
     "lint": "eslint --ext .ts packages/ --debug && prettier --check 'packages/**/*.html' && npm run sass-lint",
     "lintfix": "prettier --write 'packages/**/*.html' && npm run sass-lintfix && eslint --ext .ts packages/ --debug --fix",
-    "commit": "git-cz",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "prepare": "husky install"
   },
   "engines": {
     "node": ">=16.16.0"
@@ -39,6 +39,7 @@
     "commitizen": "^4.2.6",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.31.0",
+    "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
     "prettier": "^2.8.1",
     "semantic-release": "^19.0.5",
