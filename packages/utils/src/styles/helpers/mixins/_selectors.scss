@@ -1,0 +1,31 @@
+@import '../variables';
+
+@mixin select-wrapper-element {
+  [data-skeletonizer="#{map-get($skeletonized-data-enum, 'wrapper')}"] {
+    @content;
+  }
+}
+
+@mixin select-text-element {
+  [data-skeletonizer="#{map-get($skeletonized-data-enum, 'text')}"] {
+    @content;
+  }
+}
+
+@mixin select-image-element {
+  [data-skeletonizer="#{map-get($skeletonized-data-enum, 'image')}"] {
+    @content;
+  }
+}
+
+@mixin select-video-element {
+  [data-skeletonizer="#{map-get($skeletonized-data-enum, 'video')}"] {
+    @content;
+  }
+}
+
+@mixin select-input-element {
+  [data-skeletonizer="#{map-get($skeletonized-data-enum, 'input')}"] {
+    @content;
+  }
+}

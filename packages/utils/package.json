@@ -1,0 +1,52 @@
+{
+  "name": "@skeletonizer/utils",
+  "version": "1.0.0",
+  "description": "Utils for all skeletonizer packages",
+  "author": "Luka Varga",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukaVarga/skeletonizer.git"
+  },
+  "homepage": "https://github.com/lukaVarga/skeletonizer/tree/master/packages/utils",
+  "keywords": [
+    "skeleton",
+    "skeletonizer",
+    "ui",
+    "loading"
+  ],
+  "types": "./dist/src/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build-watch": "vite build --watch",
+    "test": "vitest run",
+    "test-watch": "vitest",
+    "coverage": "vitest run --coverage",
+    "coverage-watch": "vitest --coverage",
+    "type-check": "vitest --typecheck.only --watch=false",
+    "style-lint": "stylelint 'src/**/*.?(css|scss)' --color",
+    "style-lintfix": "stylelint 'src/**/*.?(css|scss)' --color --fix",
+    "lint": "eslint --ext .ts src/ && npm run style-lint",
+    "lintfix": "npm run style-lintfix && eslint --ext .ts src/ --fix",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "**/*.{scss,css}": "stylelint --fix",
+    "**/*.{ts,js}": "eslint --fix"
+  },
+  "devDependencies": {
+    "@vitest/coverage-istanbul": "^1.4.0",
+    "sass": "^1.72.0",
+    "vite-plugin-dts": "^3.8.1",
+    "vitest": "1.4.0"
+  },
+  "exports": {
+    "import": "./dist/utils.mjs",
+    "require": "./dist/utils.umd.js",
+    "types": "./dist/src/index.d.ts"
+  }
+}
