@@ -13,15 +13,15 @@ module.exports = {
       {
         except: ['blockless-after-same-name-blockless', 'first-nested'],
         ignore: ['after-comment'],
-        ignoreAtRules: ['if', 'of', 'else']
-      }
+        ignoreAtRules: ['if', 'of', 'else'],
+      },
     ],
     'block-closing-brace-empty-line-before': 'never',
     'block-closing-brace-newline-after': [
       'always',
       {
-        ignoreAtRules: ['if', 'else']
-      }
+        ignoreAtRules: ['if', 'else'],
+      },
     ],
     'block-closing-brace-newline-before': 'always',
     'block-no-empty': true,
@@ -42,9 +42,9 @@ module.exports = {
           'each',
           'media',
           'supports',
-          'include'
-        ]
-      }
+          'include',
+        ],
+      },
     ],
     'no-duplicate-at-import-rules': true,
     'no-duplicate-selectors': true,
@@ -56,57 +56,57 @@ module.exports = {
         'custom-properties',
         {
           type: 'at-rule',
-          name: 'extend'
+          name: 'extend',
         },
         {
           type: 'at-rule',
           name: 'include',
-          hasBlock: 'never'
+          hasBlock: 'never',
         },
         'declarations',
         {
           type: 'at-rule',
           name: 'include',
-          hasBlock: 'always'
+          hasBlock: 'always',
         },
         {
           type: 'at-rule',
           name: 'media',
           hasBlock: 'always',
         },
-        'rules'
-      ]
+        'rules',
+      ],
     ],
     'property-no-vendor-prefix': null,
     'rule-empty-line-before': [
       'always',
       {
         ignore: ['after-comment', 'first-nested'],
-      }
+      },
     ],
     'scale-unlimited/declaration-strict-value': [
       [
         'border-radius',
         '/color$/',
         'font-size',
-        'z-index'
+        'z-index',
       ],
       {
         ignoreValues: ['transparent', 'inherit', 'currentColor', 0],
-        disableFix: true
-      }
+        disableFix: true,
+      },
     ],
     'selector-class-pattern': [
       '^([a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)*(--([a-z0-9]+-?)+)?)?(\\[.+\\])?$',
       {
-        'message':
-          'Selector should be written in BEM format - .block__element--modifier (selector-class-pattern)'
-      }
+        message:
+          'Selector should be written in BEM format - .block__element--modifier (selector-class-pattern)',
+      },
     ],
     'selector-max-compound-selectors': 5,
     'selector-max-id': 1,
     'selector-no-qualifying-type': null,
     'selector-no-vendor-prefix': null,
     'value-no-vendor-prefix': null,
-  }
+  },
 };

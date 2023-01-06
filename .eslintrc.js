@@ -12,20 +12,20 @@ module.exports = {
     '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
     '@typescript-eslint/await-thenable': 'error',
     '@typescript-eslint/ban-ts-comment': ['error', {
-      'ts-ignore': 'allow-with-description'
+      'ts-ignore': 'allow-with-description',
     }],
     '@typescript-eslint/ban-types': 'error',
     '@typescript-eslint/brace-style': ['error'],
     '@typescript-eslint/comma-spacing': ['error', { before: false, after: true }],
     '@typescript-eslint/comma-dangle': ['error', {
-      'arrays': 'always-multiline',
-      'objects': 'always-multiline',
-      'imports': 'always-multiline',
-      'exports': 'always-multiline',
-      'functions': 'always-multiline',
-      'enums': 'always-multiline',
-      'generics': 'always-multiline',
-      'tuples': 'always-multiline',
+      arrays: 'always-multiline',
+      objects: 'always-multiline',
+      imports: 'always-multiline',
+      exports: 'always-multiline',
+      functions: 'always-multiline',
+      enums: 'always-multiline',
+      generics: 'always-multiline',
+      tuples: 'always-multiline',
     }],
     '@typescript-eslint/consistent-generic-constructors': ['error', 'type-annotation'],
     '@typescript-eslint/consistent-indexed-object-style': 'error',
@@ -35,7 +35,7 @@ module.exports = {
       'error',
       {
         allowExpressions: false,
-        allowTypedFunctionExpressions: false,
+        allowTypedFunctionExpressions: true,
         allowHigherOrderFunctions: false,
         allowDirectConstAssertionInArrowFunctions: false,
         allowConciseArrowFunctionExpressionsStartingWithVoid: false,
@@ -52,6 +52,7 @@ module.exports = {
       'error',
       {
         default: {
+          order: 'as-written',
           memberTypes: [
             'signature',
 
@@ -98,15 +99,12 @@ module.exports = {
             'private-instance-set',
 
             '#private-static-field',
-            '#private-decorated-field',
             '#private-instance-field',
 
             '#private-static-get',
-            '#private-decorated-get',
             '#private-instance-get',
 
             '#private-static-set',
-            '#private-decorated-set',
             '#private-instance-set',
 
             'public-constructor',
@@ -128,17 +126,16 @@ module.exports = {
             'private-instance-method',
 
             '#private-static-method',
-            '#private-decorated-method',
             '#private-instance-method',
-          ]
+          ],
         },
         interfaces: {
           order: 'alphabetically',
         },
         typeLiterals: {
           order: 'alphabetically',
-        }
-      }
+        },
+      },
     ],
     '@typescript-eslint/member-delimiter-style': 'error',
     '@typescript-eslint/naming-convention': [
@@ -147,7 +144,7 @@ module.exports = {
         selector: 'variable',
         format: ['camelCase', 'UPPER_CASE'],
         leadingUnderscore: 'allow',
-        trailingUnderscore: 'forbid'
+        trailingUnderscore: 'forbid',
       },
       { selector: 'function', format: ['camelCase'], leadingUnderscore: 'forbid', trailingUnderscore: 'forbid' },
       { selector: 'parameter', format: ['camelCase'], leadingUnderscore: 'allow', trailingUnderscore: 'forbid' },
@@ -155,7 +152,7 @@ module.exports = {
         selector: 'property',
         format: ['camelCase'],
         leadingUnderscore: 'allow',
-        trailingUnderscore: 'forbid'
+        trailingUnderscore: 'forbid',
       },
       { selector: 'parameterProperty', format: ['camelCase'], leadingUnderscore: 'allow', trailingUnderscore: 'forbid' },
       { selector: 'method', format: ['camelCase'], leadingUnderscore: 'allow', trailingUnderscore: 'forbid' },
@@ -167,21 +164,21 @@ module.exports = {
         format: ['PascalCase'],
         leadingUnderscore: 'forbid',
         trailingUnderscore: 'forbid',
-        prefix: ['I']
+        prefix: ['I'],
       },
       {
         selector: 'typeAlias',
         format: ['PascalCase'],
         leadingUnderscore: 'forbid',
         trailingUnderscore: 'forbid',
-        prefix: ['T']
+        prefix: ['T'],
       },
       {
         selector: 'enum',
         format: ['PascalCase'],
         leadingUnderscore: 'forbid',
         trailingUnderscore: 'forbid',
-        suffix: ['Enum']
+        suffix: ['Enum'],
       },
       { selector: 'typeParameter', format: ['PascalCase'], leadingUnderscore: 'forbid', trailingUnderscore: 'forbid' },
     ],
@@ -190,22 +187,22 @@ module.exports = {
     '@typescript-eslint/no-confusing-void-expression': 'error',
     '@typescript-eslint/no-duplicate-enum-values': 'error',
     '@typescript-eslint/no-dynamic-delete': 'error',
-    '@typescript-eslint/no-empty-function': false,
+    '@typescript-eslint/no-empty-function': 0,
     '@typescript-eslint/no-empty-interface': ['error', { allowSingleExtends: true }],
     '@typescript-eslint/no-explicit-any': 'error',
     '@typescript-eslint/no-extra-non-null-assertion': 'error',
     '@typescript-eslint/no-extra-semi': 'error',
     '@typescript-eslint/no-for-in-array': 'error',
     '@typescript-eslint/no-implied-eval': 'error',
-    '@typescript-eslint/no-inferrable-types': false,
+    '@typescript-eslint/no-inferrable-types': 0,
     '@typescript-eslint/no-invalid-void-type': 'error',
     '@typescript-eslint/no-misused-promises': [
       'error',
       {
-        'checksConditionals': true,
-        'checksVoidReturn': false,
-        'checksSpreads': true
-      }
+        checksConditionals: true,
+        checksVoidReturn: false,
+        checksSpreads: true,
+      },
     ],
     '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'error',
     '@typescript-eslint/no-non-null-asserted-optional-chain': 'error',
@@ -276,7 +273,7 @@ module.exports = {
         ignoreConditionalTests: true,
         ignoreMixedLogicalExpressions: true,
         ignoreTernaryTests: false,
-      }
+      },
     ],
     '@typescript-eslint/prefer-optional-chain': 'error',
     '@typescript-eslint/prefer-readonly': 'error',
@@ -308,8 +305,8 @@ module.exports = {
             before: true,
             after: true,
           },
-        }
-      }
+        },
+      },
     ],
     '@typescript-eslint/typedef': [
       'error',
@@ -321,7 +318,7 @@ module.exports = {
         parameter: true,
         propertyDeclaration: true,
         variableDeclaration: true,
-      }
+      },
     ],
     'array-bracket-newline': ['error', 'consistent'],
     'array-bracket-spacing': 'error',
@@ -354,14 +351,15 @@ module.exports = {
         ignoreUrls: true,
         ignoreTrailingComments: true,
         ignoreRegExpLiterals: true,
-        ignorePattern: '^import [^,]+ from'
-      }
+        ignorePattern: '^import [^,]+ from',
+      },
     ],
     'multiline-ternary': ['error', 'always-multiline'],
     'new-parens': 'error',
     'newline-per-chained-call': ['error', { ignoreChainWithDepth: 3 }],
     'no-bitwise': 'error',
-    'no-confusing-arrow': ['error', {allowParens: true}],
+    'no-confusing-arrow': ['error', { allowParens: true }],
+    'no-constant-condition': 'error',
     'no-console': 'error',
     'no-debugger': 'error',
     'no-dupe-class-members': 'off',
@@ -409,13 +407,75 @@ module.exports = {
     yoda: 'error',
   },
   parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: ['tsconfig.json'],
+    ecmaVersion: 'es6',
+    extraFileExtensions: ['.vue'],
+  },
   overrides: [
     {
       files: ['**/*.spec.ts'],
       rules: {
         '@typescript-eslint/ban-ts-ignore': 'off',
         '@typescript-eslint/ban-ts-comment': 'off',
-      }
-    }
-  ]
+      },
+    },
+    {
+      files: [
+        '**/*.config.ts',
+        '**/*.config.js',
+        '**/.eslintrc.js',
+      ],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        tsconfigRootDir: __dirname,
+        project: ['./tsconfig.eslint.json'],
+        ecmaVersion: 'es6',
+      },
+      rules: {
+        '@typescript-eslint/naming-convention': [
+          'error',
+          {
+            selector: 'variable',
+            format: ['camelCase', 'UPPER_CASE'],
+            leadingUnderscore: 'allow',
+            trailingUnderscore: 'forbid',
+          },
+          { selector: 'function', format: ['camelCase'], leadingUnderscore: 'forbid', trailingUnderscore: 'forbid' },
+          { selector: 'parameter', format: ['camelCase'], leadingUnderscore: 'allow', trailingUnderscore: 'forbid' },
+          {
+            selector: 'property',
+            format: null,
+          },
+          { selector: 'parameterProperty', format: ['camelCase'], leadingUnderscore: 'allow', trailingUnderscore: 'forbid' },
+          { selector: 'method', format: ['camelCase'], leadingUnderscore: 'allow', trailingUnderscore: 'forbid' },
+          { selector: 'accessor', format: ['camelCase'], leadingUnderscore: 'allow', trailingUnderscore: 'forbid' },
+          { selector: 'enumMember', format: ['PascalCase'], leadingUnderscore: 'forbid', trailingUnderscore: 'forbid' },
+          { selector: 'class', format: ['PascalCase'], leadingUnderscore: 'forbid', trailingUnderscore: 'forbid' },
+          {
+            selector: 'interface',
+            format: ['PascalCase'],
+            leadingUnderscore: 'forbid',
+            trailingUnderscore: 'forbid',
+            prefix: ['I'],
+          },
+          {
+            selector: 'typeAlias',
+            format: ['PascalCase'],
+            leadingUnderscore: 'forbid',
+            trailingUnderscore: 'forbid',
+            prefix: ['T'],
+          },
+          {
+            selector: 'enum',
+            format: ['PascalCase'],
+            leadingUnderscore: 'forbid',
+            trailingUnderscore: 'forbid',
+            suffix: ['Enum'],
+          },
+          { selector: 'typeParameter', format: ['PascalCase'], leadingUnderscore: 'forbid', trailingUnderscore: 'forbid' },
+        ],
+      },
+    },
+  ],
 };
