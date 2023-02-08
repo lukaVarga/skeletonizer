@@ -1,0 +1,40 @@
+{
+  "name": "@skeletonizer/utils",
+  "version": "1.0.0",
+  "description": "Utils for all skeletonizer packages",
+  "author": "Luka Varga",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukaVarga/skeletonizer.git"
+  },
+  "homepage": "https://github.com/lukaVarga/skeletonizer/tree/master/packages/utils",
+  "keywords": [
+    "skeleton",
+    "Vue.js",
+    "skeletonizer",
+    "ui",
+    "loading"
+  ],
+  "scripts": {
+    "dev": "TODO",
+    "build": "TODO",
+    "test": "vitest run",
+    "test-watch": "vitest",
+    "coverage": "vitest --coverage",
+    "build-only": "TODO",
+    "type-check": "vitest typecheck",
+    "style-lint": "stylelint 'src/**/*.?(css|scss)' --color",
+    "style-lintfix": "stylelint 'src/**/*.?(css|scss)' --color --fix",
+    "lint": "eslint --ext .ts src/ && eslint --ext .ts __tests__/ && npm run style-lint",
+    "lintfix": "npm run style-lintfix && eslint --ext .ts src/ --fix && eslint --ext .ts __tests__/ --fix",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "**/*.{scss,css}": "stylelint --fix",
+    "**/*.{ts,js}": "eslint --fix"
+  },
+  "devDependencies": {
+    "vitest": "^0.28.3"
+  }
+}
