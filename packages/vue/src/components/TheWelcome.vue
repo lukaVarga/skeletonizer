@@ -36,8 +36,7 @@ import SupportIcon from './icons/IconSupport.vue';
       href="https://vitejs.dev/guide/features.html"
       target="_blank"
       rel="noopener"
-    >Vite</a>. The
-    recommended IDE setup is
+    >Vite</a>. The recommended IDE setup is
     <a
       href="https://code.visualstudio.com/"
       target="_blank"
@@ -47,8 +46,7 @@ import SupportIcon from './icons/IconSupport.vue';
       href="https://github.com/johnsoncodehk/volar"
       target="_blank"
       rel="noopener"
-    >Volar</a>. If
-    you need to test your components and web pages, check out
+    >Volar</a>. If you need to test your components and web pages, check out
     <a
       href="https://www.cypress.io/"
       target="_blank"
@@ -139,8 +137,7 @@ import SupportIcon from './icons/IconSupport.vue';
     <template #heading>
       Support Vue
     </template>
-    As an independent project, Vue relies on community backing for its sustainability. You can help
-    us by
+    As an independent project, Vue relies on community backing for its sustainability. You can help us by
     <a
       href="https://vuejs.org/sponsor/"
       target="_blank"

@@ -2,7 +2,6 @@
   "name": "@skeletonizer/vue",
   "version": "1.0.0",
   "description": "The way to skeletonize your Vue.js components",
-  "main": "index.js",
   "author": "Luka Varga",
   "license": "MIT",
   "repository": {
@@ -21,7 +20,9 @@
     "dev": "vite",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
-    "test": "vitest run --environment jsdom --root src/",
+    "test": "vitest run",
+    "typecheck": "vitest typecheck",
+    "coverage": "vitest --coverage",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "style-lint": "stylelint '**/*.?(css|scss|vue)' --color",

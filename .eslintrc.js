@@ -129,12 +129,6 @@ module.exports = {
             '#private-instance-method',
           ],
         },
-        interfaces: {
-          order: 'alphabetically',
-        },
-        typeLiterals: {
-          order: 'alphabetically',
-        },
       },
     ],
     '@typescript-eslint/member-delimiter-style': 'error',
