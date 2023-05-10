@@ -1,9 +1,12 @@
 {
   "extends": "./tsconfig.app.json",
-  "exclude": [],
+  "exclude": [
+    "src/lib/main.ts"
+  ],
   "compilerOptions": {
     "composite": true,
-    "lib": [],
-    "types": ["node", "jsdom"]
+    "declaration": true,
+    "declarationMap": false,
+    "types": ["node", "jsdom"],
   }
 }

@@ -224,6 +224,24 @@ describe('SchemaItem', () => {
     });
   });
 
-  describe.todo('symbol', () => {});
-  describe.todo('identical', () => {});
+  describe('symbol', () => {
+    let schemaItem: SchemaItem<symbol>;
+
+    it('creates a new symbol with the given value', () => {
+      schemaItem = new SchemaItem();
+      const symbolVal: string = 'testSymbol';
+      schemaItem.symbol(symbolVal);
+
+      expect(schemaItem.value).toBeTypeOf('symbol');
+      expect(schemaItem.value.toString()).toEqual(`Symbol(${symbolVal})`);
+    });
+  });
+
+  describe('identical', () => {
+    it('passes the identity to the value', () => {
+      expect(new SchemaItem().identical(5).value).toBe(5);
+      expect(new SchemaItem().identical('47').value).toBe('47');
+      expect(new SchemaItem().identical([1, 6, 3, '234', true]).value).toEqual([1, 6, 3, '234', true]);
+    });
+  });
 });

@@ -4,5 +4,6 @@
     "**/*.config.ts",
     "**/*.config.js",
     "**/.eslintrc.js",
+    "**/.eslintrc.cjs",
   ]
 }

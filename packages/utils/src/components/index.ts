@@ -1,2 +1,2 @@
-export * from './skeleton-abstract.component';
-export * from './skeleton.component';
+export * from './skeleton.abstract.component';
+export * from './skeleton.adapter.component';

@@ -11,23 +11,27 @@
   "homepage": "https://github.com/lukaVarga/skeletonizer/tree/master/packages/utils",
   "keywords": [
     "skeleton",
-    "Vue.js",
     "skeletonizer",
     "ui",
     "loading"
   ],
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
-    "dev": "TODO",
-    "build": "TODO",
+    "dev": "vite",
+    "build": "vite build",
     "test": "vitest run",
     "test-watch": "vitest",
-    "coverage": "vitest --coverage",
-    "build-only": "TODO",
-    "type-check": "vitest typecheck",
+    "coverage": "vitest run --coverage",
+    "coverage-watch": "vitest --coverage",
+    "build-only": "vite build",
+    "type-check": "vitest typecheck --watch=false",
     "style-lint": "stylelint 'src/**/*.?(css|scss)' --color",
     "style-lintfix": "stylelint 'src/**/*.?(css|scss)' --color --fix",
-    "lint": "eslint --ext .ts src/ && eslint --ext .ts __tests__/ && npm run style-lint",
-    "lintfix": "npm run style-lintfix && eslint --ext .ts src/ --fix && eslint --ext .ts __tests__/ --fix",
+    "lint": "eslint --ext .ts src/ && npm run style-lint",
+    "lintfix": "npm run style-lintfix && eslint --ext .ts src/ --fix",
     "lint-staged": "lint-staged"
   },
   "lint-staged": {
@@ -35,6 +39,14 @@
     "**/*.{ts,js}": "eslint --fix"
   },
   "devDependencies": {
-    "vitest": "^0.28.3"
+    "@vitest/coverage-istanbul": "^0.31.0",
+    "sass": "^1.58.0",
+    "vite-plugin-dts": "^2.3.0",
+    "vitest": "0.31.0"
+  },
+  "exports": {
+    "import": "./dist/utils.mjs",
+    "require": "./dist/utils.umd.js",
+    "types": "./dist/index.d.ts"
   }
 }

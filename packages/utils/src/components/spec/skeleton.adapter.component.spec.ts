@@ -1,19 +1,13 @@
 import { beforeEach, describe, expect, it } from 'vitest';
-import { Schema, SkeletonComponent } from '../../index';
+import { Schema, SkeletonAdapterComponent } from '../../index';
 import { TTestComplexSkeletonConfig } from '../../../spec-helpers/test.helper.types';
 import { TestHelperGenerators } from '../../../spec-helpers/test.helper.generators';
 
-class AdapterComponent extends SkeletonComponent<TTestComplexSkeletonConfig> {
-  public override setupModels(): void {
-    super.setupModels();
-  }
-}
-
-describe('SkeletonComponent', () => {
-  let component: SkeletonComponent<TTestComplexSkeletonConfig>;
+describe('SkeletonAdapterComponent', () => {
+  let component: SkeletonAdapterComponent<TTestComplexSkeletonConfig>;
 
   beforeEach(() => {
-    component = new SkeletonComponent<TTestComplexSkeletonConfig>();
+    component = new SkeletonAdapterComponent<TTestComplexSkeletonConfig>();
   });
 
   it('should have null config', () => {
@@ -25,38 +19,32 @@ describe('SkeletonComponent', () => {
   });
 
   describe('setupModels', () => {
-    let adapter: AdapterComponent;
-
-    beforeEach(() => {
-      adapter = new AdapterComponent();
-    });
-
     it('does not fail if config is null', () => {
       expect(() => {
-        adapter.setupModels();
+        component.setupModels();
       }).not.toThrowError();
 
-      adapter.setupModels();
+      component.setupModels();
 
-      expect(adapter.viewModels).toEqual([]);
+      expect(component.viewModels).toEqual([]);
     });
 
     describe('config is defined', () => {
       beforeEach(() => {
-        adapter.config = {
+        component.config = {
           repeat: 4,
           schemaGenerator: TestHelperGenerators.complexSkeletonSchemaConfigGenerator(),
         };
       });
 
       it('generates view models based on the config', () => {
-        expect(adapter.viewModels.length).toBe(0);
+        expect(component.viewModels.length).toBe(0);
 
-        adapter.setupModels();
+        component.setupModels();
 
-        expect(adapter.viewModels.length).toBe(4);
+        expect(component.viewModels.length).toBe(4);
 
-        adapter.viewModels.forEach((schema: Schema<TTestComplexSkeletonConfig>) => {
+        component.viewModels.forEach((schema: Schema<TTestComplexSkeletonConfig>) => {
           expect(schema.value.stringArray.length).toEqual(2);
           expect(schema.value.stringArray.every((val: unknown) => typeof val === 'string')).toBe(true);
           expect(schema.value.someBool).toBeTypeOf('boolean');

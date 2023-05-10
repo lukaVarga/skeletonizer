@@ -1,5 +1,7 @@
 **/node_modules
 **/dist
+**/coverage
+*.vitest-temp.json
 
 # Log files
 npm-debug.log*

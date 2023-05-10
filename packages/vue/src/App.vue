@@ -1,26 +1,61 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue';
-import TheWelcome from './components/TheWelcome.vue';
+import HelloWorld from './showcase/HelloWorld.vue';
+import TheWelcome from './showcase/TheWelcome.vue';
+import { SchemaItem } from '@skeletonizer/utils';
+import { type Ref, ref } from 'vue';
+import { SkeletonizerComponentComposable } from './lib/composables/skeletonizer.component.composable';
+import SkeletonizerSkeleton from './lib/SkeletonizerSkeleton.vue';
+
+type TSkeletonized = { message: string };
+
+const message: Ref<string> = ref('You did it!');
+
+const skeletonizer: SkeletonizerComponentComposable<TSkeletonized> = SkeletonizerComponentComposable.generate<TSkeletonized>(
+  {
+    repeat: 1,
+    schemaGenerator: () => ({
+      message: new SchemaItem().words(5),
+    }),
+  },
+  true,
+);
+
+setTimeout(() => {
+  skeletonizer.showSkeleton = false;
+}, 3000 * Math.random());
+
+// TODO - 'scope' in template has type object - typecheck fails for proxy method. extend proxy method type
+setTimeout(() => {
+  message.value = 'Async update of message';
+}, 5000);
 </script>
 
 <template>
-  <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="assets/logo.svg"
-      width="125"
-      height="125"
-    >
+  <skeletonizer-skeleton
+    v-slot="{ scope }"
+    :config="skeletonizer.skeletonConfig"
+    :show-skeleton="skeletonizer.showSkeleton"
+    :scope="{ message }"
+    :color-schema="{ primaryColor: 'rgba(100, 100, 100, .6)', secondaryColor: 'rgba(100, 100, 100, .3)' }"
+  >
+    <header>
+      <img
+        alt="Vue logo"
+        class="logo"
+        src="/logo.svg"
+        width="125"
+        height="125"
+      >
 
-    <div class="wrapper">
-      <hello-world msg="You did it!" />
-    </div>
-  </header>
+      <div class="wrapper">
+        <hello-world :msg="skeletonizer.proxy(scope).message" />
+      </div>
+    </header>
 
-  <main>
-    <the-welcome />
-  </main>
+    <main>
+      <the-welcome />
+    </main>
+  </skeletonizer-skeleton>
 </template>
 
 <style scoped>

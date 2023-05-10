@@ -208,10 +208,6 @@ module.exports = {
     '@typescript-eslint/no-unnecessary-type-arguments': 'error',
     '@typescript-eslint/no-unnecessary-type-assertion': 'error',
     '@typescript-eslint/no-unnecessary-type-constraint': 'error',
-    '@typescript-eslint/no-unsafe-argument': 'error',
-    '@typescript-eslint/no-unsafe-assignment': 'error',
-    '@typescript-eslint/no-unsafe-call': 'error',
-    '@typescript-eslint/no-unsafe-member-access': 'error',
     '@typescript-eslint/no-unsafe-return': 'error',
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     '@typescript-eslint/no-use-before-define': 'error',
@@ -408,7 +404,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/*.spec.ts'],
+      files: ['**/*.spec.ts', '**/*.spec-d.ts'],
       rules: {
         '@typescript-eslint/ban-ts-ignore': 'off',
         '@typescript-eslint/ban-ts-comment': 'off',

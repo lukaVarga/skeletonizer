@@ -3,11 +3,12 @@
   "include": [
     "src/**/*"
   ],
-  "exclude": ["src/**/spec/*.spec.ts"],
+  "exclude": ["src/**/*.spec.ts", "node_modules"],
   "compilerOptions": {
     "declaration": true,
-    "declarationDir": "./types",
+    "declarationDir": "dist/types",
     "declarationMap": true,
     "outDir": "dist",
-  },
+    "baseUrl": "./",
+  }
 }

@@ -5,16 +5,16 @@ export class Schema<T extends object> {
   public viewModel: TSchemaTransformer<T>;
 
   public get value(): T {
-    return this.#val;
+    return this.val;
   }
 
-  readonly #val: T;
+  private readonly val: T;
 
   public constructor(
     public readonly generator: TSchemaGenerator<T>,
   ) {
     this.viewModel = this.generator();
-    this.#val = Schema.modelToValue<T>(this.viewModel);
+    this.val = Schema.modelToValue<T>(this.viewModel);
   }
 
   private static modelToValue<T>(model: TSchemaTransformer<T>): T {
