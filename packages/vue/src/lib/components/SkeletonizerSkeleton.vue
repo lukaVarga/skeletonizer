@@ -1,11 +1,6 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="TSkeletonScopeObject extends object">
 import { type ISkeletonizerColorSchema, SkeletonAdapterComponent, type TSchemaConfig } from '@skeletonizer/utils';
-import { reactive, type UnwrapNestedRefs, watch } from 'vue';
-
-// this can be transformed to a proper type-generic variant once the RFC is merged, presumably in v3.3
-// https://github.com/vuejs/rfcs/discussions/436#discussioncomment-4907987
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type TSkeletonScopeObject = any;
+import { reactive, type UnwrapNestedRefs, type UnwrapRef, watch } from 'vue';
 
 const props: Readonly<{
   config: TSchemaConfig<TSkeletonScopeObject>;
@@ -17,6 +12,12 @@ const props: Readonly<{
   showSkeleton: boolean;
   scope: TSkeletonScopeObject;
   colorSchema?: ISkeletonizerColorSchema;
+}>();
+
+defineSlots<{
+  default?: (props: { scope: TSkeletonScopeObject | UnwrapRef<TSkeletonScopeObject> }) => {
+    scope: TSkeletonScopeObject | UnwrapRef<TSkeletonScopeObject>;
+  };
 }>();
 
 const component: UnwrapNestedRefs<SkeletonAdapterComponent<TSkeletonScopeObject>>
@@ -50,6 +51,6 @@ watch(
 </template>
 
 <style lang="scss">
-  @import '../utils/src/styles/helpers';
-  @import '../utils/src/styles/directives';
+  @import '../../utils/src/styles/helpers';
+  @import '../../utils/src/styles/directives';
 </style>

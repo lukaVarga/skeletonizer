@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [vue()],
   test: {
     environment: 'jsdom',
-    root: './',
+    root: 'src/',
     coverage: {
       provider: 'istanbul',
       reporter: ['text', 'json', 'html'],
@@ -16,6 +16,19 @@ export default defineConfig({
         lines: [70, 90],
       },
     },
-    setupFiles: ['./src/spec-setup/install.ts'],
+    setupFiles: ['./spec-setup/install.ts'],
+  },
+  build: {
+    rollupOptions: {
+      external: ['vue'],
+      output: {
+        globals: {
+          vue: 'Vue',
+        },
+      },
+    },
+  },
+  resolve: {
+    dedupe: ['vue'],
   },
 });

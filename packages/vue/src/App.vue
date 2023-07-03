@@ -4,7 +4,7 @@ import TheWelcome from './showcase/TheWelcome.vue';
 import { SchemaItem } from '@skeletonizer/utils';
 import { type Ref, ref } from 'vue';
 import { SkeletonizerComponentComposable } from './lib/composables/skeletonizer.component.composable';
-import SkeletonizerSkeleton from './lib/SkeletonizerSkeleton.vue';
+import SkeletonizerSkeleton from './lib/components/SkeletonizerSkeleton.vue';
 
 type TSkeletonized = { message: string };
 
@@ -24,7 +24,6 @@ setTimeout(() => {
   skeletonizer.showSkeleton = false;
 }, 3000 * Math.random());
 
-// TODO - 'scope' in template has type object - typecheck fails for proxy method. extend proxy method type
 setTimeout(() => {
   message.value = 'Async update of message';
 }, 5000);

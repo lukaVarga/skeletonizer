@@ -1,5 +1,5 @@
 import type { App, DirectiveBinding } from 'vue';
-import SkeletonizerSkeleton from './SkeletonizerSkeleton.vue';
+import SkeletonizerSkeleton from './components/SkeletonizerSkeleton.vue';
 import { type ISkeletonizerColorSchema, SkeletonDirective } from '@skeletonizer/utils';
 
 export default {

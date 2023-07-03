@@ -1,7 +1,11 @@
 import { describe, expect, it, beforeEach } from 'vitest';
-import { mount, VueWrapper } from '@vue/test-utils';
-import { type TSchemaTransformer, SchemaItem, SkeletonAdapterComponent } from '@skeletonizer/utils';
-import { SkeletonizerComponentComposable } from '../composables/skeletonizer.component.composable';
+import { mount } from '@vue/test-utils';
+import {
+  type TSchemaTransformer,
+  SchemaItem,
+  SkeletonAdapterComponent,
+} from '@skeletonizer/utils';
+import { SkeletonizerComponentComposable } from '../../composables/skeletonizer.component.composable';
 import { h, type UnwrapNestedRefs } from 'vue';
 import SkeletonizerSkeleton from '../SkeletonizerSkeleton.vue';
 
@@ -10,7 +14,7 @@ type TScope = {
 };
 
 describe('SkeletonizerSkeleton', () => {
-  let wrapper: VueWrapper<InstanceType<typeof SkeletonizerSkeleton>>;
+  let wrapper: ReturnType<typeof mount<typeof SkeletonizerSkeleton>>;
   let outerScope: TScope;
   let skeletonizer: SkeletonizerComponentComposable<TScope>;
   let primaryColor: string;
@@ -35,8 +39,7 @@ describe('SkeletonizerSkeleton', () => {
       name: 'John Doe',
     };
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    wrapper = mount(SkeletonizerSkeleton as any, {
+    wrapper = mount(SkeletonizerSkeleton, {
       slots: {
         default: ({ scope }: { scope: TScope }) => h(
           'div',
