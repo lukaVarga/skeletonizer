@@ -22,7 +22,7 @@ const skeletonizer: SkeletonizerComponentComposable<TSkeletonized> = Skeletonize
 
 setTimeout(() => {
   skeletonizer.showSkeleton = false;
-}, 3000 * Math.random());
+}, 5000 * Math.random());
 
 setTimeout(() => {
   message.value = 'Async update of message';
@@ -41,7 +41,7 @@ setTimeout(() => {
       <img
         alt="Vue logo"
         class="logo"
-        src="/logo.svg"
+        src="./showcase/images/logo.svg"
         width="125"
         height="125"
       >
