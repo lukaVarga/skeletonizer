@@ -33,7 +33,7 @@ describe('SkeletonizerSkeleton', () => {
     primaryColor = 'rgba(144, 80, 70, .6)';
     secondaryColor = 'rgba(65,18,8,0.3)';
 
-    style = '--skeletonizer-primary-color: rgba(144, 80, 70, .6); --skeletonizer-secondary-color: rgba(65,18,8,0.3);';
+    style = `--skeletonizer-primary-color: ${primaryColor}; --skeletonizer-secondary-color: ${secondaryColor};`;
 
     outerScope = {
       name: 'John Doe',

@@ -26,7 +26,7 @@ export class Schema<T extends object> {
       const obj: T = {} as T;
 
       (Object.keys(model) as Array<keyof T>).forEach((key: keyof T) => {
-        obj[key] = this.modelToValue((model as { [K in keyof T]: TSchemaTransformer<T[K]> })[key]);
+        obj[key] = Schema.modelToValue((model as { [K in keyof T]: TSchemaTransformer<T[K]> })[key]);
       });
 
       return obj;

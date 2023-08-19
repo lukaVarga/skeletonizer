@@ -1,0 +1,61 @@
+{
+  "name": "angular",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "dev": "ng serve",
+    "build": "ng build skeletonizer --watch --configuration development",
+    "preview": "ng serve --configuration production",
+    "test": "ng test skeletonizer --no-watch",
+    "test-browser-run": "ng test skeletonizer --browsers chrome",
+    "test-watch": "ng test skeletonizer --watch",
+    "coverage": "ng test skeletonizer --code-coverage --no-watch",
+    "coverage-watch": "ng test skeletonizer --code-coverage",
+    "build-only": "ng build skeletonizer",
+    "style-lint": "stylelint '**/*.?(css|scss)' --color",
+    "style-lintfix": "stylelint '**/*.?(css|scss)' --color --fix",
+    "lint": "eslint --ext .ts,.js,.html projects/skeletonizer/src/ && eslint --ext .ts,.js,.html src/ && npm run style-lint",
+    "lintfix": "npm run style-lintfix && eslint --ext .ts,.js,.html projects/skeletonizer/src/ --fix && eslint --ext .ts,.js,.html src/ --fix",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "**/*.{scss,css}": "stylelint --fix",
+    "**/*.{ts,js,}": "eslint --fix"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^16.2.1",
+    "@angular/common": "^16.2.1",
+    "@angular/compiler": "^16.2.1",
+    "@angular/core": "^16.2.1",
+    "@angular/forms": "^16.2.1",
+    "@angular/platform-browser": "^16.2.1",
+    "@angular/platform-browser-dynamic": "^16.2.1",
+    "@angular/router": "^16.2.1",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.13.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^16.2.0",
+    "@angular-eslint/builder": "16.1.0",
+    "@angular-eslint/eslint-plugin": "16.1.0",
+    "@angular-eslint/eslint-plugin-template": "16.1.0",
+    "@angular-eslint/schematics": "16.1.0",
+    "@angular-eslint/template-parser": "16.1.0",
+    "@angular/cli": "~16.2.0",
+    "@angular/compiler-cli": "^16.2.1",
+    "@types/jasmine": "~4.3.0",
+    "@typescript-eslint/eslint-plugin": "5.62.0",
+    "@typescript-eslint/parser": "5.62.0",
+    "eslint": "^8.44.0",
+    "jasmine-core": "~4.6.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "ng-packagr": "^16.0.0",
+    "typescript": "~5.1.3"
+  }
+}

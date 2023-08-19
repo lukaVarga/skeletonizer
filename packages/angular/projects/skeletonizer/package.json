@@ -1,0 +1,27 @@
+{
+  "name": "@skeletonizer/angular",
+  "version": "1.0.0",
+  "description": "The way to skeletonize your Angular components",
+  "author": "Luka Varga",
+  "license": "MIT",
+  "homepage": "https://github.com/lukaVarga/skeletonizer/tree/master/packages/angular/projects/skeletonizer",
+  "keywords": [
+    "skeleton",
+    "Angular",
+    "skeletonizer",
+    "ui",
+    "loading"
+  ],
+  "peerDependencies": {
+    "@angular/common": "^16.1.0",
+    "@angular/core": "^16.1.0",
+    "@skeletonizer/utils": "1.0.0"
+  },
+  "devDependencies": {
+    "@skeletonizer/utils": "1.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
