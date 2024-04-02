@@ -15,7 +15,7 @@
     "ui",
     "loading"
   ],
-  "types": "./dist/index.d.ts",
+  "types": "./dist/src/index.d.ts",
   "files": [
     "dist/**/*"
   ],
@@ -27,7 +27,7 @@
     "coverage": "vitest run --coverage",
     "coverage-watch": "vitest --coverage",
     "build-only": "vite build",
-    "type-check": "vitest typecheck --watch=false",
+    "type-check": "vitest --typecheck.only --watch=false",
     "style-lint": "stylelint 'src/**/*.?(css|scss)' --color",
     "style-lintfix": "stylelint 'src/**/*.?(css|scss)' --color --fix",
     "lint": "eslint --ext .ts src/ && npm run style-lint",
@@ -39,14 +39,14 @@
     "**/*.{ts,js}": "eslint --fix"
   },
   "devDependencies": {
-    "@vitest/coverage-istanbul": "^0.31.0",
-    "sass": "^1.58.0",
-    "vite-plugin-dts": "^2.3.0",
-    "vitest": "0.31.0"
+    "@vitest/coverage-istanbul": "^1.4.0",
+    "sass": "^1.72.0",
+    "vite-plugin-dts": "^3.8.1",
+    "vitest": "1.4.0"
   },
   "exports": {
     "import": "./dist/utils.mjs",
     "require": "./dist/utils.umd.js",
-    "types": "./dist/index.d.ts"
+    "types": "./dist/src/index.d.ts"
   }
 }

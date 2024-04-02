@@ -1,9 +1,23 @@
 module.exports = {
   extends: 'stylelint-config-sass-guidelines',
   plugins: [
+    'stylelint-order',
     'stylelint-declaration-strict-value',
+    '@stylistic/stylelint-plugin',
   ],
   rules: {
+    '@stylistic/block-closing-brace-empty-line-before': 'never',
+    '@stylistic/block-closing-brace-newline-after': [
+      'always',
+      {
+        ignoreAtRules: ['if', 'else'],
+      },
+    ],
+    '@stylistic/block-closing-brace-newline-before': 'always',
+    '@stylistic/block-opening-brace-newline-after': 'always',
+    '@stylistic/declaration-block-semicolon-newline-after': 'always',
+    '@stylistic/max-empty-lines': 1,
+    '@stylistic/number-leading-zero': 'never',
     'at-rule-empty-line-before': [
       'always',
       {
@@ -12,25 +26,14 @@ module.exports = {
         ignoreAtRules: ['if', 'of', 'else'],
       },
     ],
-    'block-closing-brace-empty-line-before': 'never',
-    'block-closing-brace-newline-after': [
-      'always',
-      {
-        ignoreAtRules: ['if', 'else'],
-      },
-    ],
-    'block-closing-brace-newline-before': 'always',
     'block-no-empty': true,
-    'block-opening-brace-newline-after': 'always',
     'color-no-invalid-hex': true,
     'comment-no-empty': true,
     'custom-property-no-missing-var-function': true,
     'declaration-block-no-duplicate-properties': true,
-    'declaration-block-semicolon-newline-after': 'always',
     'declaration-empty-line-before': 'never',
     'font-family-no-duplicate-names': true,
     'keyframe-block-no-duplicate-selectors': true,
-    'max-empty-lines': 1,
     'max-nesting-depth': [
       5,
       {
@@ -45,7 +48,6 @@ module.exports = {
     'no-duplicate-at-import-rules': true,
     'no-duplicate-selectors': true,
     'no-invalid-position-at-import-rule': true,
-    'number-leading-zero': 'never',
     'order/order': [
       [
         'dollar-variables',

@@ -139,7 +139,7 @@ module.exports = {
     },
     {
       files: ['*.ts'],
-      excludedFiles: ['vitest.config.ts', 'vite.config.ts'],
+      excludedFiles: ['vitest.config.mts', 'vite.config.mts'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         project: ['tsconfig.app.json'],

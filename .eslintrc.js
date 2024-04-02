@@ -7,6 +7,7 @@ module.exports = {
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
   ],
+  ignorePatterns: ['dist/', 'node_modules/', 'coverage/'],
   rules: {
     '@typescript-eslint/adjacent-overload-signatures': 'error',
     '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
@@ -421,8 +422,8 @@ module.exports = {
     },
     {
       files: [
-        '**/*.config.ts',
-        '**/*.config.js',
+        '**/*.config.m?ts',
+        '**/*.config.m?js',
         '**/.eslintrc.js',
       ],
       parser: '@typescript-eslint/parser',

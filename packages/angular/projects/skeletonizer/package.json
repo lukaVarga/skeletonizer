@@ -13,8 +13,8 @@
     "loading"
   ],
   "peerDependencies": {
-    "@angular/common": "^16.1.0",
-    "@angular/core": "^16.1.0",
+    "@angular/common": "^17.3.2",
+    "@angular/core": "^17.3.2",
     "@skeletonizer/utils": "1.0.0"
   },
   "devDependencies": {

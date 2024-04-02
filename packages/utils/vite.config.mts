@@ -18,12 +18,15 @@ export default defineConfig({
     environment: 'jsdom',
     root: 'src/',
     coverage: {
+      reportsDirectory: '../coverage',
       provider: 'istanbul',
       reporter: ['text', 'json', 'html'],
-      lines: 90,
-      functions: 90,
-      branches: 90,
-      statements: 90,
+      thresholds: {
+        lines: 90,
+        functions: 90,
+        branches: 90,
+        statements: 90,
+      },
       watermarks: {
         statements: [70, 90],
         functions: [70, 90],

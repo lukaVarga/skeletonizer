@@ -2,7 +2,7 @@ export type TTestComplexSkeletonConfig = {
   stringArray: string[];
   someBool: boolean;
   complexObj: {
-    foo: 'bar';
+    foo: string;
     test: number;
     innerObj: {
       numArr: number[];

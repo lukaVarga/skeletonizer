@@ -5,7 +5,7 @@ module.exports = {
   extends: ['../../.eslintrc.js'],
   overrides: [
     {
-      files: ['*.ts'],
+      files: ['*.m?ts'],
       extends: [
         'plugin:@angular-eslint/recommended',
         'plugin:@angular-eslint/template/process-inline-templates',
@@ -13,7 +13,7 @@ module.exports = {
       parser: '@typescript-eslint/parser',
       plugins: ['@typescript-eslint', '@angular-eslint'],
       parserOptions: {
-        project: ['./tsconfig.app.json', './projects/skeletonizer/tsconfig.lib.json'],
+        project: './tsconfig.eslint.json',
         ecmaVersion: 2020,
         sourceType: 'module',
       },
@@ -22,19 +22,11 @@ module.exports = {
       },
     },
     {
-      files: ['**/*.spec.ts'],
-      parserOptions: {
-        project: ['./tsconfig.spec.json', './projects/skeletonizer/tsconfig.spec.json'],
-        ecmaVersion: 'es6',
-      },
-    },
-
-    {
       files: ['*.html'],
       parser: '@angular-eslint/template-parser',
       plugins: ['@angular-eslint/template'],
       parserOptions: {
-        project: './tsconfig.app.json',
+        project: './tsconfig.eslint.json',
         ecmaVersion: 2020,
         sourceType: 'module',
       },
@@ -43,9 +35,9 @@ module.exports = {
         'plugin:@angular-eslint/template/accessibility',
       ],
       rules: {
-        'max-len': 'off',
-        'no-trailing-spaces': 'off',
+        '@typescript-eslint/adjacent-overload-signatures': 'off',
         '@typescript-eslint/await-thenable': 'off',
+        '@typescript-eslint/consistent-type-assertions': 'off',
         '@typescript-eslint/indent': 'off',
         '@typescript-eslint/naming-convention': 'off',
         '@typescript-eslint/no-base-to-string': 'off',
@@ -68,6 +60,8 @@ module.exports = {
         '@typescript-eslint/prefer-string-starts-ends-with': 'off',
         '@typescript-eslint/restrict-plus-operands': 'off',
         '@typescript-eslint/switch-exhaustiveness-check': 'off',
+        'max-len': 'off',
+        'no-trailing-spaces': 'off',
       },
     },
   ],

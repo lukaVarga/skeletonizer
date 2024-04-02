@@ -41,10 +41,10 @@ describe('SkeletonizerSkeleton', () => {
 
     wrapper = mount(SkeletonizerSkeleton, {
       slots: {
-        default: ({ scope }: { scope: TScope }) => h(
+        default: ({ scope }: { scope: object }) => h(
           'div',
           { class: 'projected' },
-          skeletonizer.proxy(scope).name,
+          skeletonizer.proxy(scope as TScope).name,
         ),
       },
       props: {
