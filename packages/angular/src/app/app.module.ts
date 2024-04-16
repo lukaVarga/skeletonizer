@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { SkeletonizerModule } from '@skeletonizer/angular';
+import { SkeletonizerSkeletonComponent } from '../../projects/skeletonizer/src/lib/skeletonizer.skeleton.component';
 
 @NgModule({
   declarations: [
@@ -9,7 +9,7 @@ import { SkeletonizerModule } from '@skeletonizer/angular';
   ],
   imports: [
     BrowserModule,
-    SkeletonizerModule,
+    SkeletonizerSkeletonComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

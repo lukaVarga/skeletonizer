@@ -3,8 +3,5 @@
   "dest": "../../dist/skeletonizer",
   "lib": {
     "entryFile": "src/public-api.ts",
-    "styleIncludePaths": [
-      "../../../utils/src/styles"
-    ]
   }
 }

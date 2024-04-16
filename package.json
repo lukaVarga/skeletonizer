@@ -38,6 +38,7 @@
   },
   "homepage": "https://github.com/lukaVarga/skeletonizer#readme",
   "devDependencies": {
+    "@skeletonizer/styles": "file:packages/utils/src/styles",
     "@stylistic/stylelint-plugin": "^2.1.1",
     "@typescript-eslint/eslint-plugin": "^7.5.0",
     "@typescript-eslint/parser": "^7.5.0",

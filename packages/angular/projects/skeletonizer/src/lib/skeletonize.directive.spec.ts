@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
-import { SkeletonizerModule } from './skeletonizer.module';
 import { ISkeletonizerColorSchema, SkeletonDirective } from '@skeletonizer/utils';
 import { SkeletonizeDirective } from './skeletonize.directive';
 import { By } from '@angular/platform-browser';
@@ -30,10 +29,10 @@ describe('SkeletonizeDirective', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MockedComponent, SkeletonizeDirective],
+      declarations: [MockedComponent],
       imports: [
         CommonModule,
-        SkeletonizerModule,
+        SkeletonizeDirective,
       ],
     });
 

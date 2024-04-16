@@ -1,4 +1,4 @@
-@use 'index'; // - points to @skeletonizer/utils/src/index that includes all necessary CSS
+@use '@skeletonizer/styles';
 
 skeletonizer-skeleton {
   display: contents;

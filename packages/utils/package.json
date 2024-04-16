@@ -22,11 +22,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build-watch": "vite build --watch",
     "test": "vitest run",
     "test-watch": "vitest",
     "coverage": "vitest run --coverage",
     "coverage-watch": "vitest --coverage",
-    "build-only": "vite build",
     "type-check": "vitest --typecheck.only --watch=false",
     "style-lint": "stylelint 'src/**/*.?(css|scss)' --color",
     "style-lintfix": "stylelint 'src/**/*.?(css|scss)' --color --fix",

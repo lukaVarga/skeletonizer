@@ -3,6 +3,7 @@ import { ISkeletonizerColorSchema, SkeletonDirective } from '@skeletonizer/utils
 
 @Directive({
   selector: '[skeletonize]',
+  standalone: true,
 })
 export class SkeletonizeDirective implements AfterViewInit {
   @Input({ alias: 'skeletonize' }) public colorSchema: ISkeletonizerColorSchema | undefined;

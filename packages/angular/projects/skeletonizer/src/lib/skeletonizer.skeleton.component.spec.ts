@@ -11,7 +11,6 @@ import {
 import { Component, Input, ViewChild } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { SkeletonizerModule } from './skeletonizer.module';
 
 interface ISkeletonScope {
   name: string;
@@ -80,7 +79,7 @@ describe('SkeletonizerSkeletonComponent', () => {
       declarations: [TestComponent],
       imports: [
         CommonModule,
-        SkeletonizerModule,
+        SkeletonizerSkeletonComponent,
       ],
     });
 
