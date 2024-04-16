@@ -18,6 +18,19 @@
     "lintfix": "npm run style-lintfix && eslint --ext .ts,.js,.html projects/skeletonizer/src/ --fix && eslint --ext .ts,.js,.html src/ --fix",
     "lint-staged": "lint-staged"
   },
+  "main": "dist/skeletonizer/esm2022/skeletonizer-angular.mjs",
+  "types": "dist/skeletonizer/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/skeletonizer/index.d.ts",
+      "esm": "./dist/skeletonizer/esm2022/skeletonizer-angular.mjs",
+      "esm2022": "./dist/skeletonizer/esm2022/skeletonizer-angular.mjs",
+      "default": "./dist/skeletonizer/fesm2022/skeletonizer-angular.mjs"
+    }
+  },
+  "files": [
+    "dist/skeletonizer"
+  ],
   "lint-staged": {
     "**/*.{scss,css}": "stylelint --fix",
     "**/*.{ts,js}": "eslint --fix"

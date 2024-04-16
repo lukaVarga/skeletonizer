@@ -16,7 +16,8 @@
     "style-lint": "lerna run style-lint --parallel",
     "style-lintfix": "lerna run style-lintfix --parallel",
     "test": "lerna run test",
-    "coverage": "lerna run coverage"
+    "coverage": "lerna run coverage",
+    "publish": "HUSKY=0 lerna publish"
   },
   "engines": {
     "node": ">=18.12.1"
