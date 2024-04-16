@@ -16,9 +16,6 @@
     "ui",
     "loading"
   ],
-  "files": [
-    "dist"
-  ],
   "main": "./dist/skeletonizer-vue.umd.js",
   "module": "./dist/skeletonizer-vue.js",
   "exports": {
@@ -26,6 +23,12 @@
       "import": "./dist/skeletonizer-vue.js",
       "require": "./dist/skeletonizer-vue.umd.js"
     }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "dev": "vite",

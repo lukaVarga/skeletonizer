@@ -1,6 +1,37 @@
 {
   "name": "@skeletonizer/angular",
   "version": "0.0.3-alpha.0",
+  "description": "The way to skeletonize your Angular components",
+  "author": "Luka Varga",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukaVarga/skeletonizer.git"
+  },
+  "homepage": "https://github.com/lukaVarga/skeletonizer/tree/master/packages/angular",
+  "keywords": [
+    "skeleton",
+    "Angular",
+    "skeletonizer",
+    "ui",
+    "loading"
+  ],
+  "main": "dist/skeletonizer/esm2022/skeletonizer-angular.mjs",
+  "types": "dist/skeletonizer/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/skeletonizer/index.d.ts",
+      "esm": "./dist/skeletonizer/esm2022/skeletonizer-angular.mjs",
+      "esm2022": "./dist/skeletonizer/esm2022/skeletonizer-angular.mjs",
+      "default": "./dist/skeletonizer/fesm2022/skeletonizer-angular.mjs"
+    }
+  },
+  "files": [
+    "dist/skeletonizer"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "ng": "ng",
     "dev": "ng serve",
@@ -18,19 +49,6 @@
     "lintfix": "npm run style-lintfix && eslint --ext .ts,.js,.html projects/skeletonizer/src/ --fix && eslint --ext .ts,.js,.html src/ --fix",
     "lint-staged": "lint-staged"
   },
-  "main": "dist/skeletonizer/esm2022/skeletonizer-angular.mjs",
-  "types": "dist/skeletonizer/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/skeletonizer/index.d.ts",
-      "esm": "./dist/skeletonizer/esm2022/skeletonizer-angular.mjs",
-      "esm2022": "./dist/skeletonizer/esm2022/skeletonizer-angular.mjs",
-      "default": "./dist/skeletonizer/fesm2022/skeletonizer-angular.mjs"
-    }
-  },
-  "files": [
-    "dist/skeletonizer"
-  ],
   "lint-staged": {
     "**/*.{scss,css}": "stylelint --fix",
     "**/*.{ts,js}": "eslint --fix"
