@@ -17,7 +17,9 @@ Refer to the documentation for the specific adapter you are using:
 ## Contributing
 Run the following commands to get started:
 - `npm install`
-- 
+In the project you wish to work on, run the following command:
+- `npm run dev`
+
 Before submitting a pull request, make sure to run the following commands:
 - `npm run lint`
 - `npm run type-check`
