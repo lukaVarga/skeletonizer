@@ -1,6 +1,6 @@
 {
   "name": "@skeletonizer/angular",
-  "version": "0.0.5-alpha.0",
+  "version": "0.0.6-alpha.0",
   "description": "The way to skeletonize your Angular components",
   "author": "Luka Varga",
   "license": "MIT",
