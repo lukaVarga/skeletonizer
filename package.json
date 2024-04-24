@@ -10,6 +10,7 @@
     "clean:root": "rimraf node_modules",
     "lint": "lerna run lint --parallel",
     "lintfix": "lerna run lintfix --parallel",
+    "build": "lerna run build",
     "type-check": "lerna run type-check --parallel",
     "prepare": "husky",
     "semantic-release": "semantic-release",

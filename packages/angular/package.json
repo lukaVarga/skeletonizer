@@ -53,7 +53,7 @@
     "**/*.{scss,css}": "stylelint --fix",
     "**/*.{ts,js}": "eslint --fix"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@angular/animations": "^17.3.2",
     "@angular/common": "^17.3.2",
     "@angular/compiler": "^17.3.2",
