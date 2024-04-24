@@ -44,9 +44,12 @@ By extending the `SkeletonAbstractComponent`, you also get access to the `proxy`
 In the skeletonized part of the template, you **must** access the data through the `proxy(context)` method.
 You can think of `proxy(context)` in the same way as you would think of `this` in a class method (or in the template, where the `this` is usually omitted when accessing props / methods and we usually call `foo` instead of `this.foo`). The only difference is that when using `proxy(context)`, the content-projected template will use the mocked values when the `showSkeleton` is `true`, and resolved values when `showSkeleton` is `false` - all while maintaining the type safety.
 
-For more details about the `SkeletonAbstractComponent`, see the [SkeletonAbstractComponent](/../utils/README.md#SkeletonAbstractComponent) section.
-For more details about the `SchemaItem` property, see the [SchemaItem](/../utils/README.md#SchemaItem) section.
-For more details about the `skeletonConfig` property, see the [TSchemaConfig](/../utils/README.md#TSchemaConfig) section.
+For more details about the `SkeletonAbstractComponent`, see the [SkeletonAbstractComponent](/packages/utils/README.md#SkeletonAbstractComponent) section.
+
+For more details about the `SchemaItem` property, see the [SchemaItem](/packages/utils/README.md#SchemaItem) section.
+
+For more details about the `skeletonConfig` property, see the [TSchemaConfig](/packages/utils/README.md#TSchemaConfig) section.
+
 
 ```typescript
 import { Component } from '@angular/core';
@@ -242,17 +245,19 @@ export class MyComponent extends SkeletonAbstractComponent<TSkeletonizedPart> im
 
 ### Color Scheme
 Generally speaking, you shouldn't need to adjust the color scheme of the skeletonized component in most cases. However, should you need to, the color scheme of the skeletonized views can be customized by providing the `colorScheme` property to the `SkeletonizerSkeletonComponent`.
-For more details about the `colorScheme` property, see the [colorScheme](/../utils/README.md#colorScheme) section.
+
+For more details about the `colorScheme` property, see the [colorScheme](/packages/utils/README.md#colorScheme) section.
 
 ## Contributing
 For Angular adapter-specific contributions, run the following commands to get started:
 - `npm install`
-- adjust the code in the `packages/projects/skeletonizer` directory
-- run `npm run build` in the `packages/projects/skeletonizer` directory
+- adjust the code in the `packages/angular` directory
+- run `npm run build` in the `packages/angular` directory
 - adjust the code in the `packages/angular/src/app` directory to make sure the changes can easily be seen in the example app
-- `npm run dev`
+- `npm run dev` in the `packages/angular` directory to start the example app
+- update readme file in the `packages/angular` directory
 
-Before submitting a pull request, make sure to run the following commands:
+Before submitting a pull request, make sure to run the following commands in `packages/angular` directory:
 - `npm run lint`
 - `npm run type-check`
 - `npm run coverage`

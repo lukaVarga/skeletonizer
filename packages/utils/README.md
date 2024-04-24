@@ -132,3 +132,19 @@ export interface ISkeletonizerColorSchema {
 }
 ```
 Roughly speaking, the background colour of the skeletonized area transitions between the `primaryColor` and the `secondaryColor`.
+
+## Contributing
+Adjustments in this package have ramifications on all other packages, so please be careful when making changes.
+- `npm install`
+- adjust the code in the `packages/utils` directory
+- run `npm run build` in the `packages/utils` directory
+- adjust the code in adapter packages directories, if needed
+- `npm run dev` in in each of the adapter packages directories to test the changes
+- run `npm run build` in the root directory
+- update readme files in the `packages/utils` and adapter packages directories
+
+Before submitting a pull request, make sure to run the following commands in **root** directory:
+- `npm run lint`
+- `npm run type-check`
+- `npm run coverage`
+- `npm run build`
