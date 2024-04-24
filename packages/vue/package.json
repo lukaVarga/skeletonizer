@@ -20,6 +20,7 @@
   "module": "./dist/skeletonizer-vue.js",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/skeletonizer-vue.js",
       "require": "./dist/skeletonizer-vue.umd.js"
     }
