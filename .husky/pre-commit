@@ -2,3 +2,4 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npx lerna run lint-staged --concurrency 1 && npm run test && npm run type-check
+npx lerna run build && git add .

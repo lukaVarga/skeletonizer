@@ -21,12 +21,9 @@ const skeletonizer: SkeletonizerComponentComposable<TSkeletonized> = Skeletonize
 );
 
 setTimeout(() => {
+  message.value = 'Async update of message';
   skeletonizer.showSkeleton = false;
 }, 5000 * Math.random());
-
-setTimeout(() => {
-  message.value = 'Async update of message';
-}, 5000);
 </script>
 
 <template>
