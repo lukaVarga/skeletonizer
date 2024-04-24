@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import skeletonizer from './lib/main';
+import skeletonizer from './lib';
 import App from './App.vue';
 import './assets/main.css';
 
