@@ -1,6 +1,6 @@
 {
   "name": "@skeletonizer/utils",
-  "version": "0.0.8-alpha.0",
+  "version": "0.0.9-alpha.0",
   "description": "Utils for all skeletonizer packages",
   "author": "Luka Varga",
   "license": "MIT",
