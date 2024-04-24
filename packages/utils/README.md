@@ -9,8 +9,8 @@ Roughly speaking, the usage of skeleton in the template boils down to the follow
   - optional `colorSchema` - the color schema configuration for the skeleton
   
 The actual usage depends on the adapter you are using. For more info, refer to docs for the specific adapter:
-- [Vue](packages/vue/README.md)
-- [Angular](packages/angular/README.md)
+- [Vue](/packages/vue/README.md)
+- [Angular](/packages/angular/README.md)
 
 ## SkeletonAbstractComponent
 This is an abstract class that:
