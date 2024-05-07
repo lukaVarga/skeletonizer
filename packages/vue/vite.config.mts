@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     vue(),
     dtsPlugin({
-      compilerOptions: { exactOptionalPropertyTypes: false }
+      compilerOptions: { exactOptionalPropertyTypes: false },
     }),
   ],
   build: {

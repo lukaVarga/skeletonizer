@@ -17,11 +17,11 @@
     "loading"
   ],
   "main": "./dist/skeletonizer-vue.umd.js",
-  "module": "./dist/skeletonizer-vue.js",
+  "module": "./dist/skeletonizer-vue.mjs",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/skeletonizer-vue.js",
+      "import": "./dist/skeletonizer-vue.mjs",
       "require": "./dist/skeletonizer-vue.umd.js"
     }
   },
