@@ -18,10 +18,11 @@ export default defineConfig({
       fileName: 'skeletonizer-vue',
     },
     rollupOptions: {
-      external: ['vue'],
+      external: ['vue', '@skeletonizer/utils'],
       output: {
         globals: {
           vue: 'Vue',
+          '@skeletonizer/utils': 'SkeletonizerUtils',
         },
       },
     },
