@@ -23,7 +23,8 @@
       "import": "./dist/skeletonizer-vue.mjs",
       "require": "./dist/skeletonizer-vue.umd.js",
       "types": "./dist/index.d.ts"
-    }
+    },
+    "./dist/*.css": "./dist/*.css"
   },
   "types": "./dist/index.d.ts",
   "files": [

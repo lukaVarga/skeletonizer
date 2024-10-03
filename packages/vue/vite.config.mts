@@ -11,7 +11,7 @@ export default defineConfig({
     }),
   ],
   build: {
-    cssCodeSplit: false,
+    cssCodeSplit: true,
     lib: {
       entry: 'src/lib/index.ts',
       name: 'SkeletonizerVue',
