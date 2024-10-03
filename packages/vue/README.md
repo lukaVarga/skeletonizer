@@ -131,9 +131,10 @@ setTimeout(() => {
 ```
 
 ### Color Scheme
-Generally speaking, you shouldn't need to adjust the color scheme of the skeletonized component in most cases. However, should you need to, the color scheme of the skeletonized views can be customized by providing the `:color-scheme` property to the `<skeletonizer-skeleton>`.
+Generally speaking, you shouldn't need to adjust the color scheme of the skeletonized component in most cases. However, should you need to, the color scheme of the skeletonized views can be customized by providing the `:color-schema` property to the `<skeletonizer-skeleton>`.
 
-For more details about the `:color-scheme` property, see the [colorScheme](/packages/utils/README.md#colorscheme) section.
+For more details about the `:color-schema` property, see the [colorSchema](/packages/utils/README.md#colorschema) section.
+
 
 ## Contributing
 For Vue adapter-specific contributions, run the following commands to get started:

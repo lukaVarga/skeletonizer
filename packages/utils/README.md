@@ -89,13 +89,13 @@ type TSchemaConfig<T extends object> = {
 The `repeat` property specifies the number of times the skeleton part of the component should be repeated whilst in loading state. Eg. if you pass a single `div` inside the skeleton-projected content, and set `repeat` to `5`, there will be 5 `div`s in the skeletonized content when `showSkeleton` is `true`. 
 The `schemaGenerator` property is a function that requires you to return the skeleton structure based on the provided schema configuration. It is a generic function that accepts an object of `T` and expects you to return a mirrored shape where all underlying primitive props should be of shape `SchemaItem<T[K]>`. 
 
-For example, if you want to render 10 students that have borrowed a book from a library, where the underlying data of each student looks like:
+For example, if you want to render 10 (ex)students that have borrowed a book from a library, where the underlying data of each (ex)student looks like:
 
 ```typescript
 type TStudentLibraryMember = {
   name: string;
   age: number;
-  isStudent: boolean;
+  exStudent: boolean;
   profilePicture: string | null;
   booksBorrowed: Array<{ title: string; id: number }>;
 };
@@ -109,7 +109,7 @@ const studentLibraryMemberSchemaGenerator: TSchemaConfig<TStudentLibraryMember> 
   schemaGenerator: () => ({
     name: new SchemaItem<string>().words(2),
     age: new SchemaItem<number>().number(18, 30),
-    isStudent: new SchemaItem<boolean>().boolean(),
+    exStudent: new SchemaItem<boolean>().boolean(),
     profilePicture: new SchemaItem().identical('https://your-placeholder-image.jpg'),
     booksBorrowed: Array.from({ length: 3 }, () => ({
       title: new SchemaItem<string>().words(new SchemaItem<number>().number(3, 10).value),
@@ -122,7 +122,7 @@ const studentLibraryMemberSchemaGenerator: TSchemaConfig<TStudentLibraryMember> 
 Note: the underlying types must match - eg. you cannot use `name: new SchemaItem<number>().number(18, 30)` in the above example since the underlying type of the `name` property defined by `TStudentLibraryMember` is `string`. This ensures you can safely operate on the generated data in the skeletonized content.
 
 ## colorSchema
-Generally speaking, you shouldn't need to adjust the color scheme of the skeletonized component in most cases. However, should you need to, the color scheme of the skeletonized views can be customized by providing the `colorScheme` input bound property to the `SkeletonizerSkeletonComponent`.
+Generally speaking, you shouldn't need to adjust the color scheme of the skeletonized component in most cases. However, should you need to, the color scheme of the skeletonized views can be customized by providing the `colorSchema` input bound property to the `SkeletonizerSkeletonComponent`.
 You can provide a custom color scheme by providing an object with the following shape:
 
 ```typescript
