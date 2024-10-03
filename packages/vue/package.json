@@ -50,7 +50,7 @@
     "lint-staged": "lint-staged"
   },
   "peerDependencies": {
-    "@skeletonizer/utils": "0.0.16-alpha.0",
+    "@skeletonizer/utils": "^0.0.16-alpha.0",
     "vue": "^3.3.4"
   },
   "devDependencies": {
