@@ -7,7 +7,12 @@ export default defineConfig({
   plugins: [
     vue(),
     dtsPlugin({
-      compilerOptions: { exactOptionalPropertyTypes: false },
+      compilerOptions: {
+        exactOptionalPropertyTypes: false,
+      },
+      include: ['src/lib/**/*'],
+      exclude: ['src/showcase/**/*', 'src/main.ts'],
+      tsconfigPath: './tsconfig.app.json'
     }),
   ],
   build: {
