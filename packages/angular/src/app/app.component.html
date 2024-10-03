@@ -348,11 +348,13 @@
   <skeletonizer-skeleton [showSkeleton]="showSkeleton" [config]="skeletonConfig" [scope]="{ resources }">
     <ng-template let-context>
       <div class="card-container">
-        <a *ngFor="let resource of proxy(context).resources" class="card" target="_blank" rel="noopener" [href]="resource.link">
-          <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(resource.svg)"></div>
-          <span>{{ resource.title }}</span>
-          <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-        </a>
+        @for (resource of proxy(context).resources; track $index) {
+          <a class="card" target="_blank" rel="noopener" [href]="resource.link">
+            <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(resource.svg)"></div>
+            <span>{{ resource.title }}</span>
+            <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          </a>
+        }
       </div>
     </ng-template>
   </skeletonizer-skeleton>
@@ -396,11 +398,24 @@
   </div>
 
   <!-- Terminal -->
-  <div class="terminal" [ngSwitch]="selection.value">
-      <pre *ngSwitchDefault>ng generate component xyz</pre>
-      <pre *ngSwitchCase="'dependency'">ng add _____</pre>
-      <pre *ngSwitchCase="'test'">ng test</pre>
-      <pre *ngSwitchCase="'build'">ng build</pre>
+  <div class="terminal">
+    @switch (selection.value) {
+      @case ("component") {
+        <pre>ng generate component xyz</pre>
+      }
+      @case ("dependency") {
+        <pre>ng add _____</pre>
+      }
+      @case ("test") {
+        <pre>ng test</pre>
+      }
+      @case ("build") {
+        <pre>ng build</pre>
+      }
+      @default {
+        <pre>ng generate component xyz</pre>
+      }
+    }
   </div>
 
   <!-- Links -->

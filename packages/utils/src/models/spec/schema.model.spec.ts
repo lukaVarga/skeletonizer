@@ -51,5 +51,9 @@ describe('Schema', () => {
   it('has the correct viewModel', () => {
     expect(schema.viewModel).toEqual(generator());
   });
+
+  it('has an incrementing uuid', () => {
+    expect(schema.uuid).toBe(new Schema(generator).uuid - 1);
+  });
 });
 

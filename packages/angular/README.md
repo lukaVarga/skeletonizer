@@ -81,17 +81,19 @@ type TSkeletonizedPart = Pick<AppComponent, 'resources' | 'otherPropWeWantToUseI
       <ng-template let-context>
         <span>{{ proxy(context).otherPropWeWantToUseInSkeletonizedPart }}</span>
 
-        <a *ngFor="let resource of proxy(context).resources" target="_blank" rel="noopener" [href]="resource.link">
-          <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(resource.svg)"></div>
-          <span>{{ resource.title }}</span>
-        </a>
+        @for (resource of proxy(context).resources; track $index) {
+          <a target="_blank" rel="noopener" [href]="resource.link">
+            <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(resource.svg)"></div>
+            <span>{{ resource.title }}</span>
+          </a>
+        }
       </ng-template>
     </skeletonizer-skeleton>
   `,
   styleUrls: ['./my-component.component.scss'],
   // for standalone components, otherwise add SkeletonizerSkeletonComponent to the module imports of the module where MyComponent is declared
   // standalone: true,
-  // imports: [SkeletonizerSkeletonComponent, NgFor], // ngFor is just for the sake of the example where the *ngFor is used in the template
+  // imports: [SkeletonizerSkeletonComponent],
 })
 export class MyComponent extends SkeletonAbstractComponent<TSkeletonizedPart> implements OnInit {
   public pageTitle: string = 'Some prop that we do not wish to skeletonize, but wish to use in the view nonetheless';
@@ -172,12 +174,12 @@ type TSkeletonizedPart = Pick<AppComponent, 'resources' | 'otherPropWeWantToUseI
 
     <skeletonizer-skeleton [showSkeleton]="showSkeleton" [config]="skeletonConfig" [scope]="{ resources, otherPropWeWantToUseInSkeletonizedPart }">
       <ng-template let-context>
-        <div class="card-container">
-          <a *ngFor="let resource of proxy(context).resources" class="card" target="_blank" rel="noopener" [href]="resource.link">
+        @for (resource of proxy(context).resources; track $index) {
+          <a target="_blank" rel="noopener" [href]="resource.link">
             <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(resource.svg)"></div>
             <span>{{ resource.title }}</span>
           </a>
-        </div>
+        }
       </ng-template>
     </skeletonizer-skeleton>
 
@@ -190,7 +192,7 @@ type TSkeletonizedPart = Pick<AppComponent, 'resources' | 'otherPropWeWantToUseI
   styleUrls: ['./my-component.component.scss'],
   // for standalone components, otherwise add SkeletonizerSkeletonComponent to the module imports of the module where MyComponent is declared
   // standalone: true,
-  // imports: [SkeletonizerSkeletonComponent, NgFor], // ngFor is just for the sake of the example where the *ngFor is used in the template
+  // imports: [SkeletonizerSkeletonComponent], 
 })
 export class MyComponent extends SkeletonAbstractComponent<TSkeletonizedPart> implements OnInit {
   public pageTitle: string = 'Some prop that we do not wish to skeletonize, but wish to use in the view nonetheless';

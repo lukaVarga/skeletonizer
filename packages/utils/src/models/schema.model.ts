@@ -1,8 +1,11 @@
 import { SchemaItem } from './schema-item.model';
 import { TSchemaGenerator, TSchemaTransformer } from '../types';
 
+let schemaIdx: number = 0;
+
 export class Schema<T extends object> {
-  public viewModel: TSchemaTransformer<T>;
+  public readonly uuid: number = schemaIdx++;
+  public readonly viewModel: TSchemaTransformer<T>;
 
   public get value(): T {
     return this.val;

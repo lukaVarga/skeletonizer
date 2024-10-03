@@ -1,11 +1,9 @@
-<ng-container *ngIf="showSkeleton">
-  <ng-container *ngFor="let model of viewModels">
+@if (showSkeleton) {
+  @for (model of viewModels; track model.uuid) {
     <div [skeletonize]="colorSchema">
       <ng-container *ngTemplateOutlet="templateRef; context: { $implicit: model }"></ng-container>
     </div>
-  </ng-container>
-</ng-container>
-
-<ng-container *ngIf="!showSkeleton">
+  }
+} @else {
   <ng-container *ngTemplateOutlet="templateRef; context: { $implicit: scope }"></ng-container>
-</ng-container>
+}

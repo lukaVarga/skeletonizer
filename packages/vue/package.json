@@ -49,10 +49,8 @@
     "lintfix": "npm run style-lintfix && eslint --ext .ts,.vue,.js src/ --fix",
     "lint-staged": "lint-staged"
   },
-  "dependencies": {
-    "@skeletonizer/utils": "^0.0.19-alpha.0"
-  },
   "peerDependencies": {
+    "@skeletonizer/utils": "0.0.19-alpha.0",
     "vue": "^3.3.4"
   },
   "devDependencies": {
