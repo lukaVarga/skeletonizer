@@ -1,6 +1,6 @@
 {
   "name": "@skeletonizer/vue",
-  "version": "0.0.18-alpha.0",
+  "version": "0.0.19-alpha.0",
   "description": "The way to skeletonize your Vue.js components",
   "author": "Luka Varga",
   "license": "MIT",
@@ -50,7 +50,7 @@
     "lint-staged": "lint-staged"
   },
   "dependencies": {
-    "@skeletonizer/utils": "0.0.16-alpha.0"
+    "@skeletonizer/utils": "^0.0.19-alpha.0"
   },
   "peerDependencies": {
     "vue": "^3.3.4"
