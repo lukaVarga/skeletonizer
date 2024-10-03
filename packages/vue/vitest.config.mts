@@ -11,7 +11,7 @@ export default defineConfig({
       provider: 'istanbul',
       reporter: ['text', 'json', 'html'],
       include: ['lib/**/*'],
-      exclude: ['lib/index.ts'],
+      exclude: ['lib/index.ts', 'lib/main.ts'],
       thresholds: {
         lines: 90,
         functions: 90,
