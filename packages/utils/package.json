@@ -21,7 +21,8 @@
   "exports": {
     "import": "./dist/utils.mjs",
     "require": "./dist/utils.umd.js",
-    "types": "./dist/src/index.d.ts"
+    "types": "./dist/src/index.d.ts",
+    "default": "./dist/utils.mjs"
   },
   "publishConfig": {
     "access": "public"

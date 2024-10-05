@@ -6,7 +6,8 @@
     "src/**/*.vue",
   ],
   "exclude": [
-    "src/**/spec/*"
+    "src/**/spec/*",
+    "src/**/*.spec.ts",
   ],
   "compilerOptions": {
     "composite": true,
