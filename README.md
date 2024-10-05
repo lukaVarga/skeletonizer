@@ -1,4 +1,5 @@
 # Skeletonizer
+[![codecov](https://codecov.io/github/lukaVarga/skeletonizer/graph/badge.svg?token=4YZYRB9UN7)](https://codecov.io/github/lukaVarga/skeletonizer)
 Skeletonizer is a lightweight package that provides a simple way to create skeletonized views for your application. 
 It has adapters for Vue and Angular and is highly customizable and easy to use.
 
