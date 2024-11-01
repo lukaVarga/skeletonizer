@@ -16,7 +16,7 @@ interface ISkeletonScope {
   name: string;
 }
 
-interface IOuterScope extends TestComponent {}
+type TOuterScope = TestComponent;
 
 @Component({
   template: `
@@ -28,8 +28,8 @@ interface IOuterScope extends TestComponent {}
   selector: 'test-component',
 })
 class TestComponent extends SkeletonAbstractComponent<ISkeletonScope> {
-  @ViewChild(SkeletonizerSkeletonComponent) public skeletonInstance!: SkeletonizerSkeletonComponent<ISkeletonScope, IOuterScope>;
-  @Input() public scope!: IOuterScope;
+  @ViewChild(SkeletonizerSkeletonComponent) public skeletonInstance!: SkeletonizerSkeletonComponent<ISkeletonScope, TOuterScope>;
+  @Input() public scope!: TOuterScope;
   @Input() public showSkeleton!: boolean;
   @Input() public colorSchema?: ISkeletonizerColorSchema;
 
@@ -44,8 +44,8 @@ class TestComponent extends SkeletonAbstractComponent<ISkeletonScope> {
 }
 
 describe('SkeletonizerSkeletonComponent', () => {
-  let component: SkeletonizerSkeletonComponent<ISkeletonScope, IOuterScope>;
-  let fixture: ComponentFixture<SkeletonizerSkeletonComponent<ISkeletonScope, IOuterScope>>;
+  let component: SkeletonizerSkeletonComponent<ISkeletonScope, TOuterScope>;
+  let fixture: ComponentFixture<SkeletonizerSkeletonComponent<ISkeletonScope, TOuterScope>>;
   let testComponent: TestComponent;
   let testComponentFixture: ComponentFixture<TestComponent>;
   let config: TSchemaConfig<ISkeletonScope>;
@@ -83,7 +83,7 @@ describe('SkeletonizerSkeletonComponent', () => {
       ],
     });
 
-    fixture = TestBed.createComponent(SkeletonizerSkeletonComponent<ISkeletonScope, IOuterScope>);
+    fixture = TestBed.createComponent(SkeletonizerSkeletonComponent<ISkeletonScope, TOuterScope>);
     component = fixture.componentInstance;
 
     testComponentFixture = TestBed.createComponent(TestComponent);

@@ -1,13 +1,13 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import { Schema, SkeletonAdapterComponent } from '../../index';
-import { TTestComplexSkeletonConfig } from '../../../spec-helpers/test.helper.types';
+import { ITestComplexSkeletonConfig } from '../../../spec-helpers/test.helper.types';
 import { TestHelperGenerators } from '../../../spec-helpers/test.helper.generators';
 
 describe('SkeletonAdapterComponent', () => {
-  let component: SkeletonAdapterComponent<TTestComplexSkeletonConfig>;
+  let component: SkeletonAdapterComponent<ITestComplexSkeletonConfig>;
 
   beforeEach(() => {
-    component = new SkeletonAdapterComponent<TTestComplexSkeletonConfig>();
+    component = new SkeletonAdapterComponent<ITestComplexSkeletonConfig>();
   });
 
   it('should have null config', () => {
@@ -44,7 +44,7 @@ describe('SkeletonAdapterComponent', () => {
 
         expect(component.viewModels.length).toBe(4);
 
-        component.viewModels.forEach((schema: Schema<TTestComplexSkeletonConfig>) => {
+        component.viewModels.forEach((schema: Schema<ITestComplexSkeletonConfig>) => {
           expect(schema.value.stringArray.length).toEqual(2);
           expect(schema.value.stringArray.every((val: unknown) => typeof val === 'string')).toBe(true);
           expect(schema.value.someBool).toBeTypeOf('boolean');

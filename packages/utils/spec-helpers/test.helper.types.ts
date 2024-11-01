@@ -1,4 +1,4 @@
-export type TTestComplexSkeletonConfig = {
+export interface ITestComplexSkeletonConfig {
   stringArray: string[];
   someBool: boolean;
   complexObj: {
@@ -10,4 +10,4 @@ export type TTestComplexSkeletonConfig = {
       symbol: symbol;
     };
   };
-};
+}

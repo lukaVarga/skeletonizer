@@ -1,7 +1,9 @@
 {
   "extends": "./tsconfig.json",
+  "exclude": [],
   "include": [
-    "projects/**/*.ts",
+    "env.d.ts",
     "src/**/*.ts",
+    "src/**/*.vue",
   ]
 }

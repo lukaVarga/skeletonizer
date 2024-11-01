@@ -1,12 +1,12 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { SkeletonAbstractComponent } from '../skeleton.abstract.component';
-import { TTestComplexSkeletonConfig } from '../../../spec-helpers/test.helper.types';
+import { ITestComplexSkeletonConfig } from '../../../spec-helpers/test.helper.types';
 import { TestHelperGenerators } from '../../../spec-helpers/test.helper.generators';
 import { TSchemaConfig } from '../../types';
 import { Schema } from '../../models';
 
-class MockComponent extends SkeletonAbstractComponent<TTestComplexSkeletonConfig> {
-  public skeletonConfig: TSchemaConfig<TTestComplexSkeletonConfig> = {
+class MockComponent extends SkeletonAbstractComponent<ITestComplexSkeletonConfig> {
+  public skeletonConfig: TSchemaConfig<ITestComplexSkeletonConfig> = {
     repeat: 4,
     schemaGenerator: TestHelperGenerators.complexSkeletonSchemaConfigGenerator(),
   };
@@ -15,7 +15,7 @@ class MockComponent extends SkeletonAbstractComponent<TTestComplexSkeletonConfig
 }
 
 describe('SkeletonAbstractComponent', () => {
-  let component: SkeletonAbstractComponent<TTestComplexSkeletonConfig>;
+  let component: SkeletonAbstractComponent<ITestComplexSkeletonConfig>;
 
   beforeEach(() => {
     component = new MockComponent();
@@ -23,7 +23,7 @@ describe('SkeletonAbstractComponent', () => {
 
   describe('proxy', () => {
     it('returns the same object when passing a non-schema scope', () => {
-      const scope: TTestComplexSkeletonConfig = {
+      const scope: ITestComplexSkeletonConfig = {
         stringArray: ['string1', 'string2', 'string3'],
         someBool: true,
         complexObj: {
@@ -41,7 +41,7 @@ describe('SkeletonAbstractComponent', () => {
     });
 
     it('returns the schema value when passing schema scope', () => {
-      const schema: Schema<TTestComplexSkeletonConfig> = new Schema(component.skeletonConfig.schemaGenerator);
+      const schema: Schema<ITestComplexSkeletonConfig> = new Schema(component.skeletonConfig.schemaGenerator);
 
       expect(component.proxy(schema)).toBe(schema.value);
     });
