@@ -4,7 +4,7 @@
     "**/*.config.mts",
     "**/*.config.ts",
     "**/*.config.js",
-    "**/*.conf.js",
-    "**/.eslintrc.js",
+    "**/*.config.mjs",
+    "**/*.conf.js"
   ]
 }

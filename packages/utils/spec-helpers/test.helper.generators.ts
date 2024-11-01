@@ -1,8 +1,8 @@
 import { SchemaItem, TSchemaTransformer } from '../src';
-import { TTestComplexSkeletonConfig } from './test.helper.types';
+import { ITestComplexSkeletonConfig } from './test.helper.types';
 
 export class TestHelperGenerators {
-  public static complexSkeletonSchemaConfigGenerator(): () => TSchemaTransformer<TTestComplexSkeletonConfig> {
+  public static complexSkeletonSchemaConfigGenerator(): () => TSchemaTransformer<ITestComplexSkeletonConfig> {
     return () => ({
       stringArray: Array.from({ length: 2 }, () => new SchemaItem().words(5)),
       someBool: new SchemaItem().boolean(),

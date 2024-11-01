@@ -3,19 +3,19 @@ import { SkeletonizerComponentComposable } from '../skeletonizer.component.compo
 import { SchemaItem, SkeletonAbstractComponent, type TSchemaConfig, type TSchemaTransformer } from '@skeletonizer/utils';
 import { isReactive, type UnwrapNestedRefs } from 'vue';
 
-type TConfig = {
+interface IConfig {
   name: string;
   birthday: Date;
-};
+}
 
 describe('SkeletonizerComponentComposable', () => {
-  let skeletonConfig: TSchemaConfig<TConfig>;
-  let composable: UnwrapNestedRefs<SkeletonizerComponentComposable<TConfig>>;
+  let skeletonConfig: TSchemaConfig<IConfig>;
+  let composable: UnwrapNestedRefs<SkeletonizerComponentComposable<IConfig>>;
 
   beforeEach(() => {
     skeletonConfig = {
       repeat: 1,
-      schemaGenerator: (): TSchemaTransformer<TConfig> => ({
+      schemaGenerator: (): TSchemaTransformer<IConfig> => ({
         name: new SchemaItem().words(2),
         birthday: new SchemaItem<Date>().date({ max: new Date('1990-01-01') }),
       }),
@@ -47,5 +47,12 @@ describe('SkeletonizerComponentComposable', () => {
     composable = SkeletonizerComponentComposable.generate(skeletonConfig, false);
 
     expect(composable.showSkeleton).toBe(false);
+  });
+
+  it('is able to generate skeleton schema', () => {
+    expect(composable.skeletonConfig.schemaGenerator()).toEqual({
+      name: expect.any(SchemaItem),
+      birthday: expect.any(SchemaItem),
+    });
   });
 });

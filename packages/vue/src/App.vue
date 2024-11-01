@@ -6,11 +6,13 @@ import { type Ref, ref } from 'vue';
 import { SkeletonizerComponentComposable } from './lib/composables/skeletonizer.component.composable';
 import SkeletonizerSkeleton from './lib/components/SkeletonizerSkeleton.vue';
 
-type TSkeletonized = { message: string };
+interface ISkeletonized {
+  message: string;
+}
 
 const message: Ref<string> = ref('You did it!');
 
-const skeletonizer: SkeletonizerComponentComposable<TSkeletonized> = SkeletonizerComponentComposable.generate<TSkeletonized>(
+const skeletonizer: SkeletonizerComponentComposable<ISkeletonized> = SkeletonizerComponentComposable.generate<ISkeletonized>(
   {
     repeat: 1,
     schemaGenerator: () => ({

@@ -1,12 +1,12 @@
 import { expectTypeOf, it, describe } from 'vitest';
 import { TSchemaTransformer } from '../transformer.types';
-import { TTestComplexSkeletonConfig } from '../../../spec-helpers/test.helper.types';
+import { ITestComplexSkeletonConfig } from '../../../spec-helpers/test.helper.types';
 import { SchemaItem } from '../../models';
 
 describe('TSchemaTransfomer', () => {
   it('works with complex config', () => {
     // @ts-ignore
-    const complexConfig: TSchemaTransformer<TTestComplexSkeletonConfig> = {};
+    const complexConfig: TSchemaTransformer<ITestComplexSkeletonConfig> = {};
 
     expectTypeOf(complexConfig).toEqualTypeOf<{
       stringArray: Array<SchemaItem<string>>;

@@ -9,14 +9,14 @@ import { SkeletonizerComponentComposable } from '../../composables/skeletonizer.
 import { h, type UnwrapNestedRefs } from 'vue';
 import SkeletonizerSkeleton from '../SkeletonizerSkeleton.vue';
 
-type TScope = {
+interface IScope {
   name: string;
-};
+}
 
 describe('SkeletonizerSkeleton', () => {
   let wrapper: ReturnType<typeof mount<typeof SkeletonizerSkeleton>>;
-  let outerScope: TScope;
-  let skeletonizer: SkeletonizerComponentComposable<TScope>;
+  let outerScope: IScope;
+  let skeletonizer: SkeletonizerComponentComposable<IScope>;
   let primaryColor: string;
   let secondaryColor: string;
   let style: string;
@@ -25,7 +25,7 @@ describe('SkeletonizerSkeleton', () => {
   beforeEach(() => {
     skeletonizer = SkeletonizerComponentComposable.generate({
       repeat: 3,
-      schemaGenerator: (): TSchemaTransformer<TScope> => ({
+      schemaGenerator: (): TSchemaTransformer<IScope> => ({
         name: new SchemaItem<string>().words(2),
       }),
     }, true);
@@ -44,7 +44,7 @@ describe('SkeletonizerSkeleton', () => {
         default: ({ scope }: { scope: object }) => h(
           'div',
           { class: 'projected' },
-          skeletonizer.proxy(scope as TScope).name,
+          skeletonizer.proxy(scope as IScope).name,
         ),
       },
       props: {
@@ -57,14 +57,14 @@ describe('SkeletonizerSkeleton', () => {
   });
 
   describe('skeleton is shown', () => {
-    let component: UnwrapNestedRefs<SkeletonAdapterComponent<TScope>>;
+    let component: UnwrapNestedRefs<SkeletonAdapterComponent<IScope>>;
 
     beforeEach(() => {
       domIteration = (name: string): string => `<div style="${style}" data-skeletonizer="wrapper-element">
   <div class="projected"><span data-skeletonizer="text">${name}</span></div>
 </div>`;
 
-      component = (wrapper.vm as unknown as { component: UnwrapNestedRefs<SkeletonAdapterComponent<TScope>> }).component;
+      component = (wrapper.vm as unknown as { component: UnwrapNestedRefs<SkeletonAdapterComponent<IScope>> }).component;
     });
 
     it('renders skeletonized variant', () => {

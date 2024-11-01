@@ -1,11 +1,11 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { SchemaItem } from '../schema-item.model';
-import { TTestComplexSkeletonConfig } from '../../../spec-helpers/test.helper.types';
+import { ITestComplexSkeletonConfig } from '../../../spec-helpers/test.helper.types';
 import { TSchemaGenerator } from '../../types';
 import { Schema } from '../schema.model';
 
 describe('Schema', () => {
-  const generator: TSchemaGenerator<TTestComplexSkeletonConfig> = () => ({
+  const generator: TSchemaGenerator<ITestComplexSkeletonConfig> = () => ({
     stringArray: [new SchemaItem().identical('string1'), new SchemaItem().identical('string2')],
     someBool: new SchemaItem().identical(true),
     complexObj: {
@@ -19,10 +19,10 @@ describe('Schema', () => {
     },
   });
 
-  let schema: Schema<TTestComplexSkeletonConfig>;
+  let schema: Schema<ITestComplexSkeletonConfig>;
 
   beforeEach(() => {
-    schema = new Schema<TTestComplexSkeletonConfig>(generator);
+    schema = new Schema<ITestComplexSkeletonConfig>(generator);
   });
 
   it('creates an instance of the Schema class', () => {
@@ -30,7 +30,7 @@ describe('Schema', () => {
   });
 
   it('has the correct value', () => {
-    const expectedValue: TTestComplexSkeletonConfig = {
+    const expectedValue: ITestComplexSkeletonConfig = {
       stringArray: ['string1', 'string2'],
       someBool: true,
       complexObj: {
