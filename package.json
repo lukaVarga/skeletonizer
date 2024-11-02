@@ -13,7 +13,7 @@
     "build": "lerna run build",
     "type-check": "lerna run type-check --parallel",
     "prepare": "husky",
-    "semantic-release": "semantic-release",
+    "semantic-release": "HUSKY=0 semantic-release",
     "style-lint": "lerna run style-lint --parallel",
     "style-lintfix": "lerna run style-lintfix --parallel",
     "test": "lerna run test",
