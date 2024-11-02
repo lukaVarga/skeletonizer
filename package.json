@@ -78,15 +78,6 @@
     "branches": [
       "main"
     ],
-    "verifyConditions": [
-      "@semantic-release/npm",
-      "@semantic-release/github"
-    ],
-    "prepare": "semantic-release-lerna",
-    "publish": [
-      "semantic-release-lerna",
-      "@semantic-release/github"
-    ],
     "plugins": [
       "@semantic-release/commit-analyzer",
       [

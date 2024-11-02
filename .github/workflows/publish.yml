@@ -1,14 +1,8 @@
 name: Publish
 on:
-  # When Release Pull Request is merged
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
-    types: [ closed ]
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 permissions:
