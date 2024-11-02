@@ -1,7 +1,11 @@
 # This workflow will run linter on push
 name: Linter
 
-on: [push]
+on:
+  push:
+    branches-ignore:
+      - main
+  workflow_call:
 
 jobs:
   run-linter:
