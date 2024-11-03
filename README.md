@@ -18,6 +18,7 @@ Refer to the documentation for the specific adapter you are using:
 ## Contributing
 Run the following commands to get started:
 - `npm install`
+
 In the project you wish to work on, run the following command:
 - `npm run dev`
 

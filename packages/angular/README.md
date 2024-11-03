@@ -246,9 +246,9 @@ export class MyComponent extends SkeletonAbstractComponent<TSkeletonizedPart> im
 ```
 
 ### Color Scheme
-Generally speaking, you shouldn't need to adjust the color scheme of the skeletonized component in most cases. However, should you need to, the color scheme of the skeletonized views can be customized by providing the `colorScheme` property to the `SkeletonizerSkeletonComponent`.
+Generally speaking, you shouldn't need to adjust the color scheme of the skeletonized component in most cases. However, should you need to, the color scheme of the skeletonized views can be customized by providing the `colorSchema` property to the `SkeletonizerSkeletonComponent`.
 
-For more details about the `colorScheme` property, see the [colorSchema](/packages/utils/README.md#colorschema) section.
+For more details about the `colorSchema` property, see the [colorSchema](/packages/utils/README.md#colorschema) section.
 
 ## Contributing
 For Angular adapter-specific contributions, run the following commands to get started:
