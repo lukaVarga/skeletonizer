@@ -51,6 +51,6 @@ watch(
 </template>
 
 <style lang="scss">
-  @import '../../utils/src/styles/helpers';
-  @import '../../utils/src/styles/directives';
+  @use '../../utils/src/styles/helpers';
+  @use '../../utils/src/styles/directives';
 </style>
