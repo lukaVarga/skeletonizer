@@ -1,3 +1,10 @@
+## 1.1.2 (2024-11-04)
+
+
+### Bug Fixes
+
+* **vue:** sass deprecation warnings & build e0eb1da
+
 # 1.1.0 (2024-11-02)
 
 
