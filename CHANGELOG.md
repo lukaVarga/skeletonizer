@@ -1,3 +1,10 @@
+## 1.1.3 (2024-11-04)
+
+
+### Bug Fixes
+
+* **vue:** address sass deprecations & add Vue example gif and StackBlitz link a37f4ac
+
 ## 1.1.2 (2024-11-04)
 
 
