@@ -38,6 +38,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Install
         run: npm ci
+      - name: Build
+        run: npm run build
       - name: Semantic release
         run: npm run semantic-release
         env:

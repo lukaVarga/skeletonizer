@@ -1,31 +1,32 @@
-@import '../variables';
+@use 'sass:map';
+@use '../variables';
 
 @mixin select-wrapper-element {
-  [data-skeletonizer="#{map-get($skeletonized-data-enum, 'wrapper')}"] {
+  [data-skeletonizer="#{map.get(variables.$skeletonized-data-enum, 'wrapper')}"] {
     @content;
   }
 }
 
 @mixin select-text-element {
-  [data-skeletonizer="#{map-get($skeletonized-data-enum, 'text')}"] {
+  [data-skeletonizer="#{map.get(variables.$skeletonized-data-enum, 'text')}"] {
     @content;
   }
 }
 
 @mixin select-image-element {
-  [data-skeletonizer="#{map-get($skeletonized-data-enum, 'image')}"] {
+  [data-skeletonizer="#{map.get(variables.$skeletonized-data-enum, 'image')}"] {
     @content;
   }
 }
 
 @mixin select-video-element {
-  [data-skeletonizer="#{map-get($skeletonized-data-enum, 'video')}"] {
+  [data-skeletonizer="#{map.get(variables.$skeletonized-data-enum, 'video')}"] {
     @content;
   }
 }
 
 @mixin select-input-element {
-  [data-skeletonizer="#{map-get($skeletonized-data-enum, 'input')}"] {
+  [data-skeletonizer="#{map.get(variables.$skeletonized-data-enum, 'input')}"] {
     @content;
   }
 }

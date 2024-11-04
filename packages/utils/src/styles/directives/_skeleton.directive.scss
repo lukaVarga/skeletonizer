@@ -1,4 +1,7 @@
-@include select-wrapper-element {
+@use '../helpers/mixins';
+@use '../helpers/variables';
+
+@include mixins.select-wrapper-element {
   --skeletonizer-text-background: rgba(0, 0, 0, .2);
   display: contents;
   filter: grayscale(100%);
@@ -8,10 +11,10 @@
     pointer-events: none;
   }
 
-  @include select-text-element {
+  @include mixins.select-text-element {
     animation: text-animation 2s infinite ease-in-out;
     background: var(--skeletonizer-primary-color);
-    border-radius: $border-radius-text-line;
+    border-radius: variables.$border-radius-text-line;
     color: rgba(0, 0, 0, 0) !important;
 
     @keyframes text-animation {
