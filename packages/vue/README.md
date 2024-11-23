@@ -1,4 +1,8 @@
 # @skeletonizer/vue
+[![codecov](https://codecov.io/github/lukaVarga/skeletonizer/graph/badge.svg?token=4YZYRB9UN7)](https://codecov.io/github/lukaVarga/skeletonizer)
+![NPM Downloads](https://img.shields.io/npm/dy/%40skeletonizer%2Fvue?style=for-the-badge&labelColor=%23444&color=%23090)
+
+
 This is the Vue adapter for Skeletonizer. It provides a simple way to create skeletonized views for your Vue application.
 
 ![Vue example](https://github.com/lukaVarga/skeletonizer/blob/main/assets/skeletonizer-example-vue.gif?raw=true)

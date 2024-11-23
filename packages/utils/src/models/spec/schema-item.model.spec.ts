@@ -210,6 +210,51 @@ describe('SchemaItem', () => {
     });
   });
 
+  describe('timeOfDay', () => {
+    let schemaItem: SchemaItem<string>;
+    let date: Date;
+
+    beforeEach(() => {
+      date = new Date('2021-01-01T15:30:00.000Z');
+    });
+
+    it('generates a random time of day', () => {
+      schemaItem = new SchemaItem().timeOfDay();
+
+      expect(schemaItem.value).toBeTypeOf('string');
+      expect(schemaItem.value.split(':').length).toBe(2);
+      expect(schemaItem.value.split(':')[0]).toBeTypeOf('string');
+      expect(schemaItem.value.split(':')[1]).toBeTypeOf('string');
+
+      schemaItem.value.split(':').forEach((timePart: string) => {
+        expect(+timePart).toBeGreaterThanOrEqual(0);
+        expect(+timePart).toBeLessThanOrEqual(59);
+        expect(timePart.length).toBe(2);
+      });
+    });
+
+    it('uses the provided date to generate the time of day', () => {
+      expect(new SchemaItem().date({ min: date, max: date }).timeOfDay().value).toBe('15:30');
+    });
+
+    it('pads the hours, minutes and seconds with 0 if they are less than 10', () => {
+      date = new Date('2021-01-01T05:06:07.000Z');
+
+      expect(new SchemaItem().date({ min: date, max: date }).timeOfDay({ showSeconds: true }).value)
+        .toBe('05:06:07');
+    });
+
+    it('uses 12-hour format if use12HourFormat is set', () => {
+      expect(new SchemaItem().date({ min: date, max: date }).timeOfDay({ use12HourFormat: true }).value)
+        .toBe('03:30');
+    });
+
+    it('appends AM or PM if showAmPm is set', () => {
+      expect(new SchemaItem().date({ min: date, max: date }).timeOfDay({ showAmPm: true, use12HourFormat: true }).value)
+        .toBe('03:30 PM');
+    });
+  });
+
   describe('uuid', () => {
     it('always returns an incrementing number', () => {
       const initialId: number = new SchemaItem().uuid().value;

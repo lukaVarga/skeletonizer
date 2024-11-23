@@ -97,6 +97,33 @@ export class SchemaItem<T = never> {
     return this;
   }
 
+  public timeOfDay(
+    this: TSchemaInstance<Date | undefined>,
+    config: Partial<{ use12HourFormat: boolean; showSeconds: boolean; showAmPm: boolean }> = {},
+  ): TSchemaInstance<string> {
+    const date: Date = this.#val ?? this.date().value;
+
+    this.assertType<string>();
+
+    const hours: string = (config.use12HourFormat
+      ? date.getUTCHours() % 12
+      : date.getUTCHours()
+    ).toString().padStart(2, '0');
+
+    const minutes: string = date.getMinutes().toString().padStart(2, '0');
+    const seconds: string = date.getSeconds().toString().padStart(2, '0');
+
+    const that: TSchemaInstance<string> = this;
+
+    that.#val = config.showSeconds ? `${hours}:${minutes}:${seconds}` : `${hours}:${minutes}`;
+
+    if (config.showAmPm) {
+      that.#val += date.getUTCHours() >= 12 ? ' PM' : ' AM';
+    }
+
+    return that;
+  }
+
   public uuid(this: TSchemaInstance<number | undefined>): TSchemaInstance<number> {
     uuid++;
     this.assertType<number>();

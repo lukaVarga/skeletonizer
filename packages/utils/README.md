@@ -1,4 +1,8 @@
 # `@skeletonizer/utils`
+[![codecov](https://codecov.io/github/lukaVarga/skeletonizer/graph/badge.svg?token=4YZYRB9UN7)](https://codecov.io/github/lukaVarga/skeletonizer?style=for-the-badge)
+![NPM Downloads](https://img.shields.io/npm/dy/%40skeletonizer%2Futils?style=for-the-badge&labelColor=%23444&color=%23090)
+
+
 This is the general utility package for the Skeletonizer project. It should be used together with every adapter (eg. Vue, Angular) package.
 Roughly speaking, the usage of skeleton in the template boils down to the following steps:
 - surrounding the content you want to skeletonize with the `skeletonizer-skeleton` component and passing it through via content projection
@@ -61,6 +65,10 @@ This can be used for chaining the `SchemaItem().foo()` methods if `foo` returns 
 ### `date(config: Partial<{ isFuture: boolean; isPast: boolean; max: Date; min: Date }> = {})`
 Generates a random date within the range specified by the `config` parameter.
 This can be used eg. for simulating dates of birth, dates of creation, etc.
+
+### `timeOfDay(config: Partial<{ use12HourFormat: boolean; showSeconds: boolean; showAmPm: boolean }> = {})`
+Generates a random time of day, using the formatting specified by the `config` parameter.
+It can be chained to the `date` method should you wish to further restrict available times (eg. by providing a min and max date to the `date` method that are on the same day within the desired time range).
 
 ### `uuid()`
 Increments a global `uuid` variable and sets the current value of the `SchemaItem` instance to this new value.
