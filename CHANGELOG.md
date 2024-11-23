@@ -1,3 +1,10 @@
+## 1.3.1 (2024-11-23)
+
+
+### Bug Fixes
+
+* **release:** ensure release gets triggered after npm maintenance & dependabot config 5f195f2
+
 # 1.3.0 (2024-11-23)
 
 
