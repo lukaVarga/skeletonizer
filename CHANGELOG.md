@@ -1,3 +1,10 @@
+# 1.3.0 (2024-11-23)
+
+
+### Features
+
+* **utils:** implement time of day schema method, doc changes, dependabot fix 8a20ad8
+
 # 1.2.0 (2024-11-23)
 
 
