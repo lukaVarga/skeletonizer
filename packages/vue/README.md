@@ -1,5 +1,6 @@
 # @skeletonizer/vue
 [![codecov](https://codecov.io/github/lukaVarga/skeletonizer/graph/badge.svg?token=4YZYRB9UN7)](https://codecov.io/github/lukaVarga/skeletonizer)
+
 ![NPM Downloads](https://img.shields.io/npm/dy/%40skeletonizer%2Fvue?style=for-the-badge&labelColor=%23444&color=%23090)
 
 
