@@ -1,6 +1,6 @@
 {
   "name": "@skeletonizer/vue",
-  "version": "1.1.3",
+  "version": "1.2.0",
   "description": "The way to skeletonize your Vue.js components",
   "author": "Luka Varga",
   "license": "MIT",
@@ -55,7 +55,7 @@
     "vue": "^3.3.4"
   },
   "devDependencies": {
-    "@skeletonizer/utils": "^1.1.2",
+    "@skeletonizer/utils": "^1.2.0",
     "@tsconfig/node18": "^2.0.1",
     "@types/jsdom": "^21.1.7",
     "@types/node": "^20.17.5",
