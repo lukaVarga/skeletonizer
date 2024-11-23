@@ -1,7 +1,8 @@
 # @skeletonizer/vue
 This is the Vue adapter for Skeletonizer. It provides a simple way to create skeletonized views for your Vue application.
 
-![Vue example](../../assets/skeletonizer-example-vue.gif)
+![Vue example](https://github.com/lukaVarga/skeletonizer/blob/main/assets/skeletonizer-example-vue.gif?raw=true)
+
 Example app on Stackblitz [can be found here](https://stackblitz.com/edit/skeletonizer-vue-example?file=src%2Fviews%2Fdashboard%2FAnalyticsAward.vue)
 
 ## Installation

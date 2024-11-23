@@ -99,6 +99,18 @@ describe('SchemaItem', () => {
     });
   });
 
+  describe('currency', () => {
+    it('uses locale and currency to format the number', () => {
+      expect(new SchemaItem().identical(5_000).currency({ locale: 'en-US', currency: 'USD' }).value).toEqual('$5,000.00');
+
+      expect(new SchemaItem().identical('15289').currency({
+        locale: 'de-DE',
+        currency: 'EUR',
+        options: { currencyDisplay: 'code', minimumFractionDigits: 2 },
+      }).value).toEqual('15.289,00\u00A0EUR');
+    });
+  });
+
   describe('multiply', () => {
     it('multiplies the value by multiplier', () => {
       expect(new SchemaItem().identical(5).multiply(7).value).toBe(35);
@@ -234,6 +246,31 @@ describe('SchemaItem', () => {
 
       expect(schemaItem.value).toBeTypeOf('symbol');
       expect(schemaItem.value.toString()).toEqual(`Symbol(${symbolVal})`);
+    });
+  });
+
+  describe('randomItem', () => {
+    it('returns a random item from the provided array', () => {
+      const items: Array<SchemaItem<'foo' | 'bar' | 'baz'>> = Array.from({ length: 4000 })
+        .map(() => new SchemaItem().randomItem(['foo', 'bar', 'baz']));
+
+      expect(items.some((item: SchemaItem<'foo' | 'bar' | 'baz'>) => item.value === 'foo')).toBe(true);
+      expect(items.some((item: SchemaItem<'foo' | 'bar' | 'baz'>) => item.value === 'bar')).toBe(true);
+      expect(items.some((item: SchemaItem<'foo' | 'bar' | 'baz'>) => item.value === 'baz')).toBe(true);
+    });
+  });
+
+  describe('prefix', () => {
+    it('adds the prefix to the value', () => {
+      expect(new SchemaItem().identical('test').prefix('pre').value).toBe('pretest');
+      expect(new SchemaItem().identical(5).prefix('$').value).toBe('$5');
+    });
+  });
+
+  describe('suffix', () => {
+    it('adds the suffix to the value', () => {
+      expect(new SchemaItem().identical('test').suffix('suf').value).toBe('testsuf');
+      expect(new SchemaItem().identical(5).suffix('€').value).toBe('5€');
     });
   });
 

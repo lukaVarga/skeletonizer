@@ -50,6 +50,10 @@ This can be used eg. for simulating descriptions, articles, etc.
 Generates a random number between the `min` and `max` parameters.
 This can be used eg. for simulating prices, available quantities, etc.
 
+### `currency(config: { locale: string; currency: string; options?: Omit<Intl.NumberFormatOptions, 'style' | 'currency'> })`
+Turns the string or number value of the `SchemaItem` instance into a currency string of the provided locale and currency.
+This can be used in combination with the `number` method to simulate prices in different currencies - eg. `new SchemaItem().number(10, 100).currency({ locale: 'en-US', currency: 'USD' })`.
+
 ### `multiply(multiplier: number)`
 Multiplies the current value of the `SchemaItem` instance by the `multiplier` parameter.
 This can be used for chaining the `SchemaItem().foo()` methods if `foo` returns a number - ie `new SchemaItem().number(10, 100).multiply(5)`.
@@ -68,6 +72,17 @@ This can be used eg. for simulating whether a user is active, whether a product 
 
 ### `symbol(val: string | number = 0)`
 Creates a new unique symbol with the provided `val` as the description.
+
+### `randomItem(items: R[])`
+Sets the current value of the `SchemaItem` instance to a random item provided in the `items` parameter.
+
+### `prefix(prefix: string)`
+Adds a prefix to the current value of the `SchemaItem` instance.
+This can be used eg. to simulate currency when chaining with the `number` method - ie. `new SchemaItem().number(10, 100).prefix('$')`.
+
+### `suffix(suffix: string)`
+Adds a suffix to the current value of the `SchemaItem` instance.
+This can be used eg. to simulate percentages when chaining with the `number` method - ie. `new SchemaItem().number(10, 100).suffix('%')`.
 
 ### `identical(identity: R)`
 Sets the current value of the `SchemaItem` instance to the `identity` parameter.

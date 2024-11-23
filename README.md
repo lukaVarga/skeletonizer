@@ -6,7 +6,8 @@ It has adapters for Vue and Angular and is highly customizable and easy to use.
 With Skeletonizer, you do not need to worry about skeletonized views ever being out of sync with the designs of the components or component parts you wish to skeletonize.
 You only need to provide a skeleton config and the package will take care of the rest.
 
-![Vue example](./assets/skeletonizer-example-vue.gif)
+![Vue example](https://github.com/lukaVarga/skeletonizer/blob/main/assets/skeletonizer-example-vue.gif?raw=true)
+
 Example app on Stackblitz for Vue [can be found here](https://stackblitz.com/edit/skeletonizer-vue-example?file=src%2Fviews%2Fdashboard%2FAnalyticsAward.vue)
 
 ## Installation

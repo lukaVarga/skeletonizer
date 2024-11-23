@@ -56,6 +56,20 @@ export class SchemaItem<T = never> {
     return this;
   }
 
+  public currency(
+    this: TSchemaInstance<number | string>,
+    config: { locale: string; currency: string; options?: Omit<Intl.NumberFormatOptions, 'style' | 'currency'> },
+  ): TSchemaInstance<string> {
+    this.assertType<string>();
+
+    this.#val = new Intl.NumberFormat(
+      config.locale,
+      { ...config.options, style: 'currency', currency: config.currency },
+    ).format(+this.#val);
+
+    return this;
+  }
+
   public multiply(this: TSchemaInstance<number>, multiplier: number): TSchemaInstance<number> {
     this.assertType<number>();
     this.#val *= multiplier;
@@ -101,6 +115,30 @@ export class SchemaItem<T = never> {
   public symbol(this: TSchemaInstance<symbol | undefined>, val: string | number = 0): TSchemaInstance<symbol> {
     this.assertType<symbol>();
     this.#val = Symbol(val);
+
+    return this;
+  }
+
+  public randomItem<R>(this: TSchemaInstance<R | undefined>, items: R[]): TSchemaInstance<R> {
+    this.assertType<R>();
+    const index: number = Math.floor(Math.random() * items.length);
+
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    this.#val = items[index]!;
+
+    return this;
+  }
+
+  public prefix(this: TSchemaInstance<number | string>, prefix: string): TSchemaInstance<string> {
+    this.assertType<string>();
+    this.#val = `${prefix}${this.#val}`;
+
+    return this;
+  }
+
+  public suffix(this: TSchemaInstance<number | string>, suffix: string): TSchemaInstance<string> {
+    this.assertType<string>();
+    this.#val = `${this.#val}${suffix}`;
 
     return this;
   }
