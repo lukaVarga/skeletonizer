@@ -10,6 +10,10 @@ You only need to provide a skeleton config and the package will take care of the
 
 Example app on Stackblitz for Vue [can be found here](https://stackblitz.com/edit/skeletonizer-vue-example?file=src%2Fviews%2Fdashboard%2FAnalyticsAward.vue)
 
+![Angular example](https://github.com/lukaVarga/skeletonizer/blob/main/assets/skeletonizer-example-angular.gif?raw=true)
+
+Example app on Stackblitz for Angular [can be found here](https://stackblitz.com/edit/vitejs-vite-8vkyr6?file=src%2Fapp%2Fcomponents%2Frevenue-product%2Frevenue-product.component.ts)
+
 ## Installation
 To install the package, run the following command:
 `npm install @skeletonizer/vue @skeletonizer/utils --save` or `npm install @skeletonizer/angular @skeletonizer/utils --save`

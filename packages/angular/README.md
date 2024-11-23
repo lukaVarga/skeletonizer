@@ -1,6 +1,11 @@
 # @skeletonizer/angular
 This is the Angular adapter for Skeletonizer. It provides a simple way to create skeletonized views for your Angular application.
 
+![Angular example](https://github.com/lukaVarga/skeletonizer/blob/main/assets/skeletonizer-example-angular.gif?raw=true)
+
+Example app on Stackblitz for Angular [can be found here](https://stackblitz.com/edit/vitejs-vite-8vkyr6?file=src%2Fapp%2Fcomponents%2Frevenue-product%2Frevenue-product.component.ts)
+
+
 ## Installation
 To install the package, run the following command:
 `npm install @skeletonizer/angular @skeletonizer/utils --save`
