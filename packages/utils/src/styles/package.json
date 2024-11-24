@@ -1,0 +1,5 @@
+{
+  "name": "@skeletonizer/styles",
+  "main": "index.scss",
+  "private": true
+}
