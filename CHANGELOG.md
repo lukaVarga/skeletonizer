@@ -1,3 +1,10 @@
+## 1.4.2 (2024-11-24)
+
+
+### Bug Fixes
+
+* **actions:** prevent lifecycle failures in publish action 8ad472b
+
 ## 1.4.1 (2024-11-24)
 
 
