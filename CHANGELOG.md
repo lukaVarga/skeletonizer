@@ -1,3 +1,10 @@
+## 1.3.6 (2024-11-24)
+
+
+### Bug Fixes
+
+* **package latching:** latch package releases based on patch versions 13baab2
+
 ## 1.3.5 (2024-11-24)
 
 
