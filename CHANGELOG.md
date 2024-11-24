@@ -1,3 +1,10 @@
+## 1.3.7 (2024-11-24)
+
+
+### Bug Fixes
+
+* **ci:** ensure publish step works e0f8529
+
 ## 1.3.6 (2024-11-24)
 
 
