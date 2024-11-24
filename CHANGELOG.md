@@ -1,3 +1,10 @@
+## 1.3.5 (2024-11-24)
+
+
+### Bug Fixes
+
+* **deps:** bump @vitest/coverage-istanbul from 2.1.4 to 2.1.5 7799881
+
 ## 1.3.4 (2024-11-24)
 
 
