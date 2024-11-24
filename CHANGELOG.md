@@ -1,3 +1,10 @@
+## 1.3.4 (2024-11-24)
+
+
+### Bug Fixes
+
+* **ci:** prevent issues with clobbered tags 603b89c
+
 ## 1.3.3 (2024-11-24)
 
 
