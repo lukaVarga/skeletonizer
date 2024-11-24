@@ -1,3 +1,10 @@
+## 1.4.1 (2024-11-24)
+
+
+### Bug Fixes
+
+* **deps:** ensure dependabot is able to analyze packages 8517c9f
+
 # 1.4.0 (2024-11-24)
 
 
