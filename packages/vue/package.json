@@ -60,7 +60,7 @@
     "@types/jsdom": "^21.1.7",
     "@types/node": "^20.17.5",
     "@vitejs/plugin-vue": "^5.1.4",
-    "@vitest/browser": "2.1.4",
+    "@vitest/browser": "2.1.5",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.5.1",
     "eslint-plugin-vue": "^9.30.0",
