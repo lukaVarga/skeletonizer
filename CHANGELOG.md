@@ -1,3 +1,10 @@
+## 1.3.2 (2024-11-24)
+
+
+### Bug Fixes
+
+* **deps:** bump the vue group across 3 directories with 1 update e6dc67c
+
 ## 1.3.1 (2024-11-23)
 
 
