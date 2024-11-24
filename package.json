@@ -83,7 +83,8 @@
       [
         "semantic-release-lerna",
         {
-          "generateNotes": true
+          "generateNotes": true,
+          "latch": "patch"
         }
       ],
       "@semantic-release/changelog",
