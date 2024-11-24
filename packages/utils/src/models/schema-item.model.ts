@@ -56,6 +56,13 @@ export class SchemaItem<T = never> {
     return this;
   }
 
+  public float(this: TSchemaInstance<number | undefined>, min: number = 0, max: number = 1000): TSchemaInstance<number> {
+    this.assertType<number>();
+    this.#val = this.#val ? this.#val + Math.random() : (Math.random() * (max - min)) + min;
+
+    return this;
+  }
+
   public currency(
     this: TSchemaInstance<number | string>,
     config: { locale: string; currency: string; options?: Omit<Intl.NumberFormatOptions, 'style' | 'currency'> },

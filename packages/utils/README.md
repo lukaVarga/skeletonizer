@@ -55,6 +55,10 @@ This can be used eg. for simulating descriptions, articles, etc.
 Generates a random number between the `min` and `max` parameters.
 This can be used eg. for simulating prices, available quantities, etc.
 
+### `float(min: number = 0, max: number = 1000)`
+Generates a random float number between the `min` and `max` parameters.
+It can be chained on a number value - in that case, it turns the integer into a float.
+
 ### `currency(config: { locale: string; currency: string; options?: Omit<Intl.NumberFormatOptions, 'style' | 'currency'> })`
 Turns the string or number value of the `SchemaItem` instance into a currency string of the provided locale and currency.
 This can be used in combination with the `number` method to simulate prices in different currencies - eg. `new SchemaItem().number(10, 100).currency({ locale: 'en-US', currency: 'USD' })`.

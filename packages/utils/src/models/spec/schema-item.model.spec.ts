@@ -88,14 +88,60 @@ describe('SchemaItem', () => {
     });
 
     it('generates a random number between min and max provided values when min is negative and max is positive', () => {
-      schemaItem = new SchemaItem<number>().number(-100, 100);
-
       Array.from({ length: 2000 }).forEach(() => {
-        schemaItem.number(-100, 100);
+        schemaItem = new SchemaItem<number>().number(-100, 100);
 
         expect(schemaItem.value).toBeGreaterThanOrEqual(-100);
         expect(schemaItem.value).toBeLessThanOrEqual(100);
       });
+    });
+  });
+
+  describe('float', () => {
+    let schemaItem: SchemaItem<number>;
+
+    it('generates a random float between 0 and 1000 by default', () => {
+      Array.from({ length: 2000 }).forEach(() => {
+        schemaItem = new SchemaItem().float();
+
+        expect(schemaItem.value).toBeGreaterThanOrEqual(0);
+        expect(schemaItem.value).toBeLessThanOrEqual(1000);
+        expect(schemaItem.value).toBeGreaterThan(Math.floor(schemaItem.value));
+      });
+    });
+
+    it('generates a random float between min and max provided values', () => {
+      Array.from({ length: 2000 }).forEach(() => {
+        schemaItem = new SchemaItem().float(50, 100);
+
+        expect(schemaItem.value).toBeGreaterThanOrEqual(50);
+        expect(schemaItem.value).toBeLessThanOrEqual(100);
+      });
+    });
+
+    it('generates a random float between min and max provided values when both are negative', () => {
+      Array.from({ length: 2000 }).forEach(() => {
+        schemaItem = new SchemaItem().float(-500, -100);
+
+        expect(schemaItem.value).toBeGreaterThanOrEqual(-500);
+        expect(schemaItem.value).toBeLessThanOrEqual(-100);
+      });
+    });
+
+    it('generates a random float between min and max provided values when min is negative and max is positive', () => {
+      Array.from({ length: 2000 }).forEach(() => {
+        schemaItem = new SchemaItem().float(-100, 100);
+
+        expect(schemaItem.value).toBeGreaterThanOrEqual(-100);
+        expect(schemaItem.value).toBeLessThanOrEqual(100);
+      });
+    });
+
+    it('turns an integer into a float', () => {
+      schemaItem = new SchemaItem<number>().identical(5).float();
+
+      expect(schemaItem.value).toBeGreaterThan(5);
+      expect(schemaItem.value).toBeLessThan(6);
     });
   });
 
