@@ -15,10 +15,10 @@
   "peerDependencies": {
     "@angular/common": "^18.2.7",
     "@angular/core": "^18.2.7",
-    "@skeletonizer/utils": "^1.0.0"
+    "@skeletonizer/utils": "^1.4.4"
   },
   "devDependencies": {
-    "@skeletonizer/utils": "^1.1.0"
+    "@skeletonizer/utils": "^1.4.4"
   },
   "dependencies": {
     "tslib": "^2.3.0"

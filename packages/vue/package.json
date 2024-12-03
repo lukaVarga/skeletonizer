@@ -79,6 +79,5 @@
   "lint-staged": {
     "**/*.{scss,css}": "stylelint --fix",
     "**/*.{ts,js,.vue}": "eslint --fix"
-  },
-  "gitHead": "20f43121bbf2f33cd6fd0d2c953cba8e1c57345d"
+  }
 }
