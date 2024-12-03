@@ -51,6 +51,5 @@ watch(
 </template>
 
 <style lang="scss">
-  @use '../../utils/src/styles/helpers';
-  @use '../../utils/src/styles/directives';
+@use '@skeletonizer/styles';
 </style>

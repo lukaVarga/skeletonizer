@@ -26,6 +26,8 @@ type TOuterScope = TestComponent;
     </ng-template>
   </skeletonizer-skeleton>`,
   selector: 'test-component',
+  imports: [SkeletonizerSkeletonComponent],
+  standalone: true,
 })
 class TestComponent extends SkeletonAbstractComponent<ISkeletonScope> {
   @ViewChild(SkeletonizerSkeletonComponent) public skeletonInstance!: SkeletonizerSkeletonComponent<ISkeletonScope, TOuterScope>;
@@ -76,8 +78,8 @@ describe('SkeletonizerSkeletonComponent', () => {
     style = `--skeletonizer-primary-color: ${primaryColor}; --skeletonizer-secondary-color: ${secondaryColor};`;
 
     TestBed.configureTestingModule({
-      declarations: [TestComponent],
       imports: [
+        TestComponent,
         CommonModule,
         SkeletonizerSkeletonComponent,
       ],

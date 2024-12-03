@@ -13,6 +13,8 @@ import { By } from '@angular/platform-browser';
     </div>
   `,
   selector: 'mocked-component',
+  imports: [SkeletonizeDirective],
+  standalone: true,
 })
 class MockedComponent {
   @Input() public colorSchema: ISkeletonizerColorSchema | undefined;
@@ -29,8 +31,8 @@ describe('SkeletonizeDirective', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MockedComponent],
       imports: [
+        MockedComponent,
         CommonModule,
         SkeletonizeDirective,
       ],
