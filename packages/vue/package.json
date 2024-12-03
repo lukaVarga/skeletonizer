@@ -1,6 +1,6 @@
 {
   "name": "@skeletonizer/vue",
-  "version": "2.0.3-alpha.0",
+  "version": "1.5.0",
   "description": "The way to skeletonize your Vue.js components",
   "author": "Luka Varga",
   "license": "MIT",

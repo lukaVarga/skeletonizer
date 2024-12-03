@@ -1,3 +1,15 @@
+# 1.5.0 (2024-12-03)
+
+
+### Bug Fixes
+
+* **packages:** adjust peer dependency 9d3958c
+
+
+### Features
+
+* **angular:** add angular 19 support and update external deps b24bf48
+
 ## 1.4.4 (2024-11-25)
 
 
