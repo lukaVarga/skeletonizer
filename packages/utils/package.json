@@ -19,9 +19,9 @@
   "main": "./dist/utils.umd.js",
   "module": "./dist/utils.mjs",
   "exports": {
+    "types": "./dist/src/index.d.ts",
     "import": "./dist/utils.mjs",
     "require": "./dist/utils.umd.js",
-    "types": "./dist/src/index.d.ts",
     "default": "./dist/utils.mjs"
   },
   "publishConfig": {
