@@ -54,6 +54,5 @@
     "sass": "^1.81.1",
     "vite-plugin-dts": "^4.3.0",
     "vitest": "2.1.8"
-  },
-  "gitHead": "20f43121bbf2f33cd6fd0d2c953cba8e1c57345d"
+  }
 }

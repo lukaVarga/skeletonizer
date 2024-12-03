@@ -14,16 +14,19 @@ updates:
       angular:
         applies-to: version-updates
         patterns:
-        - "@angular*"
+          - "@angular-*"
+          - "@angular/*"
         update-types:
-        - "minor"
-        - "patch"
+          - "major"
+          - "minor"
+          - "patch"
       typescript-eslint:
         applies-to: version-updates
         patterns:
-          - "@typescript-eslint*"
+          - "@typescript-eslint/*"
           - "typescript-eslint"
         update-types:
+          - "major"
           - "minor"
           - "patch"
       vue:
@@ -34,14 +37,16 @@ updates:
           - "vite"
           - "vue*"
         update-types:
+          - "major"
           - "minor"
           - "patch"
       vitest:
         applies-to: version-updates
         patterns:
-          - "@vitest*"
+          - "@vitest/*"
           - "vitest"
         update-types:
+          - "major"
           - "minor"
           - "patch"
 
