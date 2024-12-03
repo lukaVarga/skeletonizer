@@ -20,9 +20,9 @@
   "module": "./dist/skeletonizer-vue.mjs",
   "exports": {
     ".": {
+      "types": "./dist/src/lib/index.d.ts",
       "import": "./dist/skeletonizer-vue.mjs",
-      "require": "./dist/skeletonizer-vue.umd.js",
-      "types": "./dist/src/lib/index.d.ts"
+      "require": "./dist/skeletonizer-vue.umd.js"
     },
     "./dist/*.css": "./dist/*.css"
   },
@@ -79,5 +79,6 @@
   "lint-staged": {
     "**/*.{scss,css}": "stylelint --fix",
     "**/*.{ts,js,.vue}": "eslint --fix"
-  }
+  },
+  "gitHead": "20f43121bbf2f33cd6fd0d2c953cba8e1c57345d"
 }
