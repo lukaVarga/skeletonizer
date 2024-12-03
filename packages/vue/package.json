@@ -51,11 +51,11 @@
     "lint-staged": "lint-staged"
   },
   "peerDependencies": {
-    "@skeletonizer/utils": "^2.0.2-alpha.0",
+    "@skeletonizer/utils": "^2.0.0",
     "vue": "^3.3.4"
   },
   "devDependencies": {
-    "@skeletonizer/utils": "^2.0.3-alpha.0",
+    "@skeletonizer/utils": "^2.0.0",
     "@tsconfig/node18": "^18.2.4",
     "@types/jsdom": "^21.1.7",
     "@types/node": "^22.10.1",
