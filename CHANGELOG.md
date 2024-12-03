@@ -1,3 +1,10 @@
+## 2.0.1 (2024-12-03)
+
+
+### Bug Fixes
+
+* **package.json:** update exports for types 3b62e08
+
 # 1.5.0 (2024-12-03)
 
 
