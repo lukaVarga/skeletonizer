@@ -1,3 +1,10 @@
+## 2.0.3 (2024-12-11)
+
+
+### Bug Fixes
+
+* **deps:** bump @stylistic/eslint-plugin-ts from 2.11.0 to 2.12.0 d8d277d
+
 ## 2.0.2 (2024-12-10)
 
 
