@@ -1,3 +1,10 @@
+## 2.0.5 (2024-12-12)
+
+
+### Bug Fixes
+
+* **deps:** bump the angular group across 2 directories with 8 updates afe00b5
+
 ## 2.0.4 (2024-12-11)
 
 
