@@ -1,3 +1,10 @@
+## 2.0.7 (2024-12-22)
+
+
+### Bug Fixes
+
+* **deps:** bump the angular group across 1 directory with 3 updates 0afb265
+
 ## 2.0.6 (2024-12-19)
 
 
