@@ -1,3 +1,10 @@
+## 2.0.9 (2024-12-23)
+
+
+### Bug Fixes
+
+* **deps:** bump webdriverio from 9.4.1 to 9.4.5 d7824ee
+
 ## 2.0.8 (2024-12-22)
 
 
