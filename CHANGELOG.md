@@ -1,3 +1,10 @@
+## 2.0.16 (2024-12-31)
+
+
+### Bug Fixes
+
+* **deps:** bump the vue group across 1 directory with 2 updates a3158c4
+
 ## 2.0.15 (2024-12-30)
 
 
