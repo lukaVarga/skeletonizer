@@ -1,3 +1,10 @@
+## 2.0.17 (2025-01-01)
+
+
+### Bug Fixes
+
+* **deps:** bump semantic-release-lerna from 2.9.0 to 2.10.0 b0d4178
+
 ## 2.0.16 (2024-12-31)
 
 
