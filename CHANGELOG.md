@@ -1,3 +1,10 @@
+## 2.0.24 (2025-01-10)
+
+
+### Bug Fixes
+
+* **deps:** bump webdriverio from 9.4.5 to 9.5.2 b683dbe
+
 ## 2.0.23 (2025-01-09)
 
 
