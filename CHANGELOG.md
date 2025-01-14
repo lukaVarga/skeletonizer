@@ -1,3 +1,10 @@
+## 2.0.27 (2025-01-14)
+
+
+### Bug Fixes
+
+* **deps:** bump vite-plugin-dts in the vue group across 1 directory a34671e
+
 ## 2.0.26 (2025-01-13)
 
 
