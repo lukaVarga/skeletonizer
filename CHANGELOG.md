@@ -1,3 +1,10 @@
+## 2.0.28 (2025-01-14)
+
+
+### Bug Fixes
+
+* **deps:** bump stylelint-config-standard from 36.0.1 to 37.0.0 8a5ede2
+
 ## 2.0.27 (2025-01-14)
 
 
