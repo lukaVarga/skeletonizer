@@ -1,3 +1,10 @@
+## 2.0.30 (2025-01-20)
+
+
+### Bug Fixes
+
+* **deps:** bump the vue group across 3 directories with 2 updates 6d03fef
+
 ## 2.0.29 (2025-01-15)
 
 
