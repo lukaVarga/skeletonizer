@@ -1,3 +1,10 @@
+## 2.0.38 (2025-02-04)
+
+
+### Bug Fixes
+
+* **deps:** bump the vitest group across 3 directories with 3 updates 1a68806
+
 ## 2.0.37 (2025-02-04)
 
 
