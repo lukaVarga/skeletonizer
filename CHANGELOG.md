@@ -1,3 +1,10 @@
+## 2.0.50 (2025-02-24)
+
+
+### Bug Fixes
+
+* **deps:** bump @stylistic/eslint-plugin-ts from 2.13.0 to 4.0.1 3e8d509
+
 ## 2.0.49 (2025-02-24)
 
 
