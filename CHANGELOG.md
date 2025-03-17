@@ -1,3 +1,10 @@
+## 2.0.57 (2025-03-17)
+
+
+### Bug Fixes
+
+* **deps:** bump stylelint-declaration-strict-value d4cb97e
+
 ## 2.0.56 (2025-03-13)
 
 
