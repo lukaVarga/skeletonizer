@@ -1,3 +1,10 @@
+## 2.0.58 (2025-03-23)
+
+
+### Bug Fixes
+
+* **deps:** bump the angular group across 1 directory with 3 updates 21ebddc
+
 ## 2.0.57 (2025-03-17)
 
 
