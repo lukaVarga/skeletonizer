@@ -1,3 +1,10 @@
+## 2.0.59 (2025-03-23)
+
+
+### Bug Fixes
+
+* **deps:** bump the typescript-eslint group across 1 directory with 3 updates ec17115
+
 ## 2.0.58 (2025-03-23)
 
 
