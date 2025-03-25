@@ -1,3 +1,10 @@
+## 2.0.61 (2025-03-25)
+
+
+### Bug Fixes
+
+* **deps:** bump @stylistic/stylelint-plugin from 3.1.1 to 3.1.2 e46bd1c
+
 ## 2.0.60 (2025-03-24)
 
 
