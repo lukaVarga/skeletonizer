@@ -1,6 +1,6 @@
 {
   "name": "skeletonizer",
-  "version": "2.0.64",
+  "version": "2.0.65",
   "description": "The way to skeletonize your components",
   "private": true,
   "scripts": {
