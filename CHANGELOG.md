@@ -1,3 +1,10 @@
+## 2.0.66 (2025-04-07)
+
+
+### Bug Fixes
+
+* **deps:** bump vue-eslint-parser in the vue group across 1 directory 55ff8ae
+
 ## 2.0.65 (2025-04-07)
 
 
