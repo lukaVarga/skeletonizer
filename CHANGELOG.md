@@ -1,3 +1,10 @@
+## 2.0.75 (2025-04-14)
+
+
+### Bug Fixes
+
+* **deps:** update typescript version 98fb1de
+
 ## 2.0.74 (2025-04-14)
 
 
