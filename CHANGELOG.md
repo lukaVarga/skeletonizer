@@ -1,3 +1,11 @@
+## 2.0.84 (2025-04-28)
+
+
+### Bug Fixes
+
+* **deps:** bump stylelint-order from 6.0.4 to 7.0.0 e796e11
+* **deps:** bump webdriverio from 9.12.5 to 9.12.7 5b0343b
+
 ## 2.0.83 (2025-04-28)
 
 
