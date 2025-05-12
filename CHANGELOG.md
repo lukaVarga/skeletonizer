@@ -1,3 +1,10 @@
+## 2.0.94 (2025-05-12)
+
+
+### Bug Fixes
+
+* **deps:** bump the typescript-eslint group across 1 directory with 3 updates dbd3daa
+
 ## 2.0.93 (2025-05-12)
 
 
