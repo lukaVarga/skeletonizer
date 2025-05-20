@@ -1,3 +1,10 @@
+## 2.0.98 (2025-05-20)
+
+
+### Bug Fixes
+
+* **deps:** bump @vitejs/plugin-vue from 5.2.3 to 5.2.4 10396ed
+
 ## 2.0.97 (2025-05-20)
 
 
