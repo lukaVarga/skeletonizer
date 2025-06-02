@@ -1,3 +1,10 @@
+## 2.0.104 (2025-06-02)
+
+
+### Bug Fixes
+
+* **deps:** bump the typescript-eslint group across 1 directory with 3 updates cf600dc
+
 ## 2.0.103 (2025-06-02)
 
 
