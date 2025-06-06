@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 import { ISkeletonizerColorSchema, SkeletonDirective } from '@skeletonizer/utils';
 import { SkeletonizeDirective } from './skeletonize.directive';
 import { By } from '@angular/platform-browser';
+import { BrowserTestingModule, platformBrowserTesting } from '@angular/platform-browser/testing';
 
 @Component({
   template: `
@@ -26,7 +26,7 @@ describe('SkeletonizeDirective', () => {
 
   beforeAll(() => {
     TestBed.resetTestEnvironment();
-    TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting(), { teardown: { destroyAfterEach: true } });
+    TestBed.initTestEnvironment(BrowserTestingModule, platformBrowserTesting(), { teardown: { destroyAfterEach: true } });
   });
 
   beforeEach(() => {

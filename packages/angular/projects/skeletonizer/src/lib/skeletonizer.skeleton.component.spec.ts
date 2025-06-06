@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SkeletonizerSkeletonComponent } from './skeletonizer.skeleton.component';
-import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 import {
   ISkeletonizerColorSchema,
   SchemaItem, SkeletonAbstractComponent,
@@ -11,6 +10,7 @@ import {
 import { Component, Input, ViewChild } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import { BrowserTestingModule, platformBrowserTesting } from '@angular/platform-browser/testing';
 
 interface ISkeletonScope {
   name: string;
@@ -59,7 +59,7 @@ describe('SkeletonizerSkeletonComponent', () => {
 
   beforeAll(() => {
     TestBed.resetTestEnvironment();
-    TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting(), { teardown: { destroyAfterEach: true } });
+    TestBed.initTestEnvironment(BrowserTestingModule, platformBrowserTesting(), { teardown: { destroyAfterEach: true } });
   });
 
   beforeEach(() => {
@@ -122,7 +122,7 @@ describe('SkeletonizerSkeletonComponent', () => {
 
       testComponentFixture.detectChanges();
 
-      const wrapper: string = `<div ng-reflect-color-schema="[object Object]" style="${style}" data-skeletonizer="wrapper-element">`;
+      const wrapper: string = `<div style="${style}" data-skeletonizer="wrapper-element">`;
       domIteration = (name: string): string => `${wrapper}<div class="projected"><span data-skeletonizer="text">${name}</span></div></div>`;
     });
 

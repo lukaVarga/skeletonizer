@@ -4,7 +4,7 @@ import globals from 'globals';
 import tsParser from '@typescript-eslint/parser';
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
-import stylisticTs from '@stylistic/eslint-plugin-ts';
+import stylisticTs from '@stylistic/eslint-plugin';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import angular from 'angular-eslint';
@@ -632,7 +632,7 @@ export default tseslint.config(
     rules: {
       ...pluginVue.configs['flat/recommended'].map(({ rules }) => rules).reduce((acc, curr) => ({ ...acc, ...curr }), {}),
       'vue/attributes-order': 'error',
-      'vue/component-tags-order': 'error',
+      'vue/block-order': 'error',
       'vue/no-lone-template': 'error',
       'vue/no-multiple-slot-args': 'error',
       'vue/no-v-html': 'error',
@@ -668,7 +668,7 @@ export default tseslint.config(
         custom: [],
         threshold: 1,
       }],
-      'vue/no-ref-object-destructure': 'error',
+      'vue/no-ref-object-reactivity-loss': 'error',
       'vue/no-static-inline-styles': ['error', { allowBinding: true }],
       'vue/no-useless-mustaches': 'error',
       'vue/no-useless-v-bind': 'error',
