@@ -1,3 +1,10 @@
+# 2.1.0 (2025-06-06)
+
+
+### Features
+
+* **angular 20:** add support for Angular 20 e408a1a
+
 ## 2.0.104 (2025-06-02)
 
 
