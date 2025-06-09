@@ -50,7 +50,7 @@
     "codecov": "^3.8.3",
     "commitizen": "^4.3.1",
     "conventional-changelog-angular": "^8.0.0",
-    "conventional-changelog-writer": "8.0.1",
+    "conventional-changelog-writer": "8.1.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.28.0",
     "globals": "^16.2.0",
