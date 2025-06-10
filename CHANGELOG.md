@@ -1,3 +1,10 @@
+## 2.1.3 (2025-06-10)
+
+
+### Bug Fixes
+
+* **deps:** bump the vitest group across 3 directories with 3 updates aeddb61
+
 ## 2.1.2 (2025-06-09)
 
 
