@@ -1,3 +1,10 @@
+## 2.1.4 (2025-06-10)
+
+
+### Bug Fixes
+
+* **deps:** bump conventional-changelog-writer from 8.0.1 to 8.1.0 cf1425e
+
 ## 2.1.3 (2025-06-10)
 
 
