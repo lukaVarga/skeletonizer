@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { SchemaItem, SkeletonAbstractComponent, TSchemaConfig } from '@skeletonizer/utils';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -27,6 +27,7 @@ const loadingSvg: string = '<svg width="24" height="24" viewBox="0 0 24 24" xmln
 })
 export class AppComponent extends SkeletonAbstractComponent<{ resources: IResource[] }> implements OnInit {
   public readonly title: string = 'angular';
+  public readonly sanitizer: DomSanitizer = inject(DomSanitizer);
 
   public resources: IResource[] = [];
   public showSkeleton: boolean = true;
@@ -41,12 +42,6 @@ export class AppComponent extends SkeletonAbstractComponent<{ resources: IResour
       })),
     }),
   };
-
-  public constructor(
-    public readonly sanitizer: DomSanitizer,
-  ) {
-    super();
-  }
 
   public ngOnInit(): void {
     setTimeout(() => {
