@@ -58,7 +58,7 @@
     "@skeletonizer/utils": "^2.1.13",
     "@tsconfig/node18": "^18.2.4",
     "@types/jsdom": "^21.1.7",
-    "@types/node": "^22.15.30",
+    "@types/node": "^24.0.3",
     "@vitejs/plugin-vue": "^5.2.4",
     "@vitest/browser": "3.2.3",
     "@vue/test-utils": "^2.4.6",
