@@ -1,3 +1,10 @@
+## 2.1.19 (2025-07-07)
+
+
+### Bug Fixes
+
+* **deps:** bump the vitest group across 3 directories with 2 updates edba335
+
 ## 2.1.18 (2025-07-07)
 
 
