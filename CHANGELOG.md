@@ -1,3 +1,10 @@
+## 2.1.20 (2025-07-14)
+
+
+### Bug Fixes
+
+* **deps:** bump vite in the vue group across 1 directory 65157d1
+
 ## 2.1.19 (2025-07-07)
 
 
