@@ -1,3 +1,10 @@
+## 2.1.24 (2025-07-23)
+
+
+### Bug Fixes
+
+* **deps:** bump form-data in the npm_and_yarn group across 1 directory e3d67b6
+
 ## 2.1.23 (2025-07-21)
 
 
