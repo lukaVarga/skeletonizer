@@ -1,3 +1,10 @@
+## 2.1.30 (2025-08-25)
+
+
+### Bug Fixes
+
+* **deps:** bump angular-eslint from 20.0.0 to 20.2.0 919abee
+
 ## 2.1.29 (2025-08-17)
 
 
