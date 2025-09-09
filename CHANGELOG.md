@@ -1,3 +1,10 @@
+## 2.1.36 (2025-09-09)
+
+
+### Bug Fixes
+
+* **deps:** bump vite in the npm_and_yarn group across 1 directory 7c0cbd7
+
 ## 2.1.35 (2025-09-08)
 
 
