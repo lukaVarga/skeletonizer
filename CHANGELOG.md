@@ -1,3 +1,10 @@
+## 2.1.42 (2025-10-27)
+
+
+### Bug Fixes
+
+* **deps:** bump vite in the npm_and_yarn group across 1 directory edf49bd
+
 ## 2.1.41 (2025-10-13)
 
 
