@@ -1,3 +1,10 @@
+## 2.1.45 (2025-11-06)
+
+
+### Bug Fixes
+
+* **deps:** bump vue-tsc in the vue group across 1 directory 5c1f6e1
+
 ## 2.1.44 (2025-10-31)
 
 
