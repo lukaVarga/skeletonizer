@@ -23,7 +23,7 @@ jobs:
     needs: [run-linter-workflow, run-tests-workflow]
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Setup Node ${{ matrix.node_version }}
         uses: actions/setup-node@v6
         with:
