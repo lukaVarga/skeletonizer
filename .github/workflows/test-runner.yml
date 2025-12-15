@@ -32,7 +32,7 @@ jobs:
           npm run build
           npm run coverage
       - name: Archive coverage report
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: coverage
           path: ./packages/*/coverage
