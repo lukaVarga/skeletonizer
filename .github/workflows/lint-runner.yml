@@ -16,4 +16,4 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
-      - run: npm run lint
+      - run: NX_NO_CACHE=true npm run lint
