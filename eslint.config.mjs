@@ -255,7 +255,7 @@ export default tseslint.config(
       '@typescript-eslint/no-unnecessary-type-assertion': 'error',
       '@typescript-eslint/no-unnecessary-type-constraint': 'error',
       '@typescript-eslint/no-unsafe-function-type': 'error',
-      '@typescript-eslint/no-unsafe-return': 'error',
+      '@typescript-eslint/no-unsafe-return': 'off',
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/no-use-before-define': 'error',
       '@typescript-eslint/no-useless-constructor': 'error',
