@@ -16,13 +16,13 @@
     "ui",
     "loading"
   ],
-  "main": "dist/skeletonizer/esm2022/skeletonizer-angular.mjs",
-  "types": "dist/skeletonizer/index.d.ts",
+  "main": "dist/skeletonizer/fesm2022/skeletonizer-angular.mjs",
+  "types": "dist/skeletonizer/types/skeletonizer-angular.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/skeletonizer/index.d.ts",
-      "esm": "./dist/skeletonizer/esm2022/skeletonizer-angular.mjs",
-      "esm2022": "./dist/skeletonizer/esm2022/skeletonizer-angular.mjs",
+      "types": "./dist/skeletonizer/types/skeletonizer-angular.d.ts",
+      "esm": "./dist/skeletonizer/fesm2022/skeletonizer-angular.mjs",
+      "esm2022": "./dist/skeletonizer/fesm2022/skeletonizer-angular.mjs",
       "default": "./dist/skeletonizer/fesm2022/skeletonizer-angular.mjs"
     }
   },
