@@ -1,3 +1,10 @@
+# 2.2.0 (2026-01-18)
+
+
+### Features
+
+* **packages & signals:** add Angular 21 support, update packages & migrate to signals in NG adapter 9411034
+
 ## 2.1.50 (2025-11-29)
 
 
