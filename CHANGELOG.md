@@ -1,3 +1,10 @@
+## 2.2.1 (2026-01-18)
+
+
+### Bug Fixes
+
+* **angular:** ensure types are properly registered bc4ba46
+
 # 2.2.0 (2026-01-18)
 
 
