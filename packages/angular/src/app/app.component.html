@@ -345,7 +345,7 @@
   <h2>Resources</h2>
   <p>Here are some links to help you get started:</p>
 
-  <skeletonizer-skeleton [showSkeleton]="showSkeleton" [config]="skeletonConfig" [scope]="{ resources }">
+  <skeletonizer-skeleton [showSkeleton]="showSkeleton()" [config]="skeletonConfig()" [scope]="{ resources }">
     <ng-template let-context>
       <div class="card-container">
         @for (resource of proxy(context).resources; track $index) {

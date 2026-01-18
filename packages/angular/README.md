@@ -45,9 +45,16 @@ You can use Skeletonizer either in a standalone component or in a component that
 If you wish to use Skeletonizer in a standalone component, you need to add `SkeletonizerSkeletonComponent` in the imports of the component.
 The usage in a component that is a part of a module is the same as the standalone component, but you need to add `SkeletonizerSkeletonComponent` in the imports of the **module** where the component is declared.
 
-Every component that uses Skeletonizer should extend `SkeletonAbstractComponent`, which is available in `@skeletonizer/utils`.
+Every component that uses Skeletonizer should extend `SkeletonAbstractComponent`, which is available in `@skeletonizer/angular`.
 The `SkeletonAbstractComponent` requires you to pass a type argument that represents the data model of the **part(s) of the component that you intend to skeletonize**.
 It also requires you to implement the `skeletonConfig` (type validated against the type argument you pass to `SkeletonAbstractComponent`) and `showSkeleton` properties which must be passed to the `SkeletonizerSkeletonComponent` as inputs.
+
+**Note:** In Angular, both `skeletonConfig` and `showSkeleton` should be `Signal` types to take advantage of Angular's reactive primitives:
+- `skeletonConfig` should be a `Signal<TSchemaConfig<T>>` (can be `WritableSignal` if you need to modify it)
+- `showSkeleton` should be a `WritableSignal<boolean>` or `Signal<boolean>`. Use `.set()` to update its value
+- Call them as functions in templates: `skeletonConfig()` and `showSkeleton()`
+Alternatively, you can import `SkeletonAbstractComponent` from `@skeletonizer/utils` and use non-reactive types, but this is not recommended.
+
 By extending the `SkeletonAbstractComponent`, you also get access to the `proxy` method via which you can (type) safely access props and methods **within the skeletonized part of the current component**.
 
 In the skeletonized part of the template, you **must** access the data through the `proxy(context)` method.
@@ -61,9 +68,9 @@ For more details about the `skeletonConfig` property, see the [TSchemaConfig](/p
 
 
 ```typescript
-import { Component } from '@angular/core';
-import { SkeletonizerSkeletonComponent } from '@skeletonizer/angular';
-import { SchemaItem, SkeletonAbstractComponent, TSchemaConfig } from '@skeletonizer/utils';
+import { Component, signal, Signal, WritableSignal } from '@angular/core';
+import { SkeletonizerSkeletonComponent, SkeletonAbstractComponent } from '@skeletonizer/angular';
+import { SchemaItem, TSchemaConfig } from '@skeletonizer/utils';
 import { DomSanitizer } from '@angular/platform-browser';
 
 interface IResource {
@@ -86,7 +93,7 @@ type TSkeletonizedPart = Pick<AppComponent, 'resources' | 'otherPropWeWantToUseI
   template: `
     <h2>{{ pageTitle }}</h2>
 
-    <skeletonizer-skeleton [showSkeleton]="showSkeleton" [config]="skeletonConfig" [scope]="{ resources, otherPropWeWantToUseInSkeletonizedPart }">
+    <skeletonizer-skeleton [showSkeleton]="showSkeleton()" [config]="skeletonConfig()" [scope]="{ resources, otherPropWeWantToUseInSkeletonizedPart }">
       <ng-template let-context>
         <span>{{ proxy(context).otherPropWeWantToUseInSkeletonizedPart }}</span>
 
@@ -109,9 +116,9 @@ export class MyComponent extends SkeletonAbstractComponent<TSkeletonizedPart> im
   public otherPropWeWantToUseInSkeletonizedPart: string = 'angular';
 
   public resources: IResource[] = [];
-  public showSkeleton: boolean = true;
+  public showSkeleton: WritableSignal<boolean> = signal(true);
 
-  public readonly skeletonConfig: TSchemaConfig<TSkeletonizedPart> = {
+  public readonly skeletonConfig: Signal<TSchemaConfig<TSkeletonizedPart>> = signal({
     repeat: 1,
     schemaGenerator: () => ({
       otherPropWeWantToUseInSkeletonizedPart: new SchemaItem<string>().words(3),
@@ -122,7 +129,7 @@ export class MyComponent extends SkeletonAbstractComponent<TSkeletonizedPart> im
         svg: new SchemaItem().identical(loadingSvg),
       })),
     }),
-  };
+  });
 
   public constructor(
     public readonly sanitizer: DomSanitizer,
@@ -148,7 +155,7 @@ export class MyComponent extends SkeletonAbstractComponent<TSkeletonizedPart> im
 
       this.otherPropWeWantToUseInSkeletonizedPart = 'loaded title'
 
-      this.showSkeleton = false;
+      this.showSkeleton.set(false);
     }, Math.max(3_000, Math.random() * 10_000));
   }
 }
@@ -158,9 +165,9 @@ You can also skeletonize multiple independent parts (ie. parts for which the dat
 You can also provide separate config and scope for each `skeletonizer-skeleton` component if needed, although it is recommended that you do not extend `SkeletonAbstractComponent` in this case, and you will need to provide your own (separate) `proxy`-like methods for each of the skeletonized parts of the component to maintain the same level of type safety in the template.
 
 ```typescript
-import { Component } from '@angular/core';
-import { SkeletonizerSkeletonComponent } from '@skeletonizer/angular';
-import { SchemaItem, SkeletonAbstractComponent, TSchemaConfig } from '@skeletonizer/utils';
+import { Component, signal, Signal, WritableSignal } from '@angular/core';
+import { SkeletonizerSkeletonComponent, SkeletonAbstractComponent } from '@skeletonizer/angular';
+import { SchemaItem, TSchemaConfig } from '@skeletonizer/utils';
 import { DomSanitizer } from '@angular/platform-browser';
 
 interface IResource {
@@ -181,7 +188,7 @@ type TSkeletonizedPart = Pick<AppComponent, 'resources' | 'otherPropWeWantToUseI
   template: `
     <h2>{{ pageTitle }}</h2>
 
-    <skeletonizer-skeleton [showSkeleton]="showSkeleton" [config]="skeletonConfig" [scope]="{ resources, otherPropWeWantToUseInSkeletonizedPart }">
+    <skeletonizer-skeleton [showSkeleton]="showSkeleton()" [config]="skeletonConfig()" [scope]="{ resources, otherPropWeWantToUseInSkeletonizedPart }">
       <ng-template let-context>
         @for (resource of proxy(context).resources; track $index) {
           <a target="_blank" rel="noopener" [href]="resource.link">
@@ -192,7 +199,7 @@ type TSkeletonizedPart = Pick<AppComponent, 'resources' | 'otherPropWeWantToUseI
       </ng-template>
     </skeletonizer-skeleton>
 
-    <skeletonizer-skeleton [showSkeleton]="showOtherSkeleton" [config]="skeletonConfig" [scope]="{ resources, otherPropWeWantToUseInSkeletonizedPart }">
+    <skeletonizer-skeleton [showSkeleton]="showOtherSkeleton()" [config]="skeletonConfig()" [scope]="{ resources, otherPropWeWantToUseInSkeletonizedPart }">
       <ng-template let-context>
         <span>{{ proxy(context).otherPropWeWantToUseInSkeletonizedPart }}</span>
       </ng-template>
@@ -208,9 +215,10 @@ export class MyComponent extends SkeletonAbstractComponent<TSkeletonizedPart> im
   public otherPropWeWantToUseInSkeletonizedPart: string = 'angular';
 
   public resources: IResource[] = [];
-  public showSkeleton: boolean = true;
+  public showSkeleton: WritableSignal<boolean> = signal(true);
+  public showOtherSkeleton: WritableSignal<boolean> = signal(true);
 
-  public readonly skeletonConfig: TSchemaConfig<TSkeletonizedPart> = {
+  public readonly skeletonConfig: Signal<TSchemaConfig<TSkeletonizedPart>> = signal({
     repeat: 1,
     schemaGenerator: () => ({
       otherPropWeWantToUseInSkeletonizedPart: new SchemaItem<string>().words(3),
@@ -221,7 +229,7 @@ export class MyComponent extends SkeletonAbstractComponent<TSkeletonizedPart> im
         svg: new SchemaItem().identical(loadingSvg),
       })),
     }),
-  };
+  });
 
   public constructor(
     public readonly sanitizer: DomSanitizer,
@@ -244,11 +252,11 @@ export class MyComponent extends SkeletonAbstractComponent<TSkeletonizedPart> im
         },
       ];
 
-      this.showSkeleton = false;
+      this.showSkeleton.set(false);
     }, Math.max(3_000, Math.random() * 10_000));
 
     setTimeout(() => {
-      this.showOtherSkeleton = false;
+      this.showOtherSkeleton.set(false);
     }, Math.max(6_000, Math.random() * 10_000));
   }
 }

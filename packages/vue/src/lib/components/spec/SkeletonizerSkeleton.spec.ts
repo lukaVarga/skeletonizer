@@ -68,9 +68,9 @@ describe('SkeletonizerSkeleton', () => {
     });
 
     it('renders skeletonized variant', () => {
-      const expectedHtml: string = `${domIteration(component.viewModels[0].value.name)}
-${domIteration(component.viewModels[1].value.name)}
-${domIteration(component.viewModels[2].value.name)}`;
+      const expectedHtml: string = `${domIteration(component.viewModels[0]!.value.name)}
+${domIteration(component.viewModels[1]!.value.name)}
+${domIteration(component.viewModels[2]!.value.name)}`;
 
       expect(wrapper.html()).toEqual(expectedHtml);
     });
@@ -80,7 +80,7 @@ ${domIteration(component.viewModels[2].value.name)}`;
 
       await wrapper.vm.$nextTick();
 
-      expect(wrapper.html()).toEqual(domIteration(component.viewModels[0].value.name));
+      expect(wrapper.html()).toEqual(domIteration(component.viewModels[0]!.value.name));
     });
   });
 

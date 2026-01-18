@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, InputSignal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ISkeletonizerColorSchema, SkeletonDirective } from '@skeletonizer/utils';
@@ -8,7 +8,7 @@ import { BrowserTestingModule, platformBrowserTesting } from '@angular/platform-
 
 @Component({
   template: `
-    <div [skeletonize]="colorSchema">
+    <div [skeletonize]="colorSchema()">
       <div>Foo</div>
     </div>
   `,
@@ -17,7 +17,7 @@ import { BrowserTestingModule, platformBrowserTesting } from '@angular/platform-
   standalone: true,
 })
 class MockedComponent {
-  @Input() public colorSchema: ISkeletonizerColorSchema | undefined;
+  public colorSchema: InputSignal<ISkeletonizerColorSchema | undefined> = input<ISkeletonizerColorSchema | undefined>(undefined);
 }
 
 describe('SkeletonizeDirective', () => {
@@ -48,10 +48,12 @@ describe('SkeletonizeDirective', () => {
 
   describe('ngAfterViewInit', () => {
     it('should call SkeletonDirective.skeletonizeProjectedTemplate with native element and color schema', () => {
-      component.colorSchema = {
+      const colorSchema: ISkeletonizerColorSchema = {
         primaryColor: 'rgba(0, 23, 28, .8)',
         secondaryColor: 'rgba(29, 88, 23, .6)',
       };
+
+      fixture.componentRef.setInput('colorSchema', colorSchema);
 
       spyOn(SkeletonDirective, 'skeletonizeProjectedTemplate').and.callThrough();
 
@@ -59,7 +61,7 @@ describe('SkeletonizeDirective', () => {
 
       expect(SkeletonDirective.skeletonizeProjectedTemplate).toHaveBeenCalledOnceWith(
         fixture.debugElement.query(By.directive(SkeletonizeDirective)).nativeElement,
-        component.colorSchema,
+        colorSchema,
       );
     });
   });

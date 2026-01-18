@@ -157,7 +157,6 @@ export class SchemaItem<T = never> {
     this.assertType<R>();
     const index: number = Math.floor(Math.random() * items.length);
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     this.#val = items[index]!;
 
     return this;

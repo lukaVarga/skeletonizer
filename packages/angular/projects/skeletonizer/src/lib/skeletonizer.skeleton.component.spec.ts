@@ -2,15 +2,16 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SkeletonizerSkeletonComponent } from './skeletonizer.skeleton.component';
 import {
   ISkeletonizerColorSchema,
-  SchemaItem, SkeletonAbstractComponent,
+  SchemaItem,
   SkeletonAdapterComponent,
   TSchemaConfig,
   TSchemaTransformer,
 } from '@skeletonizer/utils';
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, input, InputSignal, signal, ViewChild, WritableSignal } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { BrowserTestingModule, platformBrowserTesting } from '@angular/platform-browser/testing';
+import { SkeletonAbstractComponent } from './skeleton-abstract.component';
 
 interface ISkeletonScope {
   name: string;
@@ -20,7 +21,7 @@ type TOuterScope = TestComponent;
 
 @Component({
   template: `
-  <skeletonizer-skeleton [config]="skeletonConfig" [scope]="this" [colorSchema]="colorSchema" [showSkeleton]="showSkeleton">
+  <skeletonizer-skeleton [config]="skeletonConfig()" [scope]="this" [colorSchema]="colorSchema()" [showSkeleton]="showSkeleton()">
     <ng-template let-context>
       <div class="projected">{{ proxy(context).name }}</div>
     </ng-template>
@@ -31,18 +32,17 @@ type TOuterScope = TestComponent;
 })
 class TestComponent extends SkeletonAbstractComponent<ISkeletonScope> {
   @ViewChild(SkeletonizerSkeletonComponent) public skeletonInstance!: SkeletonizerSkeletonComponent<ISkeletonScope, TOuterScope>;
-  @Input() public scope!: TOuterScope;
-  @Input() public showSkeleton!: boolean;
-  @Input() public colorSchema?: ISkeletonizerColorSchema;
+  public showSkeleton: WritableSignal<boolean> = signal(false);
+  public colorSchema: InputSignal<ISkeletonizerColorSchema | undefined> = input<ISkeletonizerColorSchema | undefined>(undefined);
 
   public name: string = 'John Doe';
 
-  public skeletonConfig: TSchemaConfig<ISkeletonScope> = {
+  public skeletonConfig: WritableSignal<TSchemaConfig<ISkeletonScope>> = signal({
     repeat: 3,
     schemaGenerator: () => ({
       name: new SchemaItem<string>().words(3),
     }),
-  };
+  });
 }
 
 describe('SkeletonizerSkeletonComponent', () => {
@@ -85,11 +85,17 @@ describe('SkeletonizerSkeletonComponent', () => {
       ],
     });
 
+    testComponentFixture = TestBed.createComponent(TestComponent);
+    testComponent = testComponentFixture.componentInstance;
+
     fixture = TestBed.createComponent(SkeletonizerSkeletonComponent<ISkeletonScope, TOuterScope>);
     component = fixture.componentInstance;
 
-    testComponentFixture = TestBed.createComponent(TestComponent);
-    testComponent = testComponentFixture.componentInstance;
+    // Set required inputs before detectChanges
+    fixture.componentRef.setInput('config', config);
+    fixture.componentRef.setInput('showSkeleton', false);
+    fixture.componentRef.setInput('scope', testComponent);
+
     testComponentFixture.detectChanges();
 
     fixture.detectChanges();
@@ -101,24 +107,34 @@ describe('SkeletonizerSkeletonComponent', () => {
 
   describe('configInput', () => {
     it('stores config before calling setupModels', () => {
-      spyOn(component, 'setupModels').and.callFake(() => {
-        expect(component.config).toBe(config);
+      // Create a new fixture to test the initial config setup
+      const newFixture: ComponentFixture<SkeletonizerSkeletonComponent<ISkeletonScope, TOuterScope>>
+        = TestBed.createComponent(SkeletonizerSkeletonComponent<ISkeletonScope, TOuterScope>);
+
+      const newComponent: SkeletonizerSkeletonComponent<ISkeletonScope, TOuterScope> = newFixture.componentInstance;
+
+      spyOn(newComponent, 'setupModels').and.callFake(() => {
+        expect(newComponent.config).toBe(config);
       });
 
-      component.configInput = config;
+      newFixture.componentRef.setInput('config', config);
+      newFixture.componentRef.setInput('showSkeleton', false);
+      newFixture.componentRef.setInput('scope', testComponent);
 
-      expect(component.setupModels).toHaveBeenCalledTimes(1);
+      newFixture.detectChanges();
+
+      expect(newComponent.setupModels).toHaveBeenCalledTimes(1);
     });
   });
 
   describe('skeleton is shown', () => {
     beforeEach(() => {
-      testComponent.showSkeleton = true;
+      testComponent.showSkeleton.set(true);
 
-      testComponent.colorSchema = {
+      testComponentFixture.componentRef.setInput('colorSchema', {
         primaryColor,
         secondaryColor,
-      };
+      });
 
       testComponentFixture.detectChanges();
 
@@ -140,11 +156,13 @@ describe('SkeletonizerSkeletonComponent', () => {
     });
 
     it('adjusts the DOM if skeleton config changes', () => {
-      testComponent.skeletonConfig = {
-        ...testComponent.skeletonConfig,
+      testComponent.skeletonConfig.update((conf: TSchemaConfig<ISkeletonScope>) => ({
+        ...conf,
         repeat: 1,
-      };
+      }));
 
+      testComponentFixture.detectChanges();
+      TestBed.tick();
       testComponentFixture.detectChanges();
 
       expect(
@@ -157,7 +175,7 @@ describe('SkeletonizerSkeletonComponent', () => {
 
   describe('skeleton is not shown', () => {
     it('shows non-skeletonized variant once showSkeleton is set to false', () => {
-      testComponent.showSkeleton = false;
+      testComponent.showSkeleton.set(false);
 
       testComponentFixture.detectChanges();
 

@@ -1,6 +1,7 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { SchemaItem, SkeletonAbstractComponent, TSchemaConfig } from '@skeletonizer/utils';
+import { Component, inject, OnInit, Signal, signal, WritableSignal } from '@angular/core';
+import { SchemaItem, TSchemaConfig } from '@skeletonizer/utils';
 import { DomSanitizer } from '@angular/platform-browser';
+import { SkeletonizerSkeletonComponent, SkeletonAbstractComponent } from '../../projects/skeletonizer/src/public-api';
 
 interface IResource {
   title: string;
@@ -24,15 +25,18 @@ const loadingSvg: string = '<svg width="24" height="24" viewBox="0 0 24 24" xmln
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  imports: [
+    SkeletonizerSkeletonComponent,
+  ],
 })
 export class AppComponent extends SkeletonAbstractComponent<{ resources: IResource[] }> implements OnInit {
   public readonly title: string = 'angular';
   public readonly sanitizer: DomSanitizer = inject(DomSanitizer);
 
   public resources: IResource[] = [];
-  public showSkeleton: boolean = true;
+  public showSkeleton: WritableSignal<boolean> = signal(true);
 
-  public skeletonConfig: TSchemaConfig<{ resources: IResource[] }> = {
+  public skeletonConfig: Signal<TSchemaConfig<{ resources: IResource[] }>> = signal({
     repeat: 1,
     schemaGenerator: () => ({
       resources: Array.from({ length: 5 }, () => ({
@@ -41,7 +45,7 @@ export class AppComponent extends SkeletonAbstractComponent<{ resources: IResour
         svg: new SchemaItem().identical(loadingSvg),
       })),
     }),
-  };
+  });
 
   public ngOnInit(): void {
     setTimeout(() => {
@@ -73,7 +77,7 @@ export class AppComponent extends SkeletonAbstractComponent<{ resources: IResour
         },
       ];
 
-      this.showSkeleton = false;
+      this.showSkeleton.set(false);
     }, Math.max(3_000, Math.random() * 10_000));
   }
 }

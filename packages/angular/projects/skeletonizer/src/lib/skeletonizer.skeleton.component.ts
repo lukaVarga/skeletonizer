@@ -1,4 +1,4 @@
-import { Component, ContentChild, Input, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { Component, ContentChild, effect, input, InputSignal, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { ISkeletonizerColorSchema, Schema, SkeletonAdapterComponent, TSchemaConfig } from '@skeletonizer/utils';
 import { SkeletonizeDirective } from './skeletonize.directive';
 import { NgTemplateOutlet } from '@angular/common';
@@ -17,13 +17,17 @@ import { NgTemplateOutlet } from '@angular/common';
 export class SkeletonizerSkeletonComponent<T extends object, Scope extends T> extends SkeletonAdapterComponent<T> {
   @ContentChild(TemplateRef) public readonly templateRef!: TemplateRef<{ $implicit: Schema<T> | Scope }>;
 
-  @Input({ required: true }) public showSkeleton!: boolean;
-  @Input({ required: true }) public scope!: Scope;
-  @Input() public colorSchema?: ISkeletonizerColorSchema;
+  public readonly showSkeleton: InputSignal<boolean> = input.required<boolean>();
+  public readonly scope: InputSignal<Scope> = input.required<Scope>();
+  public readonly configInput: InputSignal<TSchemaConfig<T>> = input.required<TSchemaConfig<T>>({ alias: 'config' });
+  public readonly colorSchema: InputSignal<ISkeletonizerColorSchema | undefined> = input<ISkeletonizerColorSchema | undefined>(undefined);
 
-  @Input({ alias: 'config', required: true }) public set configInput(config: TSchemaConfig<T>) {
-    this.config = config;
+  public constructor() {
+    super();
 
-    this.setupModels();
+    effect(() => {
+      this.config = this.configInput();
+      this.setupModels();
+    });
   }
 }
