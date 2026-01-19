@@ -5,6 +5,11 @@ export class SkeletonDirective {
   public static readonly dataAttr: string = 'data-skeletonizer';
 
   public static skeletonizeProjectedTemplate(template: HTMLElement, colorSchema?: ISkeletonizerColorSchema): void {
+    // Skip processing in SSR context to prevent hydration mismatches
+    if (!this.isBrowser()) {
+      return;
+    }
+
     const primaryColor: string = colorSchema?.primaryColor ?? SkeletonizerColorSchemaEnum.PrimaryColor;
     const secondaryColor: string = colorSchema?.secondaryColor ?? SkeletonizerColorSchemaEnum.SecondaryColor;
 
@@ -92,6 +97,10 @@ export class SkeletonDirective {
     span.setAttribute(SkeletonDirective.dataAttr, nodeType);
 
     return span;
+  }
+
+  private static isBrowser(): boolean {
+    return typeof document !== 'undefined';
   }
 
   private static assertAs<Type>(_arg: unknown): asserts _arg is Type {}

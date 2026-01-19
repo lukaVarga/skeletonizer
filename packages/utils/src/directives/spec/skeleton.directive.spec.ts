@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { SkeletonDirective } from '../skeleton.directive';
 import { SkeletonizedDataEnum, SkeletonizerColorSchemaEnum } from '../../constants';
 
@@ -29,6 +29,49 @@ Outer text
     <svg><use xlink:href="/link-to-svg-sprite#icon-id"></use></svg>
 </div>
       `;
+    });
+
+    describe('SSR context', () => {
+      let originalDocument: typeof document;
+      let ssrHtml: HTMLElement;
+      let originalInnerHTML: string;
+
+      beforeEach(() => {
+        // Create the element before we remove document
+        ssrHtml = document.createElement('div');
+
+        ssrHtml.innerHTML = `
+<div>
+    <h1>Header text</h1>
+    <div><img src="img.jpg"></div>
+    <div><video src="video.mp4"></video></div>
+    <div><input type="text" /></div>
+</div>
+        `;
+
+        originalInnerHTML = ssrHtml.innerHTML;
+
+        originalDocument = globalThis.document;
+        // Simulate SSR environment by making document undefined
+        // @ts-expect-error - intentionally setting document to undefined for SSR simulation
+        delete globalThis.document;
+      });
+
+      afterEach(() => {
+        // Restore document after test
+        globalThis.document = originalDocument;
+      });
+
+      it('skips processing entirely in SSR context to prevent hydration mismatches', () => {
+        expect(() => {
+          SkeletonDirective.skeletonizeProjectedTemplate(ssrHtml);
+        }).not.toThrow();
+
+        // Verify no modifications were made to the template
+        expect(ssrHtml.innerHTML).toEqual(originalInnerHTML);
+        expect(ssrHtml.getAttribute('data-skeletonizer')).toBeNull();
+        expect(ssrHtml.getAttribute('style')).toBeNull();
+      });
     });
 
     describe('outer element', () => {
