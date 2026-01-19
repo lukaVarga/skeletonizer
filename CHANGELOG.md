@@ -1,3 +1,10 @@
+## 2.2.4 (2026-01-19)
+
+
+### Bug Fixes
+
+* **ssr:** prevent runtime issues in SSR context 82aa910
+
 ## 2.2.3 (2026-01-19)
 
 
