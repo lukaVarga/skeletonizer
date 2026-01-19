@@ -63,7 +63,7 @@
     "semantic-release-lerna": "^2.16.4",
     "stylelint": "^16.26.1",
     "stylelint-config-sass-guidelines": "^12.1.0",
-    "stylelint-config-standard": "^39.0.1",
+    "stylelint-config-standard": "^40.0.0",
     "stylelint-declaration-strict-value": "^1.10.11",
     "stylelint-order": "^7.0.1",
     "typescript": "~5.9.3",
