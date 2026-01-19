@@ -57,7 +57,7 @@
   "devDependencies": {
     "@skeletonizer/utils": "^2.2.1",
     "@tsconfig/node18": "^18.2.4",
-    "@types/jsdom": "^21.1.7",
+    "@types/jsdom": "^27.0.0",
     "@types/node": "^24.3.0",
     "@vitejs/plugin-vue": "^6.0.3",
     "@vitest/browser": "4.0.17",
