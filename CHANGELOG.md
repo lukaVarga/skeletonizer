@@ -1,3 +1,10 @@
+## 2.2.3 (2026-01-19)
+
+
+### Bug Fixes
+
+* **deps:** bump vue in the vue group across 1 directory bed56f8
+
 ## 2.2.2 (2026-01-19)
 
 
