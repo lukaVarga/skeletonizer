@@ -1,3 +1,10 @@
+## 2.2.6 (2026-03-02)
+
+
+### Bug Fixes
+
+* **deps:** bump the angular group across 1 directory with 8 updates 74fbd0c
+
 ## 2.2.5 (2026-01-22)
 
 
