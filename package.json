@@ -45,7 +45,7 @@
     "@semantic-release/git": "^10.0.1",
     "@skeletonizer/styles": "file:packages/utils/src/styles",
     "@stylistic/eslint-plugin": "^5.7.0",
-    "@stylistic/stylelint-plugin": "^4.0.1",
+    "@stylistic/stylelint-plugin": "^5.0.1",
     "@types/eslint__js": "^9.14.0",
     "codecov": "^3.8.3",
     "commitizen": "^4.3.1",
