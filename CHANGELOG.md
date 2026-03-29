@@ -1,3 +1,10 @@
+## 2.2.8 (2026-03-29)
+
+
+### Bug Fixes
+
+* **deps:** bump flatted from 3.3.3 to 3.4.2 ([#290](undefined/lukaVarga/skeletonizer/issues/290)) 3d77dcf
+
 ## 2.2.7 (2026-03-25)
 
 
