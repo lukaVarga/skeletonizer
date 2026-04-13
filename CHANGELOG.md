@@ -1,3 +1,10 @@
+# 2.4.0 (2026-04-13)
+
+
+### Features
+
+* **skeleton:** add blur to input and select elements 13b34c1
+
 # 2.3.0 (2026-04-13)
 
 
