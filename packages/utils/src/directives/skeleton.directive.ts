@@ -67,7 +67,13 @@ export class SkeletonDirective {
               }
 
               case 'input': {
-                (childNode as HTMLImageElement).setAttribute(SkeletonDirective.dataAttr, SkeletonizedDataEnum.Input);
+                (childNode as HTMLInputElement).setAttribute(SkeletonDirective.dataAttr, SkeletonizedDataEnum.Input);
+
+                break;
+              }
+
+              case 'select': {
+                (childNode as HTMLSelectElement).setAttribute(SkeletonDirective.dataAttr, SkeletonizedDataEnum.Select);
 
                 break;
               }
@@ -79,7 +85,7 @@ export class SkeletonDirective {
               }
 
               case 'video': {
-                (childNode as HTMLImageElement).setAttribute(SkeletonDirective.dataAttr, SkeletonizedDataEnum.Video);
+                (childNode as HTMLVideoElement).setAttribute(SkeletonDirective.dataAttr, SkeletonizedDataEnum.Video);
 
                 break;
               }

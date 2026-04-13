@@ -1,6 +1,7 @@
 export enum SkeletonizedDataEnum {
   Text = 'text',
   Input = 'input',
+  Select = 'select',
   Image = 'image',
   Video = 'video',
   WrapperElement = 'wrapper-element',

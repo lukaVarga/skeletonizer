@@ -109,6 +109,42 @@ Outer text
       });
     });
 
+    describe('select element', () => {
+      it('sets skeletonized data attribute with select value on select element', () => {
+        const container: HTMLDivElement = document.createElement('div');
+        container.innerHTML = '<div><select><option>A</option></select></div>';
+
+        SkeletonDirective.skeletonizeProjectedTemplate(container);
+
+        const select: Element | null = container.querySelector('select');
+        expect(select?.getAttribute('data-skeletonizer')).toEqual(SkeletonizedDataEnum.Select);
+      });
+    });
+
+    describe('radio button input', () => {
+      it('sets skeletonized data attribute with input value on radio button', () => {
+        const container: HTMLDivElement = document.createElement('div');
+        container.innerHTML = '<div><input type="radio" /></div>';
+
+        SkeletonDirective.skeletonizeProjectedTemplate(container);
+
+        const radio: Element | null = container.querySelector('input[type="radio"]');
+        expect(radio?.getAttribute('data-skeletonizer')).toEqual(SkeletonizedDataEnum.Input);
+      });
+    });
+
+    describe('checkbox input', () => {
+      it('sets skeletonized data attribute with input value on checkbox', () => {
+        const container: HTMLDivElement = document.createElement('div');
+        container.innerHTML = '<div><input type="checkbox" /></div>';
+
+        SkeletonDirective.skeletonizeProjectedTemplate(container);
+
+        const checkbox: Element | null = container.querySelector('input[type="checkbox"]');
+        expect(checkbox?.getAttribute('data-skeletonizer')).toEqual(SkeletonizedDataEnum.Input);
+      });
+    });
+
     describe('inner elements', () => {
       it('transforms the DOM by wrapping elements with spans and setting attributes', () => {
         SkeletonDirective.skeletonizeProjectedTemplate(html);

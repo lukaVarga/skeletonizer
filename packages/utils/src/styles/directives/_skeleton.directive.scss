@@ -31,4 +31,12 @@
       }
     }
   }
+
+  @include mixins.select-input-element {
+    filter: blur(4px);
+  }
+
+  @include mixins.select-select-element {
+    filter: blur(4px);
+  }
 }

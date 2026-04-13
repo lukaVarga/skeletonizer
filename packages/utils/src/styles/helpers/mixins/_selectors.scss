@@ -30,3 +30,9 @@
     @content;
   }
 }
+
+@mixin select-select-element {
+  [data-skeletonizer="#{map.get(variables.$skeletonized-data-enum, 'select')}"] {
+    @content;
+  }
+}
