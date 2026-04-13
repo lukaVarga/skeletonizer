@@ -1,5 +1,5 @@
 import { Schema } from '../models';
-import { TSchemaConfig } from '../types';
+import type { TSchemaConfig } from '../types';
 
 // every component that uses skeleton adapters should extend SkeletonAbstractComponent
 export abstract class SkeletonAbstractComponent<T extends object> {

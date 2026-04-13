@@ -1,5 +1,5 @@
 import { SchemaItem } from './schema-item.model';
-import { TSchemaGenerator, TSchemaTransformer } from '../types';
+import type { TSchemaGenerator, TSchemaTransformer } from '../types';
 
 let schemaIdx: number = 0;
 

@@ -1,4 +1,4 @@
-import { TSchemaConfig, TSchemaGenerator } from '../types';
+import type { TSchemaConfig, TSchemaGenerator } from '../types';
 import { Schema } from '../models';
 
 /** @internal: used by skeleton adapter components */
