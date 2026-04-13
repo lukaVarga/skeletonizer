@@ -2,6 +2,7 @@ import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
 import { SchemaItem } from '../schema-item.model';
 import { LOREM_IPSUM } from '../../constants';
 import { DateHelpers } from '../../helpers';
+import { TSchemaCountryCodeIso2, TSchemaCountryCodeIso3, TSchemaCurrencyCode } from '../schema-item.model.types';
 
 describe('SchemaItem', () => {
   describe('value', () => {
@@ -252,6 +253,156 @@ describe('SchemaItem', () => {
           expect(schemaItem.value.getTime()).toBeGreaterThanOrEqual(minDateSinceEpoch);
           expect(schemaItem.value.getTime()).toBeLessThanOrEqual(maxDateSinceEpoch);
         });
+      });
+    });
+  });
+
+  describe('stringify', () => {
+    it('converts a number to string', () => {
+      expect(new SchemaItem().identical(42).stringify().value).toBe('42');
+      expect(new SchemaItem().number(10, 10).stringify().value).toBe('10');
+    });
+
+    it('converts a boolean to string', () => {
+      expect(new SchemaItem().identical(true).stringify().value).toBe('true');
+      expect(new SchemaItem().identical(false).stringify().value).toBe('false');
+    });
+
+    it('converts a symbol to string', () => {
+      expect(new SchemaItem().symbol('test').stringify().value).toBe('Symbol(test)');
+    });
+  });
+
+  describe('format', () => {
+    it('formats a date with yyyy-MM-dd pattern', () => {
+      const date: Date = new Date('2026-03-15T09:05:30.000Z');
+
+      expect(new SchemaItem().date({ min: date, max: date }).format('yyyy-MM-dd').value)
+        .toBe('2026-03-15');
+    });
+
+    it('formats a date with full datetime pattern', () => {
+      const date: Date = new Date('2026-03-15T09:05:30.000Z');
+
+      expect(new SchemaItem().date({ min: date, max: date }).format('dd/MM/yyyy HH:mm:ss').value)
+        .toBe('15/03/2026 09:05:30');
+    });
+
+    it('formats with 12-hour clock', () => {
+      const date: Date = new Date('2026-03-15T15:30:00.000Z');
+
+      expect(new SchemaItem().date({ min: date, max: date }).format('hh:mm').value)
+        .toBe('03:30');
+    });
+
+    it('handles midnight correctly in 12-hour format', () => {
+      const date: Date = new Date('2026-01-01T00:00:00.000Z');
+
+      expect(new SchemaItem().date({ min: date, max: date }).format('hh:mm').value)
+        .toBe('12:00');
+    });
+
+    it('supports 2-digit year format', () => {
+      const date: Date = new Date('2026-06-01T00:00:00.000Z');
+
+      expect(new SchemaItem().date({ min: date, max: date }).format('yy/MM/dd').value)
+        .toBe('26/06/01');
+    });
+
+    it('generates a random date when no date is set', () => {
+      const formatted: string = new SchemaItem().format('yyyy-MM-dd').value;
+
+      expect(formatted).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    });
+  });
+
+  describe('currencyCode', () => {
+    const codes: TSchemaCurrencyCode[] = ['USD', 'EUR', 'GBP', 'JPY', 'CNY', 'AUD', 'CAD', 'CHF', 'SEK', 'NZD'];
+
+    it('returns a random uppercase currency code by default', () => {
+      Array.from({ length: 100 }).forEach(() => {
+        const code: TSchemaCurrencyCode = new SchemaItem().currencyCode().value;
+
+        expect(code).toBe(code.toUpperCase());
+        expect(code.length).toBe(3);
+        expect(codes).toContain(code);
+      });
+    });
+
+    it('returns a lowercase currency code when lowercase is true', () => {
+      Array.from({ length: 100 }).forEach(() => {
+        const code: Lowercase<TSchemaCurrencyCode> = new SchemaItem().currencyCode(true).value;
+
+        expect(code).toBe(code.toLowerCase());
+        expect(code.length).toBe(3);
+        expect(codes.map((c: string) => c.toLowerCase())).toContain(code);
+      });
+    });
+  });
+
+  describe('countryCode', () => {
+    const iso2Codes: TSchemaCountryCodeIso2[] = ['US', 'GB', 'DE', 'FR', 'JP', 'CN', 'AU', 'CA', 'CH', 'SE'];
+    const iso3Codes: TSchemaCountryCodeIso3[] = ['USA', 'GBR', 'DEU', 'FRA', 'JPN', 'CHN', 'AUS', 'CAN', 'CHE', 'SWE'];
+
+    it('returns a random uppercase iso2 country code by default', () => {
+      Array.from({ length: 100 }).forEach(() => {
+        const code: TSchemaCountryCodeIso2 = new SchemaItem().countryCode().value;
+
+        expect(code).toBe(code.toUpperCase());
+        expect(code.length).toBe(2);
+        expect(iso2Codes).toContain(code);
+      });
+    });
+
+    it('returns an iso3 country code when iso is set to iso3', () => {
+      Array.from({ length: 100 }).forEach(() => {
+        const code: TSchemaCountryCodeIso3 = new SchemaItem().countryCode({ iso: 'iso3' }).value;
+
+        expect(code).toBe(code.toUpperCase());
+        expect(code.length).toBe(3);
+        expect(iso3Codes).toContain(code);
+      });
+    });
+
+    it('returns a lowercase code when lowercase is true', () => {
+      Array.from({ length: 100 }).forEach(() => {
+        const code: Lowercase<TSchemaCountryCodeIso2> = new SchemaItem().countryCode({ lowercase: true }).value;
+
+        expect(code).toBe(code.toLowerCase());
+        expect(code.length).toBe(2);
+        expect(iso2Codes.map((c: string) => c.toLowerCase())).toContain(code);
+      });
+    });
+
+    it('returns a lowercase iso3 code when both options are set', () => {
+      Array.from({ length: 100 }).forEach(() => {
+        const code: Lowercase<TSchemaCountryCodeIso3> = new SchemaItem().countryCode({ iso: 'iso3', lowercase: true }).value;
+
+        expect(code).toBe(code.toLowerCase());
+        expect(code.length).toBe(3);
+        expect(iso3Codes.map((c: string) => c.toLowerCase())).toContain(code);
+      });
+    });
+  });
+
+  describe('email', () => {
+    const domains: string[] = 'gmail.com outlook.com yahoo.com example.com mail.com'.split(' ');
+
+    it('generates an email with a lorem word, random number, and known domain', () => {
+      Array.from({ length: 100 }).forEach(() => {
+        const email: string = new SchemaItem().email().value;
+        const [local, domain]: string[] = email.split('@');
+
+        expect(local).toMatch(/^[a-z]+\d+$/);
+        expect(domains).toContain(domain);
+      });
+    });
+
+    it('generates lowercase emails', () => {
+      Array.from({ length: 100 }).forEach(() => {
+        const email: string = new SchemaItem().email().value;
+
+        expect(email).toBe(email.toLowerCase());
       });
     });
   });

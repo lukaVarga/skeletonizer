@@ -1,5 +1,6 @@
 import { LOREM_IPSUM } from '../constants';
 import { DateHelpers } from '../helpers';
+import { TSchemaCountryCodeIso2, TSchemaCountryCodeIso3, TSchemaCurrencyCode } from './schema-item.model.types';
 
 let uuid: number = 0;
 
@@ -100,6 +101,126 @@ export class SchemaItem<T = never> {
     }
 
     this.#val = DateHelpers.dateBetween(min, max);
+
+    return this;
+  }
+
+  public stringify(this: TSchemaInstance<number | boolean | symbol>): TSchemaInstance<string> {
+    const val: number | boolean | symbol = this.#val;
+
+    this.assertType<string>();
+    const that: TSchemaInstance<string> = this;
+    that.#val = val.toString();
+
+    return that;
+  }
+
+  // Formats a date using a simplified format string (works like a very simplified date-fns format).
+  // Uses existing date value if set, otherwise generates a random date first.
+  // All date parts use UTC to ensure consistent output regardless of timezone.
+  // Supported tokens:
+  //   yyyy - 4-digit year (eg. 2026)
+  //   yy   - 2-digit year (eg. 26)
+  //   MM   - zero-padded month (01-12)
+  //   dd   - zero-padded day (01-31)
+  //   HH   - zero-padded 24h hour (00-23)
+  //   hh   - zero-padded 12h hour (01-12)
+  //   mm   - zero-padded minutes (00-59)
+  //   ss   - zero-padded seconds (00-59)
+  public format(this: TSchemaInstance<Date | undefined>, formatStr: string): TSchemaInstance<string> {
+    const date: Date = this.#val ?? this.date().value;
+
+    this.assertType<string>();
+
+    const year: string = date.getUTCFullYear().toString();
+    const month: string = (date.getUTCMonth() + 1).toString().padStart(2, '0');
+    const day: string = date.getUTCDate().toString().padStart(2, '0');
+    const hours24: string = date.getUTCHours().toString().padStart(2, '0');
+    const hours12: string = (date.getUTCHours() % 12 || 12).toString().padStart(2, '0');
+    const minutes: string = date.getUTCMinutes().toString().padStart(2, '0');
+    const seconds: string = date.getUTCSeconds().toString().padStart(2, '0');
+
+    // Tokens are replaced longest-first to prevent partial matches (eg. yyyy before yy)
+    const that: TSchemaInstance<string> = this;
+
+    that.#val = formatStr
+      .replace(/yyyy/g, year)
+      .replace(/yy/g, year.slice(-2))
+      .replace(/MM/g, month)
+      .replace(/dd/g, day)
+      .replace(/HH/g, hours24)
+      .replace(/hh/g, hours12)
+      .replace(/mm/g, minutes)
+      .replace(/ss/g, seconds);
+
+    return that;
+  }
+
+  public currencyCode(this: TSchemaInstance<string | undefined>, lowercase: true): TSchemaInstance<Lowercase<TSchemaCurrencyCode>>;
+  public currencyCode(this: TSchemaInstance<string | undefined>, lowercase?: false): TSchemaInstance<TSchemaCurrencyCode>;
+  public currencyCode(
+    this: TSchemaInstance<string | undefined>,
+    lowercase: boolean = false,
+  ): TSchemaInstance<Lowercase<TSchemaCurrencyCode> | TSchemaCurrencyCode> {
+    const schemaItem: SchemaItem<TSchemaCurrencyCode> = new SchemaItem().randomItem([
+      'USD', 'EUR', 'GBP', 'JPY', 'CNY', 'AUD', 'CAD', 'CHF', 'SEK', 'NZD',
+    ]);
+
+    if (lowercase) {
+      const lowercaseVal: Lowercase<TSchemaCurrencyCode> = schemaItem.value.toLowerCase() as Lowercase<TSchemaCurrencyCode>;
+
+      return new SchemaItem().identical(lowercaseVal);
+    }
+
+    return schemaItem;
+  }
+
+  public countryCode(
+    this: TSchemaInstance<string | undefined>,
+    config: { iso: 'iso3'; lowercase: true },
+  ): TSchemaInstance<Lowercase<TSchemaCountryCodeIso3>>;
+  public countryCode(
+    this: TSchemaInstance<string | undefined>,
+    config: { iso: 'iso3'; lowercase?: false },
+  ): TSchemaInstance<TSchemaCountryCodeIso3>;
+  public countryCode(
+    this: TSchemaInstance<string | undefined>,
+    config: { iso?: 'iso2'; lowercase: true },
+  ): TSchemaInstance<Lowercase<TSchemaCountryCodeIso2>>;
+  public countryCode(
+    this: TSchemaInstance<string | undefined>,
+    config?: { iso?: 'iso2'; lowercase?: false },
+  ): TSchemaInstance<TSchemaCountryCodeIso2>;
+  public countryCode(
+    this: TSchemaInstance<string | undefined>,
+    config?: { iso?: 'iso2' | 'iso3'; lowercase?: boolean },
+  ): TSchemaInstance<string> {
+    const codes: TSchemaCountryCodeIso2[] | TSchemaCountryCodeIso3[] = config?.iso === 'iso3'
+      ? ['USA', 'GBR', 'DEU', 'FRA', 'JPN', 'CHN', 'AUS', 'CAN', 'CHE', 'SWE']
+      : ['US', 'GB', 'DE', 'FR', 'JP', 'CN', 'AU', 'CA', 'CH', 'SE'];
+
+    const schemaItem: SchemaItem<string> = new SchemaItem().randomItem(codes);
+
+    if (config?.lowercase) {
+      const lowercaseVal: string = schemaItem.value.toLowerCase();
+
+      return new SchemaItem().identical(lowercaseVal);
+    }
+
+    return schemaItem;
+  }
+
+  public email(this: TSchemaInstance<string | undefined>): TSchemaInstance<string> {
+    const nameItem: SchemaItem<string> = new SchemaItem().words(1);
+    const name: string = nameItem.value.toLowerCase().replace(/[^a-z]/g, '');
+    const num: number = Math.floor(Math.random() * 1000);
+
+    const domainItem: SchemaItem<string> = new SchemaItem().randomItem([
+      'gmail.com', 'outlook.com', 'yahoo.com', 'example.com', 'mail.com',
+    ]);
+
+    this.assertType<string>();
+    this.#val = `${name}${num}@${domainItem.value}`;
 
     return this;
   }

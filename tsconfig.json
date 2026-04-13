@@ -17,7 +17,7 @@
     "sourceMap": true,
     "declaration": false,
     "module": "es2015",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "noErrorTruncation": true,
     "target": "es6",
     "lib": [
@@ -27,7 +27,6 @@
     "noEmitOnError": true,
     "skipLibCheck": true,
     "removeComments": true,
-    "forceConsistentCasingInFileNames": true,
-    "preserveValueImports": false
+    "forceConsistentCasingInFileNames": true
   }
 }

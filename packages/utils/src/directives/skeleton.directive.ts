@@ -1,5 +1,5 @@
 import { SkeletonizedDataEnum, SkeletonizerColorSchemaEnum } from '../constants';
-import { ISkeletonizerColorSchema } from '../types';
+import type { ISkeletonizerColorSchema } from '../types';
 
 export class SkeletonDirective {
   public static readonly dataAttr: string = 'data-skeletonizer';

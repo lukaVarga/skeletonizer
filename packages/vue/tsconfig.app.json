@@ -11,7 +11,6 @@
   ],
   "compilerOptions": {
     "composite": true,
-    "baseUrl": "./vue",
     "paths": {
       "@/*": ["./src/*"]
     }
