@@ -1,3 +1,10 @@
+# 2.3.0 (2026-04-13)
+
+
+### Features
+
+* **schema:** allow schema leaf conversions, add new schema item methods cac4ba6
+
 ## 2.2.9 (2026-04-13)
 
 
