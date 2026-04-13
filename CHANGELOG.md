@@ -1,3 +1,11 @@
+## 2.2.9 (2026-04-13)
+
+
+### Bug Fixes
+
+* **deps:** bump axios from 1.13.2 to 1.15.0 ([#299](undefined/lukaVarga/skeletonizer/issues/299)) 3cbe2cb
+* **deps:** bump vite from 7.3.1 to 7.3.2 ([#298](undefined/lukaVarga/skeletonizer/issues/298)) 912473e
+
 ## 2.2.8 (2026-03-29)
 
 
