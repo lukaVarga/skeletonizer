@@ -1,3 +1,10 @@
+## 2.4.2 (2026-04-20)
+
+
+### Bug Fixes
+
+* **deps:** bump the vue group across 1 directory with 2 updates 648c9f3
+
 ## 2.4.1 (2026-04-20)
 
 
