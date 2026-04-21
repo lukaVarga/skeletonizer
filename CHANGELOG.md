@@ -1,3 +1,10 @@
+## 2.4.4 (2026-04-21)
+
+
+### Bug Fixes
+
+* **deps:** bump @angular/compiler-cli 8441596
+
 ## 2.4.3 (2026-04-21)
 
 
