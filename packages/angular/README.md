@@ -29,7 +29,7 @@ As far as the template goes, it essentially means transforming the code from thi
 into this:
 
 ```html
-<skeletonizer-skeleton [showSkeleton]="showSkeleton" [config]="skeletonConfig" [scope]="{ somePropOrMethodCallAvailableAsync } ">
+<skeletonizer-skeleton [showSkeleton]="showSkeleton()" [config]="skeletonConfig()" [scope]="{ somePropOrMethodCallAvailableAsync } ">
   <ng-template let-context>
     <div>{{ proxy(context).somePropOrMethodCallAvailableAsync }}</div>
     <div>{{ someAlreadyHardCodedOrInputBoundPropAvailableSync }} </div>
