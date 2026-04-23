@@ -1,3 +1,10 @@
+## 2.4.6 (2026-04-23)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 5.5.12 to 5.7.1 a7bb263
+
 ## 2.4.5 (2026-04-23)
 
 
