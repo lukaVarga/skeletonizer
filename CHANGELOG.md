@@ -1,3 +1,10 @@
+## 2.4.7 (2026-04-27)
+
+
+### Bug Fixes
+
+* **deps:** bump the vue group across 1 directory with 2 updates e3947a9
+
 ## 2.4.6 (2026-04-23)
 
 
