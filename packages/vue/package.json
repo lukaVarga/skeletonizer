@@ -74,7 +74,7 @@
     "vue": "^3.5.33",
     "vue-eslint-parser": "^10.4.0",
     "vue-tsc": "^3.2.7",
-    "webdriverio": "^9.27.0"
+    "webdriverio": "^9.27.1"
   },
   "lint-staged": {
     "**/*.{scss,css}": "stylelint --fix",
