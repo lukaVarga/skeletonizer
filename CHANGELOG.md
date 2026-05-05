@@ -1,3 +1,10 @@
+## 2.4.12 (2026-05-05)
+
+
+### Bug Fixes
+
+* **deps:** bump the angular group across 1 directory with 3 updates 247fa2b
+
 ## 2.4.11 (2026-05-05)
 
 
