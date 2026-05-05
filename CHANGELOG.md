@@ -1,3 +1,10 @@
+## 2.4.11 (2026-05-05)
+
+
+### Bug Fixes
+
+* **deps:** bump webdriverio from 9.27.0 to 9.27.1 93e7aeb
+
 ## 2.4.10 (2026-04-28)
 
 
