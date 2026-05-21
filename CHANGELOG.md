@@ -1,3 +1,10 @@
+## 2.4.16 (2026-05-21)
+
+
+### Bug Fixes
+
+* **deps:** bump @babel/plugin-transform-modules-systemjs 37f5c95
+
 ## 2.4.15 (2026-05-19)
 
 
