@@ -1,3 +1,10 @@
+## 2.4.19 (2026-06-09)
+
+
+### Bug Fixes
+
+* **deps:** bump codecov/codecov-action from 6 to 7 aa2f62a
+
 ## 2.4.18 (2026-05-25)
 
 
