@@ -1,3 +1,15 @@
+# 2.5.0 (2026-06-15)
+
+
+### Bug Fixes
+
+* **vue:** ensure package builds correctly 674c63b
+
+
+### Features
+
+* **packages:** update packages & add angular 22 support 997cf71
+
 ## 2.4.23 (2026-06-09)
 
 
