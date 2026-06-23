@@ -1,3 +1,10 @@
+## 2.5.1 (2026-06-23)
+
+
+### Bug Fixes
+
+* **deps:** bump actions/checkout from 6 to 7 ([#341](undefined/lukaVarga/skeletonizer/issues/341)) f466c7d
+
 # 2.5.0 (2026-06-15)
 
 
