@@ -1,3 +1,10 @@
+## 2.5.2 (2026-06-24)
+
+
+### Bug Fixes
+
+* **deps:** bump semantic-release-lerna from 3.1.3 to 3.1.4 ([#346](undefined/lukaVarga/skeletonizer/issues/346)) 5198bf6
+
 ## 2.5.1 (2026-06-23)
 
 
