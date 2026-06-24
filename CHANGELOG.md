@@ -1,3 +1,10 @@
+## 2.5.3 (2026-06-24)
+
+
+### Bug Fixes
+
+* **deps:** bump vite from 8.0.16 to 8.1.0 ([#348](undefined/lukaVarga/skeletonizer/issues/348)) 9ce0063
+
 ## 2.5.2 (2026-06-24)
 
 
