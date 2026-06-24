@@ -1,3 +1,10 @@
+## 2.5.5 (2026-06-24)
+
+
+### Bug Fixes
+
+* **deps:** bump the typescript-eslint group across 1 directory with 3 updates ([#343](undefined/lukaVarga/skeletonizer/issues/343)) f95a865
+
 ## 2.5.4 (2026-06-24)
 
 
