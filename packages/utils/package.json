@@ -52,7 +52,7 @@
   "devDependencies": {
     "@vitest/coverage-istanbul": "4.1.8",
     "sass": "^1.101.0",
-    "vite-plugin-dts": "^5.0.2",
+    "vite-plugin-dts": "^5.0.3",
     "vitest": "4.1.8"
   }
 }
