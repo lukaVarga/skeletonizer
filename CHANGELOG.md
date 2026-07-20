@@ -1,3 +1,10 @@
+## 2.5.10 (2026-07-20)
+
+
+### Bug Fixes
+
+* **deps:** bump undici ([#361](undefined/lukaVarga/skeletonizer/issues/361)) 9cf5d50
+
 ## 2.5.9 (2026-07-20)
 
 
