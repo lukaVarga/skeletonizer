@@ -1,3 +1,10 @@
+## 2.5.8 (2026-07-20)
+
+
+### Bug Fixes
+
+* **deps:** bump actions/setup-node from 6 to 7 ([#359](undefined/lukaVarga/skeletonizer/issues/359)) adc16b2
+
 ## 2.5.7 (2026-07-09)
 
 
