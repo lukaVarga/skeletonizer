@@ -1,3 +1,10 @@
+## 2.5.9 (2026-07-20)
+
+
+### Bug Fixes
+
+* **deps:** bump the angular group across 2 directories with 16 updates ([#360](undefined/lukaVarga/skeletonizer/issues/360)) c0abc7c
+
 ## 2.5.8 (2026-07-20)
 
 
