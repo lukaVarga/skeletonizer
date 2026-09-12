@@ -1,6 +1,6 @@
 {
   "name": "@skeletonizer/angular",
-  "version": "2.5.10",
+  "version": "2.6.0",
   "description": "The way to skeletonize your Angular components",
   "author": "Luka Varga",
   "license": "MIT",
@@ -62,7 +62,7 @@
     "@angular/platform-browser": ">=19.0.0",
     "@angular/platform-browser-dynamic": ">=19.0.0",
     "@angular/router": ">=19.0.0",
-    "@skeletonizer/utils": "^2.5.10",
+    "@skeletonizer/utils": "^2.6.0",
     "rxjs": "^7.4.0",
     "tslib": "^2.3.0",
     "zone.js": ">=0.15.0"
@@ -84,7 +84,7 @@
     "@angular/platform-browser": "^22.1.6",
     "@angular/platform-browser-dynamic": "^22.1.6",
     "@angular/router": "^22.1.6",
-    "@skeletonizer/utils": "^2.5.10",
+    "@skeletonizer/utils": "^2.6.0",
     "@types/jasmine": "~6.0.0",
     "@typescript-eslint/eslint-plugin": "^8.70.0",
     "@typescript-eslint/parser": "^8.70.0",
