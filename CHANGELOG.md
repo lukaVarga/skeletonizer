@@ -1,3 +1,10 @@
+## 2.6.1 (2026-09-12)
+
+
+### Bug Fixes
+
+* **package-lock:** update package-lock 99bb77f
+
 # 2.6.0 (2026-09-12)
 
 
