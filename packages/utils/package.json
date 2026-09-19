@@ -50,9 +50,9 @@
     "**/*.{ts,js}": "eslint --fix"
   },
   "devDependencies": {
-    "@vitest/coverage-istanbul": "5.0.0",
+    "@vitest/coverage-istanbul": "5.0.1",
     "sass": "^1.104.1",
     "vite-plugin-dts": "^5.1.0",
-    "vitest": "5.0.0"
+    "vitest": "5.0.1"
   }
 }
