@@ -1,3 +1,11 @@
+## 2.6.2 (2026-09-27)
+
+
+### Bug Fixes
+
+* **deps:** bump the all-dependencies group across 1 directory with 27 updates 7713014
+* **deps:** keep typescript on 6.0.x 93183a8
+
 ## 2.6.1 (2026-09-12)
 
 
