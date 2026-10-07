@@ -1,3 +1,10 @@
+## 2.6.4 (2026-10-07)
+
+
+### Bug Fixes
+
+* **deps:** update all dependencies 481e25d
+
 ## 2.6.3 (2026-10-07)
 
 
