@@ -1,3 +1,10 @@
+## 2.6.3 (2026-10-07)
+
+
+### Bug Fixes
+
+* **deps:** bump serialize-javascript from 7.1.1 to 7.1.2 948beab
+
 ## 2.6.2 (2026-09-27)
 
 
