@@ -1,3 +1,10 @@
+## 2.6.6 (2026-11-06)
+
+
+### Bug Fixes
+
+* **utils:** ensure all form controls are properly skeletonised 2b52592
+
 ## 2.6.5 (2026-10-19)
 
 
