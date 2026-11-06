@@ -1,3 +1,10 @@
+## 2.6.7 (2026-11-06)
+
+
+### Bug Fixes
+
+* **deps:** bump follow-redirects ([#420](undefined/lukaVarga/skeletonizer/issues/420)) 1460a1c
+
 ## 2.6.6 (2026-11-06)
 
 
