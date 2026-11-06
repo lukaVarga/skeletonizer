@@ -145,6 +145,79 @@ Outer text
       });
     });
 
+    describe('textarea', () => {
+      it('sets skeletonized data attribute with input value on textarea and leaves its content untouched', () => {
+        const container: HTMLDivElement = document.createElement('div');
+        container.innerHTML = '<div><textarea>Some text</textarea></div>';
+
+        SkeletonDirective.skeletonizeProjectedTemplate(container);
+
+        const textarea: HTMLTextAreaElement = container.querySelector('textarea')!;
+        expect(textarea.getAttribute('data-skeletonizer')).toEqual(SkeletonizedDataEnum.Input);
+        expect(textarea.innerHTML).toEqual('Some text');
+        expect(textarea.value).toEqual('Some text');
+      });
+    });
+
+    describe('select', () => {
+      it('does not wrap option texts into skeletonized spans', () => {
+        const container: HTMLDivElement = document.createElement('div');
+        container.innerHTML = '<div><select><option>One</option></select></div>';
+
+        SkeletonDirective.skeletonizeProjectedTemplate(container);
+
+        expect(container.querySelector('select')!.getAttribute('data-skeletonizer')).toEqual(SkeletonizedDataEnum.Select);
+        expect(container.querySelector('option')!.innerHTML).toEqual('One');
+      });
+    });
+
+    describe('top-level form controls', () => {
+      it('sets skeletonized data attributes on controls placed directly in the template', () => {
+        const container: HTMLDivElement = document.createElement('div');
+        container.innerHTML = '<input type="text" /><textarea></textarea><select><option>One</option></select>';
+
+        SkeletonDirective.skeletonizeProjectedTemplate(container);
+
+        expect(container.querySelector('input')!.getAttribute('data-skeletonizer')).toEqual(SkeletonizedDataEnum.Input);
+        expect(container.querySelector('textarea')!.getAttribute('data-skeletonizer')).toEqual(SkeletonizedDataEnum.Input);
+        expect(container.querySelector('select')!.getAttribute('data-skeletonizer')).toEqual(SkeletonizedDataEnum.Select);
+      });
+    });
+
+    describe('interactive elements', () => {
+      it('disables all inputs, textareas, selects and buttons and removes them from tab order', () => {
+        const container: HTMLDivElement = document.createElement('div');
+
+        container.innerHTML = `
+<input type="text" />
+<div>
+  <input type="checkbox" />
+  <textarea></textarea>
+  <select><option>One</option></select>
+  <button type="button">Click me</button>
+</div>`;
+
+        SkeletonDirective.skeletonizeProjectedTemplate(container);
+
+        const elements: HTMLElement[] = Array.from(container.querySelectorAll('input, textarea, select, button'));
+        expect(elements.length).toEqual(5);
+
+        elements.forEach((el: HTMLElement) => {
+          expect(el.hasAttribute('disabled')).toBe(true);
+          expect(el.getAttribute('tabindex')).toEqual('-1');
+        });
+      });
+
+      it('skeletonizes button text', () => {
+        const container: HTMLDivElement = document.createElement('div');
+        container.innerHTML = '<div><button type="button">Click me</button></div>';
+
+        SkeletonDirective.skeletonizeProjectedTemplate(container);
+
+        expect(container.querySelector('button')!.innerHTML).toEqual('<span data-skeletonizer="text">Click me</span>');
+      });
+    });
+
     describe('inner elements', () => {
       it('transforms the DOM by wrapping elements with spans and setting attributes', () => {
         SkeletonDirective.skeletonizeProjectedTemplate(html);
@@ -160,7 +233,7 @@ Outer text
     </div>
     <div><span data-skeletonizer="text">
         Some text that is not wrapped in isolated elements
-        </span><input type="text" data-skeletonizer="input">
+        </span><input type="text" data-skeletonizer="input" disabled="" tabindex="-1">
     </div>
     <!-- some shadow element -->
     <div><img src="img.jpg" data-skeletonizer="image"></div>

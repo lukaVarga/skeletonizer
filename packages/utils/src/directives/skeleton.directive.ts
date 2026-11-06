@@ -4,6 +4,12 @@ import type { ISkeletonizerColorSchema } from '../types';
 export class SkeletonDirective {
   public static readonly dataAttr: string = 'data-skeletonizer';
 
+  private static readonly formControlDataAttrs: Partial<Record<string, SkeletonizedDataEnum>> = {
+    input: SkeletonizedDataEnum.Input,
+    textarea: SkeletonizedDataEnum.Input,
+    select: SkeletonizedDataEnum.Select,
+  };
+
   public static skeletonizeProjectedTemplate(template: HTMLElement, colorSchema?: ISkeletonizerColorSchema): void {
     // Skip processing in SSR context to prevent hydration mismatches
     if (!this.isBrowser()) {
@@ -19,6 +25,8 @@ export class SkeletonDirective {
     );
 
     Array.from<HTMLElement>(template.querySelectorAll('*:not(svg, [data-skeletonizer])'))
+      // form controls' contents (textarea value, select options) must not be wrapped into skeletonized spans
+      .filter((el: HTMLElement) => !el.matches('textarea') && !el.closest('textarea, select'))
       .forEach((el: HTMLElement) => {
         const ignoredNodes: string[] = [
           'br',
@@ -66,18 +74,6 @@ export class SkeletonDirective {
                 break;
               }
 
-              case 'input': {
-                (childNode as HTMLInputElement).setAttribute(SkeletonDirective.dataAttr, SkeletonizedDataEnum.Input);
-
-                break;
-              }
-
-              case 'select': {
-                (childNode as HTMLSelectElement).setAttribute(SkeletonDirective.dataAttr, SkeletonizedDataEnum.Select);
-
-                break;
-              }
-
               case 'img': {
                 (childNode as HTMLImageElement).setAttribute(SkeletonDirective.dataAttr, SkeletonizedDataEnum.Image);
 
@@ -93,7 +89,24 @@ export class SkeletonDirective {
           });
       });
 
+    SkeletonDirective.skeletonizeFormControls(template);
+
     template.setAttribute(SkeletonDirective.dataAttr, SkeletonizedDataEnum.WrapperElement);
+  }
+
+  // handled separately from the child-node walk so that controls placed directly in the template are covered too
+  private static skeletonizeFormControls(template: HTMLElement): void {
+    Array.from<HTMLElement>(template.querySelectorAll('input, textarea, select, button'))
+      .forEach((el: HTMLElement) => {
+        const dataAttrValue: SkeletonizedDataEnum | undefined = SkeletonDirective.formControlDataAttrs[el.nodeName.toLowerCase()];
+
+        if (dataAttrValue) {
+          el.setAttribute(SkeletonDirective.dataAttr, dataAttrValue);
+        }
+
+        el.setAttribute('disabled', '');
+        el.setAttribute('tabindex', '-1');
+      });
   }
 
   private static skeletonizedSpanGenerator(text: string, nodeType: SkeletonizedDataEnum): HTMLSpanElement {
