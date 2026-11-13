@@ -16,6 +16,8 @@
     background: var(--skeletonizer-primary-color);
     border-radius: variables.$border-radius-text-line;
     color: rgba(0, 0, 0, 0) !important;
+    // forced colors would replace the background and the transparent text color, leaving the placeholder data readable
+    forced-color-adjust: none;
 
     @keyframes text-animation {
       0% {

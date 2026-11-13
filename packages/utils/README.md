@@ -200,6 +200,8 @@ Roughly speaking, the background colour of the skeletonized area transitions bet
 The skeletonized content is placeholder data, so the element wrapping it gets `aria-hidden="true"` and assistive technology does not read it out.
 Announcing that the view is loading (eg. with `aria-busy` or a `role="status"` element outside the skeleton) is up to you, since only your app knows what is being loaded.
 
+Skeletonized text opts out of forced colors (`forced-color-adjust: none`), so in a high contrast mode it is still shown as a bar in the skeleton's colors rather than as readable placeholder text.
+
 ## Contributing
 Adjustments in this package have ramifications on all other packages, so please be careful when making changes.
 - `npm install`
