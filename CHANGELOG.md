@@ -1,3 +1,10 @@
+## 2.6.11 (2026-11-13)
+
+
+### Bug Fixes
+
+* **deps:** bump the security-updates group across 1 directory with 6 updates ([#422](undefined/lukaVarga/skeletonizer/issues/422)) c112cd5
+
 ## 2.6.10 (2026-11-13)
 
 
