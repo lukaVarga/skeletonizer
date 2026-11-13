@@ -138,7 +138,7 @@ describe('SkeletonizerSkeletonComponent', () => {
 
       testComponentFixture.detectChanges();
 
-      const wrapper: string = `<div style="${style}" data-skeletonizer="wrapper-element">`;
+      const wrapper: string = `<div style="${style}" data-skeletonizer="wrapper-element" aria-hidden="true">`;
       domIteration = (name: string): string => `${wrapper}<div class="projected"><span data-skeletonizer="text">${name}</span></div></div>`;
     });
 

@@ -60,7 +60,7 @@ describe('SkeletonizerSkeleton', () => {
     let component: UnwrapNestedRefs<SkeletonAdapterComponent<IScope>>;
 
     beforeEach(() => {
-      domIteration = (name: string): string => `<div style="${style}" data-skeletonizer="wrapper-element">
+      domIteration = (name: string): string => `<div style="${style}" data-skeletonizer="wrapper-element" aria-hidden="true">
   <div class="projected"><span data-skeletonizer="text">${name}</span></div>
 </div>`;
 
