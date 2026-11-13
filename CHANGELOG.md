@@ -1,3 +1,10 @@
+## 2.6.10 (2026-11-13)
+
+
+### Bug Fixes
+
+* **utils:** keep skeletonized text hidden under forced colors c31383e
+
 ## 2.6.9 (2026-11-13)
 
 
