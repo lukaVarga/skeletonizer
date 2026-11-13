@@ -1,3 +1,10 @@
+## 2.6.8 (2026-11-13)
+
+
+### Bug Fixes
+
+* **angular:** declare only the peers the adapter imports b977239
+
 ## 2.6.7 (2026-11-06)
 
 
