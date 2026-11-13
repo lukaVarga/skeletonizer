@@ -81,6 +81,12 @@ Outer text
         expect(html.getAttribute('data-skeletonizer')).toEqual(SkeletonizedDataEnum.WrapperElement);
       });
 
+      it('hides the outer element from assistive technology, since everything inside it is placeholder data', () => {
+        SkeletonDirective.skeletonizeProjectedTemplate(html);
+
+        expect(html.getAttribute('aria-hidden')).toEqual('true');
+      });
+
       describe('when called without color schema', () => {
         it('sets primary and secondary color CSS variables based on default values', () => {
           SkeletonDirective.skeletonizeProjectedTemplate(html);

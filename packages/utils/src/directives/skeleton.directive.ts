@@ -92,6 +92,8 @@ export class SkeletonDirective {
     SkeletonDirective.skeletonizeFormControls(template);
 
     template.setAttribute(SkeletonDirective.dataAttr, SkeletonizedDataEnum.WrapperElement);
+    // everything inside the wrapper is placeholder data - assistive technology must not read it out
+    template.setAttribute('aria-hidden', 'true');
   }
 
   // handled separately from the child-node walk so that controls placed directly in the template are covered too

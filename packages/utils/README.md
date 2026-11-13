@@ -196,6 +196,10 @@ export interface ISkeletonizerColorSchema {
 ```
 Roughly speaking, the background colour of the skeletonized area transitions between the `primaryColor` and the `secondaryColor`.
 
+## Accessibility
+The skeletonized content is placeholder data, so the element wrapping it gets `aria-hidden="true"` and assistive technology does not read it out.
+Announcing that the view is loading (eg. with `aria-busy` or a `role="status"` element outside the skeleton) is up to you, since only your app knows what is being loaded.
+
 ## Contributing
 Adjustments in this package have ramifications on all other packages, so please be careful when making changes.
 - `npm install`
