@@ -1,3 +1,10 @@
+## 2.6.9 (2026-11-13)
+
+
+### Bug Fixes
+
+* **utils:** hide skeletonized content from assistive technology 7a52478
+
 ## 2.6.8 (2026-11-13)
 
 
